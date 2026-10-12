@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<source_system xmlns="http://www.wherescape.com/xml/3D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wherescape.com/xml/3D ./source_system_50.xsd">
+  <xml_version>50</xml_version>
+  <source_application>WhereScape 3D</source_application>
+  <structure>
+    <tables />
+    <relations />
+    <transformation_group name="Default Group">
+      <description>Default Group</description>
+      <transformations>
+        <transformation name="rename_entity">
+          <version />
+          <description />
+          <properties />
+          <rules>
+            <rule name="renam_entity" type="assign-table-type" enabled="false" snapshot="false" stopped="false">
+              <rule type="match-logic-on" value="And" stopped="false">
+                <rule_attribute name="table-name">load_%</rule_attribute>
+                <rule_attribute name="table-name-case-sensitive">F</rule_attribute>
+              </rule>
+              <rule_attribute name="rename-table">{#%- set rename = table.sourceTables[0].name -%#}
+{%- set rename = table.name -%}
+{%- if table.entityTypes.isEmpty -%}
+    {%- set rename = "6empty#" + rename -%}
+{%- else -%}
+    {%- set rename = "7NOTempty#" + rename -%}
+{%- endif -%}   
+{%- for tableType in table.entityTypes -%}
+    {%- from table.entityTypes as type where type.tablePrefix is defined and startsWithIgnoreCase(rename, type.tablePrefix) -%}
+        {%- set rename = type.tablePrefix + rename -%}
+    {%- endfrom -%}
+    {%- from table.entityTypes as type where type.tableSuffix is defined and endsWithIgnoreCase(rename, type.tableSuffix) -%}
+        {%- set rename = rename + type.tableSuffix -%}
+    {%- endfrom -%}
+    {%- from table.extendedProperties as ExtProp where ExtProp.name | upper == "SUBJECT_AREA" -%}
+        {%- set rename = rename + "_" + ExtProp.value  -%}
+    {%- endfrom -%}
+{%- endfor -%}
+{{- rename -}}</rule_attribute>
+              <rule_attribute name="remove-other-table-types">T</rule_attribute>
+              <rule_attribute name="remove-matched-table-types">F</rule_attribute>
+              <rule_attribute name="add-table-type">Load</rule_attribute>
+            </rule>
+            <rule name="rename_entity_1" type="rename-table" enabled="true" snapshot="false" stopped="false">
+              <rule_attribute name="rename-table-using">Entity name</rule_attribute>
+              <rule_attribute name="rename-table">{#%- set rename = table.sourceTables[0].name -%#}
+{%- set rename = table.name -%}
+{%- if table.entityTypes.isEmpty -%}
+    {%- set rename = "6empty#" + rename -%}
+{%- else -%}
+    {%- set rename = "7NOTempty#" + rename -%}
+{%- endif -%}   
+{%- for tableType in table.entityTypes -%}
+    {%- from table.entityTypes as type where type.tablePrefix is defined and startsWithIgnoreCase(rename, type.tablePrefix) -%}
+        {%- set rename = type.tablePrefix + rename -%}
+    {%- endfrom -%}
+    {%- from table.entityTypes as type where type.tableSuffix is defined and endsWithIgnoreCase(rename, type.tableSuffix) -%}
+        {%- set rename = rename + type.tableSuffix -%}
+    {%- endfrom -%}
+    {%- from table.extendedProperties as ExtProp where ExtProp.name | upper == "SUBJECT_AREA" -%}
+        {%- set rename = rename + "_" + ExtProp.value  -%}
+    {%- endfrom -%}
+{%- endfor -%}
+{{- rename -}}</rule_attribute>
+              <rule_attribute name="apply-on">Entity</rule_attribute>
+              <rule type="match-logic-on" value="And" stopped="false">
+                <rule_attribute name="table-name">load_%</rule_attribute>
+                <rule_attribute name="table-name-case-sensitive">F</rule_attribute>
+              </rule>
+            </rule>
+          </rules>
+          <validation />
+        </transformation>
+      </transformations>
+    </transformation_group>
+  </structure>
+</source_system>

@@ -1,0 +1,3714 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<source_system xmlns="http://www.wherescape.com/xml/3D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wherescape.com/xml/3D ./source_system_50.xsd">
+  <xml_version>50</xml_version>
+  <source_application>WhereScape 3D</source_application>
+  <structure>
+    <table_types>
+      <table_type name="View">
+        <group>View</group>
+        <description>A view entity</description>
+        <colour>255,255,255</colour>
+        <object_icon>view_table.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="Load">
+        <group>Load</group>
+        <description>Load table</description>
+        <colour>204,255,204</colour>
+        <object_icon>Load.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="Stage">
+        <group>Stage</group>
+        <description>Stage table</description>
+        <colour>204,204,255</colour>
+        <object_icon>Stage.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="Stage-Data Vault Stage">
+        <group>Stage</group>
+        <description>Stage table for Data Vault</description>
+        <colour>165,165,207</colour>
+        <object_icon>Stage.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="Fact">
+        <group>Fact</group>
+        <description>A fact table</description>
+        <colour>102,255,102</colour>
+        <object_icon>Fact.png</object_icon>
+        <positioning_characteristic>HUB</positioning_characteristic>
+        <foreign_key_postfix>_key</foreign_key_postfix>
+        <keywords>
+          <keyword name="PARTITION" data_type="BOOLEAN" />
+          <keyword name="AGGREGATE" data_type="BOOLEAN" />
+          <keyword name="ROLLUP" data_type="BOOLEAN" />
+        </keywords>
+      </table_type>
+      <table_type name="Dimension">
+        <group>Dimension</group>
+        <description>Normal dimension</description>
+        <colour>153,255,255</colour>
+        <object_icon>Dimension.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+        <keywords>
+          <keyword name="HIERARCHY" data_type="BOOLEAN" />
+        </keywords>
+      </table_type>
+      <table_type name="Changing Dimension">
+        <group>Dimension</group>
+        <description>Changing dimension</description>
+        <colour>99,184,255</colour>
+        <object_icon>Dimension.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+        <behaviour>changing</behaviour>
+        <keywords>
+          <keyword name="HIERARCHY" data_type="BOOLEAN" />
+        </keywords>
+      </table_type>
+      <table_type name="Previous Dimension">
+        <group>Dimension</group>
+        <description>Previous dimension</description>
+        <colour>92,172,238</colour>
+        <object_icon>Dimension.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+        <keywords>
+          <keyword name="HIERARCHY" data_type="BOOLEAN" />
+        </keywords>
+      </table_type>
+      <table_type name="Ranged Dimension">
+        <group>Dimension</group>
+        <description>Ranged dimension</description>
+        <colour>79,148,205</colour>
+        <object_icon>Dimension.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+        <keywords>
+          <keyword name="HIERARCHY" data_type="BOOLEAN" />
+        </keywords>
+      </table_type>
+      <table_type name="EDW 3NF">
+        <group>EDW 3NF</group>
+        <description>EDW 3NF table</description>
+        <colour>238,255,125</colour>
+        <object_icon>Normalised.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="EDW 3NF-History">
+        <group>EDW 3NF</group>
+        <description>EDW 3NF history table</description>
+        <colour>166,178,87</colour>
+        <object_icon>Normalised.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+        <behaviour>changing</behaviour>
+      </table_type>
+      <table_type name="Data Store">
+        <group>Data Store</group>
+        <description>Data Store table</description>
+        <colour>250,204,117</colour>
+        <object_icon>DataStore.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="Data Store-History">
+        <group>Data Store</group>
+        <description>Data store history table</description>
+        <colour>175,142,81</colour>
+        <object_icon>DataStore.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+        <behaviour>changing</behaviour>
+      </table_type>
+      <table_type name="Hub">
+        <group>Hub</group>
+        <description>Data Vault Hub</description>
+        <colour>51,102,255</colour>
+        <object_icon>dv_hub.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="Link">
+        <group>Link</group>
+        <description>Data Vault Link</description>
+        <colour>255,0,0</colour>
+        <object_icon>dv_link.png</object_icon>
+        <positioning_characteristic>HUB</positioning_characteristic>
+      </table_type>
+      <table_type name="Satellite">
+        <group>Satellite</group>
+        <description>Data Vault Satellite</description>
+        <colour>255,255,0</colour>
+        <object_icon>dv_satellite.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="Reference">
+        <group>Reference</group>
+        <description>Data Vault Reference</description>
+        <colour>227,204,255</colour>
+        <object_icon>dv_reference_table.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="Code">
+        <group>Code</group>
+        <description>Data Vault Code</description>
+        <colour>192,192,192</colour>
+        <object_icon>dv_reference_table.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="Aggregate">
+        <group>Aggregate</group>
+        <description>Aggregate table</description>
+        <colour>0,204,0</colour>
+        <object_icon>Aggregate.png</object_icon>
+        <positioning_characteristic>HUB</positioning_characteristic>
+      </table_type>
+      <table_type name="Custom1">
+        <group>Custom1</group>
+        <description>Custom1 table</description>
+        <colour>204,204,204</colour>
+        <object_icon>crane.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="Custom1-History">
+        <group>Custom1</group>
+        <description>Custom1 history table</description>
+        <colour>229,229,229</colour>
+        <object_icon>crane.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="Custom2">
+        <group>Custom2</group>
+        <description>Custom2 table</description>
+        <colour>153,153,153</colour>
+        <object_icon>crane.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="Custom2-History">
+        <group>Custom2</group>
+        <description>Custom2 history table</description>
+        <colour>178,178,178</colour>
+        <object_icon>crane.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="Retro">
+        <group>Retro</group>
+        <description>Retro table</description>
+        <colour>199,157,219</colour>
+        <object_icon>crane.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="Predefined">
+        <group>Predefined</group>
+        <description>Predefined table</description>
+        <colour>255,255,255</colour>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+    </table_types>
+    <column_types>
+      <column_type name="Business key">
+        <description>A business key column (Do not be rename)</description>
+        <colour>0,0,255</colour>
+      </column_type>
+      <column_type name="Surrogate key">
+        <description>A surrogate key column (Do not be rename)</description>
+        <colour>255,0,0</colour>
+      </column_type>
+      <column_type name="Changing attribute">
+        <description>A changing column (Do not be rename)</description>
+        <colour>255,208,0</colour>
+      </column_type>
+      <column_type name="Hub hash key">
+        <description>A Hub hash column (Do not be rename)</description>
+        <colour>31,229,236</colour>
+      </column_type>
+      <column_type name="Link hash key">
+        <description>A Link hash column (Do not be rename)</description>
+        <colour>138,28,0</colour>
+      </column_type>
+      <column_type name="Change hash key">
+        <description>A change hash column (Do not be rename)</description>
+        <colour>128,128,128</colour>
+      </column_type>
+      <column_type name="dss_load_date">
+        <description>A dss column for load date</description>
+        <colour>178,178,178</colour>
+      </column_type>
+      <column_type name="dss_start_date">
+        <description>A dss column for start date</description>
+        <colour>178,178,178</colour>
+      </column_type>
+      <column_type name="dss_end_date">
+        <description>A dss column for end date</description>
+        <colour>178,178,178</colour>
+      </column_type>
+      <column_type name="dss_record_source">
+        <description>A dss column for record source</description>
+        <colour>178,178,178</colour>
+      </column_type>
+      <column_type name="dss_update_time">
+        <description>A dss column for last update time</description>
+        <colour>178,178,178</colour>
+      </column_type>
+      <column_type name="dss_create_time">
+        <description>A dss column for create time</description>
+        <colour>178,178,178</colour>
+      </column_type>
+      <column_type name="dss_version">
+        <description>A dss column for version number</description>
+        <colour>178,178,178</colour>
+      </column_type>
+      <column_type name="dss_current_flag">
+        <description>A dss column for indicating current version</description>
+        <colour>178,178,178</colour>
+      </column_type>
+      <column_type name="To be deleted">
+        <description>A column that will be removed</description>
+        <colour>0,0,0</colour>
+      </column_type>
+      <column_type name="Multi-Active Satellite Sequence Key">
+        <description>Multi-Active Satellite Sequence Key in conjoint with another Satellite attribute</description>
+        <colour>153,204,255</colour>
+      </column_type>
+      <column_type name="Multi-Active Satellite Natural Key">
+        <description>Create a Satellite with Multi-Active natural key</description>
+        <colour>248,231,28</colour>
+      </column_type>
+    </column_types>
+    <relationship_types>
+      <relationship_type name="Duplicate data">
+        <description>Duplicate data</description>
+        <colour>51,102,255</colour>
+      </relationship_type>
+      <relationship_type name="Artificial key">
+        <description>An artificial key</description>
+        <colour>156,79,224</colour>
+      </relationship_type>
+    </relationship_types>
+    <table_ratings>
+      <table_rating>
+        <name>Mandatory</name>
+        <colour>255,0,0</colour>
+      </table_rating>
+      <table_rating>
+        <name>Preferred</name>
+        <colour>255,102,0</colour>
+      </table_rating>
+      <table_rating>
+        <name>Optional</name>
+        <colour>0,255,0</colour>
+      </table_rating>
+    </table_ratings>
+    <column_ratings>
+      <column_rating>
+        <name>Mandatory</name>
+        <colour>255,0,0</colour>
+      </column_rating>
+      <column_rating>
+        <name>Preferred</name>
+        <colour>255,102,0</colour>
+      </column_rating>
+      <column_rating>
+        <name>Optional</name>
+        <colour>0,255,0</colour>
+      </column_rating>
+    </column_ratings>
+    <rdbms_information>
+      <involved_databases>
+        <involved_rdbms>MS_SQL_SERVER</involved_rdbms>
+      </involved_databases>
+    </rdbms_information>
+    <storage_target_locations />
+    <tables>
+      <table name="dim_date" schema="dbo" database="red_9012_sql">
+        <discovered_name>dim_date</discovered_name>
+        <discovered_schema>dbo</discovered_schema>
+        <discovered_database>red_9012_sql</discovered_database>
+        <comment>Date dimension, generated.</comment>
+        <table_types>
+          <table_type name="Dimension">
+            <keywords>
+              <keyword name="HIERARCHY" data_type="BOOLEAN">false</keyword>
+            </keywords>
+          </table_type>
+        </table_types>
+        <columns>
+          <column name="dim_date_key">
+            <discovered_name>dim_date_key</discovered_name>
+            <data_type>integer</data_type>
+            <label>dim date key</label>
+            <comment>Generated key for the date dimension. Nominal format is YYYYMMDD, but DD equal to 0 and greater than 31 permited for special date handling.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="calendar_date" pk="true" nullable="true">
+            <discovered_name>calendar_date</discovered_name>
+            <data_type>datetime</data_type>
+            <label>calendar date</label>
+            <comment>The calendar date for this row.</comment>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Business key" />
+            </column_types>
+          </column>
+          <column name="cal_day_in_week" nullable="true">
+            <discovered_name>cal_day_in_week</discovered_name>
+            <data_type>varchar(3)</data_type>
+            <label>cal day in week</label>
+            <comment>The day in the week. Format DDD. Example: mon, tue, wed.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="cal_day_in_week_no" nullable="true">
+            <discovered_name>cal_day_in_week_no</discovered_name>
+            <data_type>integer</data_type>
+            <label>cal day in week no</label>
+            <comment>The day number in the week. 1-7 where Sunday is day 1.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="cal_day_in_month" nullable="true">
+            <discovered_name>cal_day_in_month</discovered_name>
+            <data_type>integer</data_type>
+            <label>cal day in month</label>
+            <comment>The day in the month 1-31.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="cal_day_in_year" nullable="true">
+            <discovered_name>cal_day_in_year</discovered_name>
+            <data_type>integer</data_type>
+            <label>cal day in year</label>
+            <comment>The day in the year 1-366.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="cal_week_in_year" nullable="true">
+            <discovered_name>cal_week_in_year</discovered_name>
+            <data_type>integer</data_type>
+            <label>cal week in year</label>
+            <comment>The week in the year 0-53.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="cal_month_no" nullable="true">
+            <discovered_name>cal_month_no</discovered_name>
+            <data_type>integer</data_type>
+            <label>cal month no</label>
+            <comment>The calendar month number 1-12.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="cal_month" nullable="true">
+            <discovered_name>cal_month</discovered_name>
+            <data_type>integer</data_type>
+            <label>cal month</label>
+            <comment>The calendar month representation. Format YYYYMM. Example: 200206.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="cal_month_name" nullable="true">
+            <discovered_name>cal_month_name</discovered_name>
+            <data_type>varchar(7)</data_type>
+            <label>cal month name</label>
+            <comment>The calendar month name. Format MON. Examples: jan, feb, mar.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="cal_quarter_no" nullable="true">
+            <discovered_name>cal_quarter_no</discovered_name>
+            <data_type>integer</data_type>
+            <label>cal quarter no</label>
+            <comment>The calendar quarter number 1-4.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="cal_quarter" nullable="true">
+            <discovered_name>cal_quarter</discovered_name>
+            <data_type>integer</data_type>
+            <label>cal quarter</label>
+            <comment>The calendar quarter representation. Format YYYYQQ. Example 200204.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="cal_year" nullable="true">
+            <discovered_name>cal_year</discovered_name>
+            <data_type>integer</data_type>
+            <label>cal year</label>
+            <comment>The calendar year. Format YYYY</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="financial_date" nullable="true">
+            <discovered_name>financial_date</discovered_name>
+            <data_type>datetime</data_type>
+            <label>financial date</label>
+            <comment>The financial date. Same as calendar date.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="fin_day_in_week" nullable="true">
+            <discovered_name>fin_day_in_week</discovered_name>
+            <data_type>varchar(3)</data_type>
+            <label>fin day in week</label>
+            <comment>The financial day in the week. Format DDD. Example: mon,tue,wed.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="fin_day_in_week_no" nullable="true">
+            <discovered_name>fin_day_in_week_no</discovered_name>
+            <data_type>integer</data_type>
+            <label>fin day in week no</label>
+            <comment>Day number in the current financial week.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="fin_day_in_month" nullable="true">
+            <discovered_name>fin_day_in_month</discovered_name>
+            <data_type>integer</data_type>
+            <label>fin day in month</label>
+            <comment>Financial day in the month. Normally the same as calendar day in the month, unless the financial period starts mid calendar month.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="fin_day_in_year" nullable="true">
+            <discovered_name>fin_day_in_year</discovered_name>
+            <data_type>integer</data_type>
+            <label>fin day in year</label>
+            <comment>Financial day in the year. Number of days since the start of the financial year.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="fin_week_in_month" nullable="true">
+            <discovered_name>fin_week_in_month</discovered_name>
+            <data_type>integer</data_type>
+            <label>fin week in month</label>
+            <comment>Financial week in the financial month.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="fin_week_in_year" nullable="true">
+            <discovered_name>fin_week_in_year</discovered_name>
+            <data_type>integer</data_type>
+            <label>fin week in year</label>
+            <comment>Financial week in the financial year. Number of weeks since the start of the financial year</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="fin_month_no" nullable="true">
+            <discovered_name>fin_month_no</discovered_name>
+            <data_type>integer</data_type>
+            <label>fin month no</label>
+            <comment>Financial month number. Format MM. Examples: 1,2,3.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="fin_month" nullable="true">
+            <discovered_name>fin_month</discovered_name>
+            <data_type>integer</data_type>
+            <label>fin month</label>
+            <comment>Financial month representation. Fromat YYYYMM. Examples: 200101, 200102.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="fin_month_name" nullable="true">
+            <discovered_name>fin_month_name</discovered_name>
+            <data_type>varchar(7)</data_type>
+            <label>fin month name</label>
+            <comment>Financial month. Format MON. Examples: jan, feb, mar.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="fin_period" nullable="true">
+            <discovered_name>fin_period</discovered_name>
+            <data_type>varchar(20)</data_type>
+            <label>fin period</label>
+            <comment>Financial period. Format (YYYY-MM) MON-YYYY. Example: (2001-02) Feb-2002.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="fin_quarter_no" nullable="true">
+            <discovered_name>fin_quarter_no</discovered_name>
+            <data_type>integer</data_type>
+            <label>fin quarter no</label>
+            <comment>Financial quarter number (1-4).</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="fin_quarter" nullable="true">
+            <discovered_name>fin_quarter</discovered_name>
+            <data_type>integer</data_type>
+            <label>fin quarter</label>
+            <comment>Financial quarter representation. Format YYYYQQ. Example: 198901.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="fin_year" nullable="true">
+            <discovered_name>fin_year</discovered_name>
+            <data_type>integer</data_type>
+            <label>fin year</label>
+            <comment>Financial year. Format YYYY.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="current_cal_day" nullable="true">
+            <discovered_name>current_cal_day</discovered_name>
+            <data_type>varchar(8)</data_type>
+            <label>current cal day</label>
+            <comment>Flag to indicate the current day. Normally set to the last day information was updated in the data warehouse.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="current_cal_week" nullable="true">
+            <discovered_name>current_cal_week</discovered_name>
+            <data_type>varchar(8)</data_type>
+            <label>current cal week</label>
+            <comment>Flag to indicate the current week. Set as per current_cal_day.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="current_cal_month" nullable="true">
+            <discovered_name>current_cal_month</discovered_name>
+            <data_type>varchar(8)</data_type>
+            <label>current cal month</label>
+            <comment>Flag to indicate the current month. Set as per current_cal_day.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="current_cal_year" nullable="true">
+            <discovered_name>current_cal_year</discovered_name>
+            <data_type>varchar(8)</data_type>
+            <label>current cal year</label>
+            <comment>Flag to indicate the current year. Set as per current_cal_day.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="current_cal_mtd" nullable="true">
+            <discovered_name>current_cal_mtd</discovered_name>
+            <data_type>varchar(8)</data_type>
+            <label>current cal mtd</label>
+            <comment>Flag to indicate days in the current month to date. Set as per current_cal_day.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="current_cal_ytd" nullable="true">
+            <discovered_name>current_cal_ytd</discovered_name>
+            <data_type>varchar(8)</data_type>
+            <label>current cal ytd</label>
+            <comment>Flag to indicate days in the current year to date. Set as per current_cal_day.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="moving_cal_year" nullable="true">
+            <discovered_name>moving_cal_year</discovered_name>
+            <data_type>varchar(8)</data_type>
+            <label>moving cal year</label>
+            <comment>Flag to indicate days that constitute a full year counting back from the current day. Set as per current_cal_day.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="current_fin_day" nullable="true">
+            <discovered_name>current_fin_day</discovered_name>
+            <data_type>varchar(8)</data_type>
+            <label>current fin day</label>
+            <comment>Flag to indicate the current financial day. Normally set to the last financial day information was updated in the data warehouse.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="current_fin_week" nullable="true">
+            <discovered_name>current_fin_week</discovered_name>
+            <data_type>varchar(8)</data_type>
+            <label>current fin week</label>
+            <comment>Flag to indicate the current financial week. Set as per current_fin_day.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="current_fin_month" nullable="true">
+            <discovered_name>current_fin_month</discovered_name>
+            <data_type>varchar(8)</data_type>
+            <label>current fin month</label>
+            <comment>Flag to indicate the current financial month. Set as per current_fin_day.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="current_fin_quarter" nullable="true">
+            <discovered_name>current_fin_quarter</discovered_name>
+            <data_type>varchar(8)</data_type>
+            <label>current fin quarter</label>
+            <comment>Flag to indicate the current financial quarter. Set as per current_fin_day.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="current_fin_year" nullable="true">
+            <discovered_name>current_fin_year</discovered_name>
+            <data_type>varchar(8)</data_type>
+            <label>current fin year</label>
+            <comment>Flag to indicate the current financial year. Set as per current_fin_day.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="current_fin_mtd" nullable="true">
+            <discovered_name>current_fin_mtd</discovered_name>
+            <data_type>varchar(8)</data_type>
+            <label>current fin mtd</label>
+            <comment>Flag to indicate days in the current financial month to date. Set as per current_fin_day.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="current_fin_ytd" nullable="true">
+            <discovered_name>current_fin_ytd</discovered_name>
+            <data_type>varchar(8)</data_type>
+            <label>current fin ytd</label>
+            <comment>Flag to indicate days in the current financial year to date. Set as per current_fin_day.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="moving_fin_quarter" nullable="true">
+            <discovered_name>moving_fin_quarter</discovered_name>
+            <data_type>varchar(8)</data_type>
+            <label>moving fin quarter</label>
+            <comment>Flag to indicate days that constitute a quarter counting back from the current financial day. Set as per current_fin_day.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="moving_fin_year" nullable="true">
+            <discovered_name>moving_fin_year</discovered_name>
+            <data_type>varchar(8)</data_type>
+            <label>moving fin year</label>
+            <comment>Flag to indicate days that constitute a financial year counting back from the current financial day. Set as per current_fin_day.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="week_day_flag" nullable="true">
+            <discovered_name>week_day_flag</discovered_name>
+            <data_type>varchar(1)</data_type>
+            <label>week day flag</label>
+            <comment>Flag to indicate if a week day Y=week day N=week end.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="week_end_flag" nullable="true">
+            <discovered_name>week_end_flag</discovered_name>
+            <data_type>varchar(1)</data_type>
+            <label>week end flag</label>
+            <comment>Flag to indicate a week end day. Y=week end, N=week day.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="holiday_flag" nullable="true">
+            <discovered_name>holiday_flag</discovered_name>
+            <data_type>varchar(1)</data_type>
+            <label>holiday flag</label>
+            <comment>Flag to indicate that the day in question is a holiday. Y=holiday, N=normal.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="holiday_desc" nullable="true">
+            <discovered_name>holiday_desc</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>holiday desc</label>
+            <comment>Description of the holiday when a holiday.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="trading_day_flag" nullable="true">
+            <discovered_name>trading_day_flag</discovered_name>
+            <data_type>varchar(1)</data_type>
+            <label>trading day flag</label>
+            <comment>Flag to indicate a trading day. Y=trading, N=non trading.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="trading_days_in_mth" nullable="true">
+            <discovered_name>trading_days_in_mth</discovered_name>
+            <data_type>integer</data_type>
+            <label>trading days in cal month</label>
+            <comment>Number of trading days in this calendar month.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="trading_days_so_far" nullable="true">
+            <discovered_name>trading_days_so_far</discovered_name>
+            <data_type>integer</data_type>
+            <label>trading days in month so far</label>
+            <comment>Number of trading days in the month so far.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_update_time" nullable="true">
+            <discovered_name>dss_update_time</discovered_name>
+            <data_type>datetime</data_type>
+            <label>dss update time</label>
+            <comment>Date/time that this record was updated in the data warehouse</comment>
+            <created_by>Discovery</created_by>
+          </column>
+        </columns>
+        <table_icon>other_table.png</table_icon>
+        <indices>
+          <index name="dim_date_idx_0">
+            <generated>false</generated>
+            <index_types>
+              <index_type>Unique</index_type>
+            </index_types>
+            <indexed_columns>
+              <indexed_column>dim_date_key</indexed_column>
+            </indexed_columns>
+          </index>
+          <index name="dim_date_idx_A">
+            <generated>false</generated>
+            <index_types>
+              <index_type>Unique</index_type>
+            </index_types>
+            <indexed_columns>
+              <indexed_column>calendar_date</indexed_column>
+            </indexed_columns>
+          </index>
+        </indices>
+        <source_sets />
+      </table>
+      <table name="dss_fact_table" schema="dbo" database="red_9012_sql">
+        <discovered_name>dss_fact_table</discovered_name>
+        <discovered_schema>dbo</discovered_schema>
+        <discovered_database>red_9012_sql</discovered_database>
+        <comment>The fact table from which the data was sourced.</comment>
+        <table_types>
+          <table_type name="Dimension">
+            <keywords>
+              <keyword name="HIERARCHY" data_type="BOOLEAN">false</keyword>
+            </keywords>
+          </table_type>
+        </table_types>
+        <columns>
+          <column name="dss_fact_table_key">
+            <discovered_name>dss_fact_table_key</discovered_name>
+            <data_type>integer identity(1,1)</data_type>
+            <label>dss fact table key</label>
+            <comment>Artificial key to the dss fact table</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_fact_table_name" nullable="true">
+            <discovered_name>dss_fact_table_name</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>dss fact table name</label>
+            <comment>Name of the fact table.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_fact_table_type" nullable="true">
+            <discovered_name>dss_fact_table_type</discovered_name>
+            <data_type>varchar(24)</data_type>
+            <label>dss fact table type</label>
+            <comment>Type of fact table, Detail, Rollup, KPI, Snapshot, Work.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+        </columns>
+        <table_icon>other_table.png</table_icon>
+        <source_sets />
+      </table>
+      <table name="dss_source_system" schema="dbo" database="red_9012_sql">
+        <discovered_name>dss_source_system</discovered_name>
+        <discovered_schema>dbo</discovered_schema>
+        <discovered_database>red_9012_sql</discovered_database>
+        <comment>The production system from which the data originated</comment>
+        <table_types>
+          <table_type name="Dimension">
+            <keywords>
+              <keyword name="HIERARCHY" data_type="BOOLEAN">false</keyword>
+            </keywords>
+          </table_type>
+        </table_types>
+        <columns>
+          <column name="dss_source_system_key">
+            <discovered_name>dss_source_system_key</discovered_name>
+            <data_type>integer identity(1,1)</data_type>
+            <label>dss source system key</label>
+            <comment>Artificial key for the dss source system table.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_source_system_name" nullable="true">
+            <discovered_name>dss_source_system_name</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>dss source system name</label>
+            <comment>Name of the source system.</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_source_active_from" nullable="true">
+            <discovered_name>dss_source_active_from</discovered_name>
+            <data_type>datetime</data_type>
+            <label>dss source active from</label>
+            <comment>Start of period the source system was active (non mandatory).</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_source_active_to" nullable="true">
+            <discovered_name>dss_source_active_to</discovered_name>
+            <data_type>datetime</data_type>
+            <label>dss source active to</label>
+            <comment>End of period the source system was active (non mandatory).</comment>
+            <created_by>Discovery</created_by>
+          </column>
+        </columns>
+        <table_icon>other_table.png</table_icon>
+        <source_sets />
+      </table>
+      <table name="h_topdesk_branches" schema="dbo" database="red_9012_sql">
+        <discovered_name>h_topdesk_branches</discovered_name>
+        <discovered_schema>dbo</discovered_schema>
+        <discovered_database>red_9012_sql</discovered_database>
+        <table_types>
+          <table_type name="Hub" />
+        </table_types>
+        <columns>
+          <column name="hk_h_topdesk_branches">
+            <discovered_name>hk_h_topdesk_branches</discovered_name>
+            <data_type>char(66)</data_type>
+            <label>hk_h_topdesk_branches</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Hub hash key" />
+            </column_types>
+          </column>
+          <column name="id" pk="true" nullable="true">
+            <discovered_name>id</discovered_name>
+            <data_type>char(36)</data_type>
+            <label>id</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Business key" />
+            </column_types>
+          </column>
+          <column name="name" pk="true" nullable="true">
+            <discovered_name>name</discovered_name>
+            <data_type>nvarchar(100)</data_type>
+            <label>name</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Business key" />
+            </column_types>
+          </column>
+          <column name="dss_record_source" nullable="true">
+            <discovered_name>dss_record_source</discovered_name>
+            <data_type>varchar(255)</data_type>
+            <label>dss record source</label>
+            <comment>Record source</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_load_date" nullable="true">
+            <discovered_name>dss_load_date</discovered_name>
+            <data_type>datetime</data_type>
+            <label>dss load date</label>
+            <comment>Date and time the row was loaded in the data vault</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_create_time" nullable="true">
+            <discovered_name>dss_create_time</discovered_name>
+            <data_type>datetime</data_type>
+            <label>dss create time</label>
+            <comment>Date and time the row was inserted in the data vault</comment>
+            <created_by>Discovery</created_by>
+          </column>
+        </columns>
+        <table_icon>other_table.png</table_icon>
+        <source_sets>
+          <source_set name="Default Source">
+            <table_mappings>
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_branches</source_table>
+                <source_is_trigger_file>false</source_is_trigger_file>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_branches</source_table>
+                <source_is_trigger_file>false</source_is_trigger_file>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </table_mappings>
+            <column_mappings column_name="hk_h_topdesk_branches">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_branches</source_table>
+                <source_column>hk_h_topdesk_branches</source_column>
+                <source_label>hk_h_topdesk_branches</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="id">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_branches</source_table>
+                <source_column>id</source_column>
+                <source_label>id</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="name">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_branches</source_table>
+                <source_column>name</source_column>
+                <source_label>name</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_record_source">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_branches</source_table>
+                <source_column>dss_record_source</source_column>
+                <source_label>dss record source</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_load_date">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_branches</source_table>
+                <source_column>dss_load_date</source_column>
+                <source_label>dss load date</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_create_time" />
+            <referenced_connections>
+              <referenced_connection preferred="true">SQLTestCon</referenced_connection>
+            </referenced_connections>
+          </source_set>
+        </source_sets>
+      </table>
+      <table name="h_topdesk_incidenten" schema="dbo" database="red_9012_sql">
+        <discovered_name>h_topdesk_incidenten</discovered_name>
+        <discovered_schema>dbo</discovered_schema>
+        <discovered_database>red_9012_sql</discovered_database>
+        <table_types>
+          <table_type name="Hub" />
+        </table_types>
+        <columns>
+          <column name="hk_h_topdesk_incidenten">
+            <discovered_name>hk_h_topdesk_incidenten</discovered_name>
+            <data_type>char(66)</data_type>
+            <label>hk_h_topdesk_incidenten</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Hub hash key" />
+            </column_types>
+          </column>
+          <column name="number" pk="true" nullable="true">
+            <discovered_name>number</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>number</label>
+            <comment>Dit is het kenmerk van de TOPDESK melding</comment>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Business key" />
+            </column_types>
+          </column>
+          <column name="dss_record_source" nullable="true">
+            <discovered_name>dss_record_source</discovered_name>
+            <data_type>varchar(255)</data_type>
+            <label>dss record source</label>
+            <comment>Record source</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_load_date" nullable="true">
+            <discovered_name>dss_load_date</discovered_name>
+            <data_type>datetime</data_type>
+            <label>dss load date</label>
+            <comment>Date and time the row was loaded in the data vault</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_create_time" nullable="true">
+            <discovered_name>dss_create_time</discovered_name>
+            <data_type>datetime</data_type>
+            <label>dss create time</label>
+            <comment>Date and time the row was inserted in the data vault</comment>
+            <created_by>Discovery</created_by>
+          </column>
+        </columns>
+        <table_icon>other_table.png</table_icon>
+        <source_sets>
+          <source_set name="Default Source">
+            <table_mappings>
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten</source_table>
+                <source_is_trigger_file>false</source_is_trigger_file>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </table_mappings>
+            <column_mappings column_name="hk_h_topdesk_incidenten">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten</source_table>
+                <source_column>hk_h_topdesk_incidenten</source_column>
+                <source_label>hk_h_topdesk_incidenten</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="number">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten</source_table>
+                <source_column>number</source_column>
+                <source_label>number</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_record_source">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten</source_table>
+                <source_column>dss_record_source</source_column>
+                <source_label>dss record source</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_load_date">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten</source_table>
+                <source_column>dss_load_date</source_column>
+                <source_label>dss load date</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_create_time" />
+            <referenced_connections>
+              <referenced_connection preferred="true">SQLTestCon</referenced_connection>
+            </referenced_connections>
+          </source_set>
+        </source_sets>
+      </table>
+      <table name="l_topdesk_incidenten_topdesk_branches" schema="dbo" database="red_9012_sql">
+        <discovered_name>l_topdesk_incidenten_topdesk_branches</discovered_name>
+        <discovered_schema>dbo</discovered_schema>
+        <discovered_database>red_9012_sql</discovered_database>
+        <table_types>
+          <table_type name="Link" />
+        </table_types>
+        <columns>
+          <column name="hk_l_topdesk_incidenten_topdesk_branches">
+            <discovered_name>hk_l_topdesk_incidenten_topdesk_branches</discovered_name>
+            <data_type>char(66)</data_type>
+            <label>hk_l_topdesk_incidenten_topdesk_branches</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Link hash key" />
+            </column_types>
+          </column>
+          <column name="hk_h_topdesk_incidenten">
+            <discovered_name>hk_h_topdesk_incidenten</discovered_name>
+            <data_type>char(66)</data_type>
+            <label>hk_h_topdesk_incidenten</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Hub hash key" />
+            </column_types>
+          </column>
+          <column name="hk_h_topdesk_branches">
+            <discovered_name>hk_h_topdesk_branches</discovered_name>
+            <data_type>char(66)</data_type>
+            <label>hk_h_topdesk_branches</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Hub hash key" />
+            </column_types>
+          </column>
+          <column name="dss_record_source" nullable="true">
+            <discovered_name>dss_record_source</discovered_name>
+            <data_type>varchar(255)</data_type>
+            <label>dss record source</label>
+            <comment>Record source</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_load_date" nullable="true">
+            <discovered_name>dss_load_date</discovered_name>
+            <data_type>datetime</data_type>
+            <label>dss load date</label>
+            <comment>Date and time the row was loaded in the data vault</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_create_time" nullable="true">
+            <discovered_name>dss_create_time</discovered_name>
+            <data_type>datetime</data_type>
+            <label>dss create time</label>
+            <comment>Date and time the row was inserted in the data vault</comment>
+            <created_by>Discovery</created_by>
+          </column>
+        </columns>
+        <table_icon>other_table.png</table_icon>
+        <source_sets>
+          <source_set name="Default Source">
+            <table_mappings>
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten_topdesk_branches</source_table>
+                <source_is_trigger_file>false</source_is_trigger_file>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </table_mappings>
+            <column_mappings column_name="hk_l_topdesk_incidenten_topdesk_branches">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten_topdesk_branches</source_table>
+                <source_column>hk_l_topdesk_incidenten_topdesk_branches</source_column>
+                <source_label>hk_l_topdesk_incidenten_topdesk_branches</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="hk_h_topdesk_incidenten">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten_topdesk_branches</source_table>
+                <source_column>hk_h_topdesk_incidenten</source_column>
+                <source_label>hk_h_topdesk_incidenten</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="hk_h_topdesk_branches">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten_topdesk_branches</source_table>
+                <source_column>hk_h_topdesk_branches</source_column>
+                <source_label>hk_h_topdesk_branches</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_record_source">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten_topdesk_branches</source_table>
+                <source_column>dss_record_source</source_column>
+                <source_label>dss record source</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_load_date">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten_topdesk_branches</source_table>
+                <source_column>dss_load_date</source_column>
+                <source_label>dss load date</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_create_time" />
+            <referenced_connections>
+              <referenced_connection preferred="true">SQLTestCon</referenced_connection>
+            </referenced_connections>
+          </source_set>
+        </source_sets>
+      </table>
+      <table name="load_Deal_racker_Values_full_excel" schema="dbo" database="red_9012_sql">
+        <discovered_name>load_Deal_racker_Values_full_excel</discovered_name>
+        <discovered_schema>dbo</discovered_schema>
+        <discovered_database>red_9012_sql</discovered_database>
+        <table_types>
+          <table_type name="Load" />
+        </table_types>
+        <columns>
+          <column name="_unique_id_" nullable="true">
+            <discovered_name>_unique_id_</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>"Unique Id"</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="_deal___" nullable="true">
+            <discovered_name>_deal___</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>"Deal #"</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="_date_deal_received_" nullable="true">
+            <discovered_name>_date_deal_received_</discovered_name>
+            <data_type>datetime</data_type>
+            <label>"Date Deal Received"</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="_vendor___" nullable="true">
+            <discovered_name>_vendor___</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>"Vendor #"</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="_vendor_name_" nullable="true">
+            <discovered_name>_vendor_name_</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>"Vendor Name"</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="_necs_report_type_" nullable="true">
+            <discovered_name>_necs_report_type_</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>"NECS Report Type"</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="_start_date_" nullable="true">
+            <discovered_name>_start_date_</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>"Start Date"</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="_end_date_" nullable="true">
+            <discovered_name>_end_date_</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>"End Date"</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="_sales_bb_group_name_" nullable="true">
+            <discovered_name>_sales_bb_group_name_</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>"Sales BB Group Name"</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="_sales_bb_group_year_" nullable="true">
+            <discovered_name>_sales_bb_group_year_</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>"Sales BB Group Year"</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="_qb_planned_posting_date_" nullable="true">
+            <discovered_name>_qb_planned_posting_date_</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>"QB Planned Posting Date"</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="_line___" nullable="true">
+            <discovered_name>_line___</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>"Line #"</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="_group_name_" nullable="true">
+            <discovered_name>_group_name_</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>"Group Name"</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="_item___s_" nullable="true">
+            <discovered_name>_item___s_</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>"Item #'s"</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="_min_qty_" nullable="true">
+            <discovered_name>_min_qty_</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>"Min Qty"</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="_max_qty_" nullable="true">
+            <discovered_name>_max_qty_</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>"Max Qty"</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="_deal_amount_" nullable="true">
+            <discovered_name>_deal_amount_</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>"Deal Amount"</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="_report_qty_" nullable="true">
+            <discovered_name>_report_qty_</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>"Report Qty"</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="_report_amount_total_" nullable="true">
+            <discovered_name>_report_amount_total_</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>"Report Amount Total"</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="_report_complete__" nullable="true">
+            <discovered_name>_report_complete__</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>"Report Complete?"</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="_report_verified__" nullable="true">
+            <discovered_name>_report_verified__</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>"Report Verified?"</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="_qb_vendor_name_" nullable="true">
+            <discovered_name>_qb_vendor_name_</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>"QB Vendor Name"</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="_check_or_deduction__" nullable="true">
+            <discovered_name>_check_or_deduction__</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>"Check or Deduction?"</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="_qb_posted_date_" nullable="true">
+            <discovered_name>_qb_posted_date_</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>"QB Posted Date"</label>
+            <created_by>Discovery</created_by>
+          </column>
+        </columns>
+        <table_icon>other_table.png</table_icon>
+        <source_sets>
+          <source_set name="Default Source">
+            <table_mappings />
+            <column_mappings column_name="_unique_id_" />
+            <column_mappings column_name="_deal___" />
+            <column_mappings column_name="_date_deal_received_" />
+            <column_mappings column_name="_vendor___" />
+            <column_mappings column_name="_vendor_name_" />
+            <column_mappings column_name="_necs_report_type_" />
+            <column_mappings column_name="_start_date_" />
+            <column_mappings column_name="_end_date_" />
+            <column_mappings column_name="_sales_bb_group_name_" />
+            <column_mappings column_name="_sales_bb_group_year_" />
+            <column_mappings column_name="_qb_planned_posting_date_" />
+            <column_mappings column_name="_line___" />
+            <column_mappings column_name="_group_name_" />
+            <column_mappings column_name="_item___s_" />
+            <column_mappings column_name="_min_qty_" />
+            <column_mappings column_name="_max_qty_" />
+            <column_mappings column_name="_deal_amount_" />
+            <column_mappings column_name="_report_qty_" />
+            <column_mappings column_name="_report_amount_total_" />
+            <column_mappings column_name="_report_complete__" />
+            <column_mappings column_name="_report_verified__" />
+            <column_mappings column_name="_qb_vendor_name_" />
+            <column_mappings column_name="_check_or_deduction__" />
+            <column_mappings column_name="_qb_posted_date_" />
+            <data_transformations>
+              <data_transformation name="Default Source__date_deal_received__transformation">
+                <columns>
+                  <column>_date_deal_received_</column>
+                </columns>
+                <purpose type="change">CONVERT(VARCHAR,_Date_Deal_Received_,120)</purpose>
+              </data_transformation>
+            </data_transformations>
+          </source_set>
+        </source_sets>
+      </table>
+      <table name="load_forecast_file" schema="dbo" database="red_9012_sql">
+        <discovered_name>load_forecast_file</discovered_name>
+        <discovered_schema>dbo</discovered_schema>
+        <discovered_database>red_9012_sql</discovered_database>
+        <table_types>
+          <table_type name="Load" />
+        </table_types>
+        <columns>
+          <column name="product_code" nullable="true">
+            <discovered_name>product_code</discovered_name>
+            <data_type>int</data_type>
+            <label>product code</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="customer_code" nullable="true">
+            <discovered_name>customer_code</discovered_name>
+            <data_type>int</data_type>
+            <label>customer code</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="forecast_quantity" nullable="true">
+            <discovered_name>forecast_quantity</discovered_name>
+            <data_type>int</data_type>
+            <label>forecast quantity</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="forecast_sales_value" nullable="true">
+            <discovered_name>forecast_sales_value</discovered_name>
+            <data_type>numeric(13,2)</data_type>
+            <label>forecast sales value</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="forecast_date" nullable="true">
+            <discovered_name>forecast_date</discovered_name>
+            <data_type>datetime</data_type>
+            <label>forecast date</label>
+            <created_by>Discovery</created_by>
+          </column>
+        </columns>
+        <table_icon>other_table.png</table_icon>
+        <source_sets />
+      </table>
+      <table name="load_Infection_Prevention_Sample_excel" schema="dbo" database="red_9012_sql">
+        <discovered_name>load_Infection_Prevention_Sample_excel</discovered_name>
+        <discovered_schema>dbo</discovered_schema>
+        <discovered_database>red_9012_sql</discovered_database>
+        <table_types>
+          <table_type name="Load" />
+        </table_types>
+        <columns>
+          <column name="facility" nullable="true">
+            <discovered_name>facility</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>Facility</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="facility_org_id" nullable="true">
+            <discovered_name>facility_org_id</discovered_name>
+            <data_type>float(7)</data_type>
+            <label>Facility Org ID</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="cms_certification_number" nullable="true">
+            <discovered_name>cms_certification_number</discovered_name>
+            <data_type>float(6)</data_type>
+            <label>CMS Certification Number</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="location" nullable="true">
+            <discovered_name>location</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>Location</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="summaryyr_quarter" nullable="true">
+            <discovered_name>summaryyr_quarter</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>SummaryYr/Quarter</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="mrsa_blood_incidentlabid_count" nullable="true">
+            <discovered_name>mrsa_blood_incidentlabid_count</discovered_name>
+            <data_type>numeric(13)</data_type>
+            <label>MRSA Blood IncidentLabID Count</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="numberpredicted" nullable="true">
+            <discovered_name>numberpredicted</discovered_name>
+            <data_type>float(6)</data_type>
+            <label>NumberPredicted</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="patient_days" nullable="true">
+            <discovered_name>patient_days</discovered_name>
+            <data_type>numeric(13)</data_type>
+            <label>Patient Days</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="sir" nullable="true">
+            <discovered_name>sir</discovered_name>
+            <data_type>float(18)</data_type>
+            <label>SIR</label>
+            <created_by>Discovery</created_by>
+          </column>
+        </columns>
+        <table_icon>other_table.png</table_icon>
+        <source_sets />
+      </table>
+      <table name="load_MMbudget_export_20240405" schema="dbo" database="red_9012_sql">
+        <discovered_name>load_MMbudget_export_20240405</discovered_name>
+        <discovered_schema>dbo</discovered_schema>
+        <discovered_database>red_9012_sql</discovered_database>
+        <table_types>
+          <table_type name="Load" />
+        </table_types>
+        <columns>
+          <column name="col_0" nullable="true">
+            <discovered_name>col_0</discovered_name>
+            <data_type>varchar(163)</data_type>
+            <label>COL_0</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="col_1" nullable="true">
+            <discovered_name>col_1</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>COL_1</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="col_2" nullable="true">
+            <discovered_name>col_2</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>COL_2</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="col_3" nullable="true">
+            <discovered_name>col_3</discovered_name>
+            <data_type>varchar(64)</data_type>
+            <label>COL_3</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="col_4" nullable="true">
+            <discovered_name>col_4</discovered_name>
+            <data_type>varchar(175)</data_type>
+            <label>COL_4</label>
+            <created_by>Discovery</created_by>
+          </column>
+        </columns>
+        <table_icon>other_table.png</table_icon>
+        <source_sets />
+      </table>
+      <table name="load_topdesk_branches_wherescape_development" schema="dbo" database="red_9012_sql">
+        <discovered_name>load_topdesk_branches_wherescape_development</discovered_name>
+        <discovered_schema>dbo</discovered_schema>
+        <discovered_database>red_9012_sql</discovered_database>
+        <table_types>
+          <table_type name="Load" />
+        </table_types>
+        <columns>
+          <column name="id" nullable="true">
+            <discovered_name>id</discovered_name>
+            <data_type>char(36)</data_type>
+            <label>id</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="name" nullable="true">
+            <discovered_name>name</discovered_name>
+            <data_type>nvarchar(100)</data_type>
+            <label>name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_record_source" nullable="true">
+            <discovered_name>dss_record_source</discovered_name>
+            <data_type>varchar(255)</data_type>
+            <label>dss record source</label>
+            <comment>Record source</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_load_date" nullable="true">
+            <discovered_name>dss_load_date</discovered_name>
+            <data_type>datetime</data_type>
+            <label>dss load date</label>
+            <comment>Date and time the row was loaded in the data vault</comment>
+            <created_by>Discovery</created_by>
+          </column>
+        </columns>
+        <table_icon>other_table.png</table_icon>
+        <source_sets>
+          <source_set name="Default Source">
+            <table_mappings />
+            <column_mappings column_name="id" />
+            <column_mappings column_name="name" />
+            <column_mappings column_name="dss_record_source" />
+            <column_mappings column_name="dss_load_date" />
+            <dw_query>SELECT  FROM</dw_query>
+            <data_transformations>
+              <data_transformation name="Default Source_dss_record_source_transformation">
+                <description>Record source</description>
+                <columns>
+                  <column>dss_record_source</column>
+                </columns>
+                <purpose type="change">'WhereScape Development.input_100.TopDesk_branches'</purpose>
+              </data_transformation>
+              <data_transformation name="Default Source_dss_load_date_transformation">
+                <description>Date and time the row was loaded in the data vault</description>
+                <columns>
+                  <column>dss_load_date</column>
+                </columns>
+                <purpose type="change">D</purpose>
+              </data_transformation>
+            </data_transformations>
+          </source_set>
+        </source_sets>
+      </table>
+      <table name="load_topdesk_incidenten_wherescape_development" schema="dbo" database="red_9012_sql">
+        <discovered_name>load_topdesk_incidenten_wherescape_development</discovered_name>
+        <discovered_schema>dbo</discovered_schema>
+        <discovered_database>red_9012_sql</discovered_database>
+        <table_types>
+          <table_type name="Load" />
+        </table_types>
+        <columns>
+          <column name="id" nullable="true">
+            <discovered_name>id</discovered_name>
+            <data_type>char(36)</data_type>
+            <label>id</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="status" nullable="true">
+            <discovered_name>status</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>status</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="number" nullable="true">
+            <discovered_name>number</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>number</label>
+            <comment>Dit is het kenmerk van de TOPDESK melding</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="request" nullable="true">
+            <discovered_name>request</discovered_name>
+            <data_type>nvarchar</data_type>
+            <label>request</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="requests" nullable="true">
+            <discovered_name>requests</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>requests</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="action" nullable="true">
+            <discovered_name>action</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>action</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="attachments" nullable="true">
+            <discovered_name>attachments</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>attachments</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="caller_id" nullable="true">
+            <discovered_name>caller_id</discovered_name>
+            <data_type>char(36)</data_type>
+            <label>caller id</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="caller_dynamicname" nullable="true">
+            <discovered_name>caller_dynamicname</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>caller_dynamicname</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="caller_email" nullable="true">
+            <discovered_name>caller_email</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>caller_email</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="caller_phonenumber" nullable="true">
+            <discovered_name>caller_phonenumber</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>caller phonenumber</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="caller_mobilenumber" nullable="true">
+            <discovered_name>caller_mobilenumber</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>caller mobilenumber</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="caller_branch_id" nullable="true">
+            <discovered_name>caller_branch_id</discovered_name>
+            <data_type>char(36)</data_type>
+            <label>caller branch id</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="caller_branch_name" nullable="true">
+            <discovered_name>caller_branch_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>caller branch name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="caller_branch_clientreferencenumber" nullable="true">
+            <discovered_name>caller_branch_clientreferencenumber</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>caller branch clientreferencenumber</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="caller_branch_timezone" nullable="true">
+            <discovered_name>caller_branch_timezone</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>caller branch timezone</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="caller_branch_extraa_id" nullable="true">
+            <discovered_name>caller_branch_extraa_id</discovered_name>
+            <data_type>char(36)</data_type>
+            <label>caller branch extraa id</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="caller_branch_extraa_name" nullable="true">
+            <discovered_name>caller_branch_extraa_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>caller branch extraa name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="caller_branch_extrab" nullable="true">
+            <discovered_name>caller_branch_extrab</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>caller branch extrab</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="department_id" nullable="true">
+            <discovered_name>department_id</discovered_name>
+            <data_type>char(36)</data_type>
+            <label>department id</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="department_name" nullable="true">
+            <discovered_name>department_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>department_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="budgetholder" nullable="true">
+            <discovered_name>budgetholder</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>budgetholder</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="callerbranch_id" nullable="true">
+            <discovered_name>callerbranch_id</discovered_name>
+            <data_type>char(36)</data_type>
+            <label>callerbranch_id</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="callerbranch_name" nullable="true">
+            <discovered_name>callerbranch_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>callerbranch name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="callerbranch_clientreferencenumber" nullable="true">
+            <discovered_name>callerbranch_clientreferencenumber</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>callerbranch clientreferencenumber</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="callerbranch_timezone" nullable="true">
+            <discovered_name>callerbranch_timezone</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>callerbranch timezone</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="callerbranch_extraa_id" nullable="true">
+            <discovered_name>callerbranch_extraa_id</discovered_name>
+            <data_type>char(36)</data_type>
+            <label>callerbranch extraa id</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="callerbranch_extraa_name" nullable="true">
+            <discovered_name>callerbranch_extraa_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>callerbranch extraa name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="callerbranch_extrab" nullable="true">
+            <discovered_name>callerbranch_extrab</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>callerbranch extrab</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="callerlocation" nullable="true">
+            <discovered_name>callerlocation</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>callerlocation</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="branchextrafielda_id" nullable="true">
+            <discovered_name>branchextrafielda_id</discovered_name>
+            <data_type>char(36)</data_type>
+            <label>branchextrafielda id</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="branchextrafielda_name" nullable="true">
+            <discovered_name>branchextrafielda_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>branchextrafielda name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="branchextrafieldb" nullable="true">
+            <discovered_name>branchextrafieldb</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>branchextrafieldb</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="briefdescription" nullable="true">
+            <discovered_name>briefdescription</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>briefdescription</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="externalnumber" nullable="true">
+            <discovered_name>externalnumber</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>externalnumber</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="category_id" nullable="true">
+            <discovered_name>category_id</discovered_name>
+            <data_type>char(36)</data_type>
+            <label>category id</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="category_name" nullable="true">
+            <discovered_name>category_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>category_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="subcategory_id" nullable="true">
+            <discovered_name>subcategory_id</discovered_name>
+            <data_type>char(36)</data_type>
+            <label>subcategory id</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="subcategory_name" nullable="true">
+            <discovered_name>subcategory_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>subcategory_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="calltype_id" nullable="true">
+            <discovered_name>calltype_id</discovered_name>
+            <data_type>char(36)</data_type>
+            <label>calltype id</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="calltype_name" nullable="true">
+            <discovered_name>calltype_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>calltype_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="entrytype_id" nullable="true">
+            <discovered_name>entrytype_id</discovered_name>
+            <data_type>char(36)</data_type>
+            <label>entrytype id</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="entrytype_name" nullable="true">
+            <discovered_name>entrytype_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>entrytype_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="object" nullable="true">
+            <discovered_name>object</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>object</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="asset" nullable="true">
+            <discovered_name>asset</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>asset</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="branch" nullable="true">
+            <discovered_name>branch</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>branch</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="location" nullable="true">
+            <discovered_name>location</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>location</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="impact_id" nullable="true">
+            <discovered_name>impact_id</discovered_name>
+            <data_type>char(36)</data_type>
+            <label>impact id</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="impact_name" nullable="true">
+            <discovered_name>impact_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>impact_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="urgency_id" nullable="true">
+            <discovered_name>urgency_id</discovered_name>
+            <data_type>char(36)</data_type>
+            <label>urgency id</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="urgency_name" nullable="true">
+            <discovered_name>urgency_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>urgency_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="priority_id" nullable="true">
+            <discovered_name>priority_id</discovered_name>
+            <data_type>char(36)</data_type>
+            <label>priority id</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="priority_name" nullable="true">
+            <discovered_name>priority_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>priority_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="duration_id" nullable="true">
+            <discovered_name>duration_id</discovered_name>
+            <data_type>char(36)</data_type>
+            <label>duration id</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="duration_name" nullable="true">
+            <discovered_name>duration_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>duration name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="actualduration" nullable="true">
+            <discovered_name>actualduration</discovered_name>
+            <data_type>int</data_type>
+            <label>actualduration</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="targetdate" nullable="true">
+            <discovered_name>targetdate</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>targetdate</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="sla" nullable="true">
+            <discovered_name>sla</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>sla</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="onhold" nullable="true">
+            <discovered_name>onhold</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>onhold</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="onholddate" nullable="true">
+            <discovered_name>onholddate</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>onholddate</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="onholdduration" nullable="true">
+            <discovered_name>onholdduration</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>onholdduration</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="feedbackmessage" nullable="true">
+            <discovered_name>feedbackmessage</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>feedbackmessage</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="feedbackrating" nullable="true">
+            <discovered_name>feedbackrating</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>feedbackrating</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="operator_id" nullable="true">
+            <discovered_name>operator_id</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>operator id</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="operator_status" nullable="true">
+            <discovered_name>operator_status</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>operator status</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="operator_name" nullable="true">
+            <discovered_name>operator_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>operator_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="operatorgroup_id" nullable="true">
+            <discovered_name>operatorgroup_id</discovered_name>
+            <data_type>char(36)</data_type>
+            <label>operatorgroup id</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="operatorgroup_name" nullable="true">
+            <discovered_name>operatorgroup_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>operatorgroup_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="supplier" nullable="true">
+            <discovered_name>supplier</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>supplier</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="processingstatus_id" nullable="true">
+            <discovered_name>processingstatus_id</discovered_name>
+            <data_type>char(36)</data_type>
+            <label>processingstatus id</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="processingstatus_name" nullable="true">
+            <discovered_name>processingstatus_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>processingstatus_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="responded" nullable="true">
+            <discovered_name>responded</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>responded</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="responsedate" nullable="true">
+            <discovered_name>responsedate</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>responsedate</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="completed" nullable="true">
+            <discovered_name>completed</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>completed</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="completeddate" nullable="true">
+            <discovered_name>completeddate</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>completeddate</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="closed" nullable="true">
+            <discovered_name>closed</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>closed</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="closeddate" nullable="true">
+            <discovered_name>closeddate</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>closeddate</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="closurecode" nullable="true">
+            <discovered_name>closurecode</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>closurecode</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="timespent" nullable="true">
+            <discovered_name>timespent</discovered_name>
+            <data_type>float</data_type>
+            <label>timespent</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="timespentfirstline" nullable="true">
+            <discovered_name>timespentfirstline</discovered_name>
+            <data_type>float</data_type>
+            <label>timespentfirstline</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="timespentsecondlineandpartials" nullable="true">
+            <discovered_name>timespentsecondlineandpartials</discovered_name>
+            <data_type>float</data_type>
+            <label>timespentsecondlineandpartials</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="itemcosts" nullable="true">
+            <discovered_name>itemcosts</discovered_name>
+            <data_type>float</data_type>
+            <label>itemcosts</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="objectcosts" nullable="true">
+            <discovered_name>objectcosts</discovered_name>
+            <data_type>float</data_type>
+            <label>objectcosts</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="costs" nullable="true">
+            <discovered_name>costs</discovered_name>
+            <data_type>float</data_type>
+            <label>costs</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="escalationstatus" nullable="true">
+            <discovered_name>escalationstatus</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>escalationstatus</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="escalationreason" nullable="true">
+            <discovered_name>escalationreason</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>escalationreason</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="escalationoperator_id" nullable="true">
+            <discovered_name>escalationoperator_id</discovered_name>
+            <data_type>char(36)</data_type>
+            <label>escalationoperator id</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="escalationoperator_name" nullable="true">
+            <discovered_name>escalationoperator_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>escalationoperator name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="calldate" nullable="true">
+            <discovered_name>calldate</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>calldate</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="creator_id" nullable="true">
+            <discovered_name>creator_id</discovered_name>
+            <data_type>char(36)</data_type>
+            <label>creator id</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="creator_name" nullable="true">
+            <discovered_name>creator_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>creator_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="creationdate" nullable="true">
+            <discovered_name>creationdate</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>creationdate</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="modifier_id" nullable="true">
+            <discovered_name>modifier_id</discovered_name>
+            <data_type>char(36)</data_type>
+            <label>modifier id</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="modifier_name" nullable="true">
+            <discovered_name>modifier_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>modifier_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="modificationdate" nullable="true">
+            <discovered_name>modificationdate</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>modificationdate</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="majorcall" nullable="true">
+            <discovered_name>majorcall</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>majorcall</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="majorcallobject" nullable="true">
+            <discovered_name>majorcallobject</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>majorcallobject</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="publishtossd" nullable="true">
+            <discovered_name>publishtossd</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>publishtossd</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="monitored" nullable="true">
+            <discovered_name>monitored</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>monitored</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="expectedtimespent" nullable="true">
+            <discovered_name>expectedtimespent</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>expectedtimespent</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="archivingreason" nullable="true">
+            <discovered_name>archivingreason</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>archivingreason</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="mainincident" nullable="true">
+            <discovered_name>mainincident</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>mainincident</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_record_source" nullable="true">
+            <discovered_name>dss_record_source</discovered_name>
+            <data_type>varchar(255)</data_type>
+            <label>dss record source</label>
+            <comment>Record source</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_load_date" nullable="true">
+            <discovered_name>dss_load_date</discovered_name>
+            <data_type>datetime</data_type>
+            <label>dss load date</label>
+            <comment>Date and time the row was loaded in the data vault</comment>
+            <created_by>Discovery</created_by>
+          </column>
+        </columns>
+        <table_icon>other_table.png</table_icon>
+        <source_sets>
+          <source_set name="Default Source">
+            <table_mappings />
+            <column_mappings column_name="id" />
+            <column_mappings column_name="status" />
+            <column_mappings column_name="number" />
+            <column_mappings column_name="request" />
+            <column_mappings column_name="requests" />
+            <column_mappings column_name="action" />
+            <column_mappings column_name="attachments" />
+            <column_mappings column_name="caller_id" />
+            <column_mappings column_name="caller_dynamicname" />
+            <column_mappings column_name="caller_email" />
+            <column_mappings column_name="caller_phonenumber" />
+            <column_mappings column_name="caller_mobilenumber" />
+            <column_mappings column_name="caller_branch_id" />
+            <column_mappings column_name="caller_branch_name" />
+            <column_mappings column_name="caller_branch_clientreferencenumber" />
+            <column_mappings column_name="caller_branch_timezone" />
+            <column_mappings column_name="caller_branch_extraa_id" />
+            <column_mappings column_name="caller_branch_extraa_name" />
+            <column_mappings column_name="caller_branch_extrab" />
+            <column_mappings column_name="department_id" />
+            <column_mappings column_name="department_name" />
+            <column_mappings column_name="budgetholder" />
+            <column_mappings column_name="callerbranch_id" />
+            <column_mappings column_name="callerbranch_name" />
+            <column_mappings column_name="callerbranch_clientreferencenumber" />
+            <column_mappings column_name="callerbranch_timezone" />
+            <column_mappings column_name="callerbranch_extraa_id" />
+            <column_mappings column_name="callerbranch_extraa_name" />
+            <column_mappings column_name="callerbranch_extrab" />
+            <column_mappings column_name="callerlocation" />
+            <column_mappings column_name="branchextrafielda_id" />
+            <column_mappings column_name="branchextrafielda_name" />
+            <column_mappings column_name="branchextrafieldb" />
+            <column_mappings column_name="briefdescription" />
+            <column_mappings column_name="externalnumber" />
+            <column_mappings column_name="category_id" />
+            <column_mappings column_name="category_name" />
+            <column_mappings column_name="subcategory_id" />
+            <column_mappings column_name="subcategory_name" />
+            <column_mappings column_name="calltype_id" />
+            <column_mappings column_name="calltype_name" />
+            <column_mappings column_name="entrytype_id" />
+            <column_mappings column_name="entrytype_name" />
+            <column_mappings column_name="object" />
+            <column_mappings column_name="asset" />
+            <column_mappings column_name="branch" />
+            <column_mappings column_name="location" />
+            <column_mappings column_name="impact_id" />
+            <column_mappings column_name="impact_name" />
+            <column_mappings column_name="urgency_id" />
+            <column_mappings column_name="urgency_name" />
+            <column_mappings column_name="priority_id" />
+            <column_mappings column_name="priority_name" />
+            <column_mappings column_name="duration_id" />
+            <column_mappings column_name="duration_name" />
+            <column_mappings column_name="actualduration" />
+            <column_mappings column_name="targetdate" />
+            <column_mappings column_name="sla" />
+            <column_mappings column_name="onhold" />
+            <column_mappings column_name="onholddate" />
+            <column_mappings column_name="onholdduration" />
+            <column_mappings column_name="feedbackmessage" />
+            <column_mappings column_name="feedbackrating" />
+            <column_mappings column_name="operator_id" />
+            <column_mappings column_name="operator_status" />
+            <column_mappings column_name="operator_name" />
+            <column_mappings column_name="operatorgroup_id" />
+            <column_mappings column_name="operatorgroup_name" />
+            <column_mappings column_name="supplier" />
+            <column_mappings column_name="processingstatus_id" />
+            <column_mappings column_name="processingstatus_name" />
+            <column_mappings column_name="responded" />
+            <column_mappings column_name="responsedate" />
+            <column_mappings column_name="completed" />
+            <column_mappings column_name="completeddate" />
+            <column_mappings column_name="closed" />
+            <column_mappings column_name="closeddate" />
+            <column_mappings column_name="closurecode" />
+            <column_mappings column_name="timespent" />
+            <column_mappings column_name="timespentfirstline" />
+            <column_mappings column_name="timespentsecondlineandpartials" />
+            <column_mappings column_name="itemcosts" />
+            <column_mappings column_name="objectcosts" />
+            <column_mappings column_name="costs" />
+            <column_mappings column_name="escalationstatus" />
+            <column_mappings column_name="escalationreason" />
+            <column_mappings column_name="escalationoperator_id" />
+            <column_mappings column_name="escalationoperator_name" />
+            <column_mappings column_name="calldate" />
+            <column_mappings column_name="creator_id" />
+            <column_mappings column_name="creator_name" />
+            <column_mappings column_name="creationdate" />
+            <column_mappings column_name="modifier_id" />
+            <column_mappings column_name="modifier_name" />
+            <column_mappings column_name="modificationdate" />
+            <column_mappings column_name="majorcall" />
+            <column_mappings column_name="majorcallobject" />
+            <column_mappings column_name="publishtossd" />
+            <column_mappings column_name="monitored" />
+            <column_mappings column_name="expectedtimespent" />
+            <column_mappings column_name="archivingreason" />
+            <column_mappings column_name="mainincident" />
+            <column_mappings column_name="dss_record_source" />
+            <column_mappings column_name="dss_load_date" />
+            <dw_query>SELECT  FROM</dw_query>
+            <data_transformations>
+              <data_transformation name="Default Source_dss_record_source_transformation">
+                <description>Record source</description>
+                <columns>
+                  <column>dss_record_source</column>
+                </columns>
+                <purpose type="change">'WhereScape Development.input_100.TopDesk_incidenten'</purpose>
+              </data_transformation>
+              <data_transformation name="Default Source_dss_load_date_transformation">
+                <description>Date and time the row was loaded in the data vault</description>
+                <columns>
+                  <column>dss_load_date</column>
+                </columns>
+                <purpose type="change">D</purpose>
+              </data_transformation>
+            </data_transformations>
+          </source_set>
+        </source_sets>
+      </table>
+      <table name="s_topdesk_incidenten_mroc" schema="dbo" database="red_9012_sql">
+        <discovered_name>s_topdesk_incidenten_mroc</discovered_name>
+        <discovered_schema>dbo</discovered_schema>
+        <discovered_database>red_9012_sql</discovered_database>
+        <table_types>
+          <table_type name="Satellite" />
+        </table_types>
+        <columns>
+          <column name="hk_h_topdesk_incidenten">
+            <discovered_name>hk_h_topdesk_incidenten</discovered_name>
+            <data_type>char(66)</data_type>
+            <label>hk_h_topdesk_incidenten</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Hub hash key" />
+            </column_types>
+          </column>
+          <column name="status" nullable="true">
+            <discovered_name>status</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>status</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="caller_dynamicname" nullable="true">
+            <discovered_name>caller_dynamicname</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>caller_dynamicname</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="caller_email" nullable="true">
+            <discovered_name>caller_email</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>caller_email</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="department_name" nullable="true">
+            <discovered_name>department_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>department_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="briefdescription" nullable="true">
+            <discovered_name>briefdescription</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>briefdescription</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="category_name" nullable="true">
+            <discovered_name>category_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>category_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="subcategory_name" nullable="true">
+            <discovered_name>subcategory_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>subcategory_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="calltype_name" nullable="true">
+            <discovered_name>calltype_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>calltype_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="entrytype_name" nullable="true">
+            <discovered_name>entrytype_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>entrytype_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="impact_name" nullable="true">
+            <discovered_name>impact_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>impact_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="urgency_name" nullable="true">
+            <discovered_name>urgency_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>urgency_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="priority_name" nullable="true">
+            <discovered_name>priority_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>priority_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="operator_name" nullable="true">
+            <discovered_name>operator_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>operator_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="operatorgroup_name" nullable="true">
+            <discovered_name>operatorgroup_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>operatorgroup_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="processingstatus_name" nullable="true">
+            <discovered_name>processingstatus_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>processingstatus_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="responded" nullable="true">
+            <discovered_name>responded</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>responded</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="completed" nullable="true">
+            <discovered_name>completed</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>completed</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="closed" nullable="true">
+            <discovered_name>closed</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>closed</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="creator_name" nullable="true">
+            <discovered_name>creator_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>creator_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="modifier_name" nullable="true">
+            <discovered_name>modifier_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>modifier_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_change_hash">
+            <discovered_name>dss_change_hash</discovered_name>
+            <data_type>char(66)</data_type>
+            <label>dss change hash</label>
+            <comment>The changing hash</comment>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Change hash key" />
+            </column_types>
+          </column>
+          <column name="dss_record_source" nullable="true">
+            <discovered_name>dss_record_source</discovered_name>
+            <data_type>varchar(255)</data_type>
+            <label>dss record source</label>
+            <comment>Record source</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_load_date" nullable="true">
+            <discovered_name>dss_load_date</discovered_name>
+            <data_type>datetime</data_type>
+            <label>dss load date</label>
+            <comment>Date and time the row was loaded in the data vault</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_start_date" nullable="true">
+            <discovered_name>dss_start_date</discovered_name>
+            <data_type>datetime</data_type>
+            <label>dss start date</label>
+            <comment>Date and time the row started in the data vault</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_version" nullable="true">
+            <discovered_name>dss_version</discovered_name>
+            <data_type>int</data_type>
+            <label>dss version</label>
+            <comment>Version number of a business key in the data vault</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_create_time" nullable="true">
+            <discovered_name>dss_create_time</discovered_name>
+            <data_type>datetime</data_type>
+            <label>dss create time</label>
+            <comment>Date and time the row was inserted in the data vault</comment>
+            <created_by>Discovery</created_by>
+          </column>
+        </columns>
+        <table_icon>other_table.png</table_icon>
+        <source_sets>
+          <source_set name="Default Source">
+            <table_mappings>
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten</source_table>
+                <source_is_trigger_file>false</source_is_trigger_file>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </table_mappings>
+            <column_mappings column_name="hk_h_topdesk_incidenten">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten</source_table>
+                <source_column>hk_h_topdesk_incidenten</source_column>
+                <source_label>hk_h_topdesk_incidenten</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="status">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten</source_table>
+                <source_column>status</source_column>
+                <source_label>status</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="caller_dynamicname">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten</source_table>
+                <source_column>caller_dynamicname</source_column>
+                <source_label>caller_dynamicname</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="caller_email">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten</source_table>
+                <source_column>caller_email</source_column>
+                <source_label>caller_email</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="department_name">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten</source_table>
+                <source_column>department_name</source_column>
+                <source_label>department_name</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="briefdescription">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten</source_table>
+                <source_column>briefdescription</source_column>
+                <source_label>briefdescription</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="category_name">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten</source_table>
+                <source_column>category_name</source_column>
+                <source_label>category_name</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="subcategory_name">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten</source_table>
+                <source_column>subcategory_name</source_column>
+                <source_label>subcategory_name</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="calltype_name">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten</source_table>
+                <source_column>calltype_name</source_column>
+                <source_label>calltype_name</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="entrytype_name">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten</source_table>
+                <source_column>entrytype_name</source_column>
+                <source_label>entrytype_name</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="impact_name">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten</source_table>
+                <source_column>impact_name</source_column>
+                <source_label>impact_name</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="urgency_name">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten</source_table>
+                <source_column>urgency_name</source_column>
+                <source_label>urgency_name</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="priority_name">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten</source_table>
+                <source_column>priority_name</source_column>
+                <source_label>priority_name</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="operator_name">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten</source_table>
+                <source_column>operator_name</source_column>
+                <source_label>operator_name</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="operatorgroup_name">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten</source_table>
+                <source_column>operatorgroup_name</source_column>
+                <source_label>operatorgroup_name</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="processingstatus_name">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten</source_table>
+                <source_column>processingstatus_name</source_column>
+                <source_label>processingstatus_name</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="responded">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten</source_table>
+                <source_column>responded</source_column>
+                <source_label>responded</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="completed">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten</source_table>
+                <source_column>completed</source_column>
+                <source_label>completed</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="closed">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten</source_table>
+                <source_column>closed</source_column>
+                <source_label>closed</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="creator_name">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten</source_table>
+                <source_column>creator_name</source_column>
+                <source_label>creator_name</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="modifier_name">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten</source_table>
+                <source_column>modifier_name</source_column>
+                <source_label>modifier_name</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_change_hash">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten</source_table>
+                <source_column>dss_change_hash_topdesk_incidenten_mroc</source_column>
+                <source_label>dss change hash topdesk incidenten mroc</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_record_source">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten</source_table>
+                <source_column>dss_record_source</source_column>
+                <source_label>dss record source</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_load_date">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>stage_vault_topdesk_incidenten</source_table>
+                <source_column>dss_load_date</source_column>
+                <source_label>dss load date</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_start_date" />
+            <column_mappings column_name="dss_version" />
+            <column_mappings column_name="dss_create_time" />
+            <referenced_connections>
+              <referenced_connection preferred="true">SQLTestCon</referenced_connection>
+            </referenced_connections>
+          </source_set>
+        </source_sets>
+      </table>
+      <table name="stage_vault_topdesk_branches" schema="dbo" database="red_9012_sql">
+        <discovered_name>stage_vault_topdesk_branches</discovered_name>
+        <discovered_schema>dbo</discovered_schema>
+        <discovered_database>red_9012_sql</discovered_database>
+        <table_types>
+          <table_type name="Stage" />
+        </table_types>
+        <columns>
+          <column name="hk_h_topdesk_branches">
+            <discovered_name>hk_h_topdesk_branches</discovered_name>
+            <data_type>char(66)</data_type>
+            <label>hk_h_topdesk_branches</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Hub hash key" />
+            </column_types>
+          </column>
+          <column name="id" nullable="true">
+            <discovered_name>id</discovered_name>
+            <data_type>char(36)</data_type>
+            <label>id</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="name" nullable="true">
+            <discovered_name>name</discovered_name>
+            <data_type>nvarchar(100)</data_type>
+            <label>name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_record_source" nullable="true">
+            <discovered_name>dss_record_source</discovered_name>
+            <data_type>varchar(255)</data_type>
+            <label>dss record source</label>
+            <comment>Record source</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_load_date" nullable="true">
+            <discovered_name>dss_load_date</discovered_name>
+            <data_type>datetime</data_type>
+            <label>dss load date</label>
+            <comment>Date and time the row was loaded in the data vault</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_create_time" nullable="true">
+            <discovered_name>dss_create_time</discovered_name>
+            <data_type>datetime</data_type>
+            <label>dss create time</label>
+            <comment>Date and time the row was inserted in the data vault</comment>
+            <created_by>Discovery</created_by>
+          </column>
+        </columns>
+        <table_icon>other_table.png</table_icon>
+        <source_sets>
+          <source_set name="Default Source">
+            <table_mappings>
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_branches_wherescape_development</source_table>
+                <source_is_trigger_file>false</source_is_trigger_file>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </table_mappings>
+            <column_mappings column_name="hk_h_topdesk_branches" />
+            <column_mappings column_name="id">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_branches_wherescape_development</source_table>
+                <source_column>id</source_column>
+                <source_label>id</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="name">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_branches_wherescape_development</source_table>
+                <source_column>name</source_column>
+                <source_label>name</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_record_source">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_branches_wherescape_development</source_table>
+                <source_column>dss_record_source</source_column>
+                <source_label>dss record source</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_load_date">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_branches_wherescape_development</source_table>
+                <source_column>dss_load_date</source_column>
+                <source_label>dss load date</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_create_time" />
+            <referenced_connections>
+              <referenced_connection preferred="true">SQLTestCon</referenced_connection>
+            </referenced_connections>
+          </source_set>
+        </source_sets>
+      </table>
+      <table name="stage_vault_topdesk_incidenten" schema="dbo" database="red_9012_sql">
+        <discovered_name>stage_vault_topdesk_incidenten</discovered_name>
+        <discovered_schema>dbo</discovered_schema>
+        <discovered_database>red_9012_sql</discovered_database>
+        <table_types>
+          <table_type name="Stage" />
+        </table_types>
+        <columns>
+          <column name="hk_h_topdesk_incidenten">
+            <discovered_name>hk_h_topdesk_incidenten</discovered_name>
+            <data_type>char(66)</data_type>
+            <label>hk_h_topdesk_incidenten</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Hub hash key" />
+            </column_types>
+          </column>
+          <column name="number" nullable="true">
+            <discovered_name>number</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>number</label>
+            <comment>Dit is het kenmerk van de TOPDESK melding</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="status" nullable="true">
+            <discovered_name>status</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>status</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="caller_dynamicname" nullable="true">
+            <discovered_name>caller_dynamicname</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>caller_dynamicname</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="caller_email" nullable="true">
+            <discovered_name>caller_email</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>caller_email</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="department_name" nullable="true">
+            <discovered_name>department_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>department_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="briefdescription" nullable="true">
+            <discovered_name>briefdescription</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>briefdescription</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="category_name" nullable="true">
+            <discovered_name>category_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>category_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="subcategory_name" nullable="true">
+            <discovered_name>subcategory_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>subcategory_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="calltype_name" nullable="true">
+            <discovered_name>calltype_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>calltype_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="entrytype_name" nullable="true">
+            <discovered_name>entrytype_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>entrytype_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="impact_name" nullable="true">
+            <discovered_name>impact_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>impact_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="urgency_name" nullable="true">
+            <discovered_name>urgency_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>urgency_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="priority_name" nullable="true">
+            <discovered_name>priority_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>priority_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="operator_name" nullable="true">
+            <discovered_name>operator_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>operator_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="operatorgroup_name" nullable="true">
+            <discovered_name>operatorgroup_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>operatorgroup_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="processingstatus_name" nullable="true">
+            <discovered_name>processingstatus_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>processingstatus_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="responded" nullable="true">
+            <discovered_name>responded</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>responded</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="completed" nullable="true">
+            <discovered_name>completed</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>completed</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="closed" nullable="true">
+            <discovered_name>closed</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>closed</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="creator_name" nullable="true">
+            <discovered_name>creator_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>creator_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="modifier_name" nullable="true">
+            <discovered_name>modifier_name</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>modifier_name</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_change_hash_topdesk_incidenten_mroc">
+            <discovered_name>dss_change_hash_topdesk_incidenten_mroc</discovered_name>
+            <data_type>char(66)</data_type>
+            <label>dss change hash topdesk incidenten mroc</label>
+            <comment>The changing hash</comment>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Change hash key" />
+            </column_types>
+          </column>
+          <column name="dss_record_source" nullable="true">
+            <discovered_name>dss_record_source</discovered_name>
+            <data_type>varchar(255)</data_type>
+            <label>dss record source</label>
+            <comment>Record source</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_load_date" nullable="true">
+            <discovered_name>dss_load_date</discovered_name>
+            <data_type>datetime</data_type>
+            <label>dss load date</label>
+            <comment>Date and time the row was loaded in the data vault</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_create_time" nullable="true">
+            <discovered_name>dss_create_time</discovered_name>
+            <data_type>datetime</data_type>
+            <label>dss create time</label>
+            <comment>Date and time the row was inserted in the data vault</comment>
+            <created_by>Discovery</created_by>
+          </column>
+        </columns>
+        <table_icon>other_table.png</table_icon>
+        <source_sets>
+          <source_set name="Default Source">
+            <table_mappings>
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_incidenten_wherescape_development</source_table>
+                <source_is_trigger_file>false</source_is_trigger_file>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_incidenten_wherescape_development</source_table>
+                <source_is_trigger_file>false</source_is_trigger_file>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </table_mappings>
+            <column_mappings column_name="hk_h_topdesk_incidenten" />
+            <column_mappings column_name="number">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_incidenten_wherescape_development</source_table>
+                <source_column>number</source_column>
+                <source_label>number</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="status">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_incidenten_wherescape_development</source_table>
+                <source_column>status</source_column>
+                <source_label>status</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="caller_dynamicname">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_incidenten_wherescape_development</source_table>
+                <source_column>caller_dynamicname</source_column>
+                <source_label>caller_dynamicname</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="caller_email">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_incidenten_wherescape_development</source_table>
+                <source_column>caller_email</source_column>
+                <source_label>caller_email</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="department_name">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_incidenten_wherescape_development</source_table>
+                <source_column>department_name</source_column>
+                <source_label>department_name</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="briefdescription">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_incidenten_wherescape_development</source_table>
+                <source_column>briefdescription</source_column>
+                <source_label>briefdescription</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="category_name">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_incidenten_wherescape_development</source_table>
+                <source_column>category_name</source_column>
+                <source_label>category_name</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="subcategory_name">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_incidenten_wherescape_development</source_table>
+                <source_column>subcategory_name</source_column>
+                <source_label>subcategory_name</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="calltype_name">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_incidenten_wherescape_development</source_table>
+                <source_column>calltype_name</source_column>
+                <source_label>calltype_name</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="entrytype_name">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_incidenten_wherescape_development</source_table>
+                <source_column>entrytype_name</source_column>
+                <source_label>entrytype_name</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="impact_name">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_incidenten_wherescape_development</source_table>
+                <source_column>impact_name</source_column>
+                <source_label>impact_name</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="urgency_name">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_incidenten_wherescape_development</source_table>
+                <source_column>urgency_name</source_column>
+                <source_label>urgency_name</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="priority_name">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_incidenten_wherescape_development</source_table>
+                <source_column>priority_name</source_column>
+                <source_label>priority_name</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="operator_name">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_incidenten_wherescape_development</source_table>
+                <source_column>operator_name</source_column>
+                <source_label>operator_name</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="operatorgroup_name">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_incidenten_wherescape_development</source_table>
+                <source_column>operatorgroup_name</source_column>
+                <source_label>operatorgroup_name</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="processingstatus_name">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_incidenten_wherescape_development</source_table>
+                <source_column>processingstatus_name</source_column>
+                <source_label>processingstatus_name</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="responded">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_incidenten_wherescape_development</source_table>
+                <source_column>responded</source_column>
+                <source_label>responded</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="completed">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_incidenten_wherescape_development</source_table>
+                <source_column>completed</source_column>
+                <source_label>completed</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="closed">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_incidenten_wherescape_development</source_table>
+                <source_column>closed</source_column>
+                <source_label>closed</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="creator_name">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_incidenten_wherescape_development</source_table>
+                <source_column>creator_name</source_column>
+                <source_label>creator_name</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="modifier_name">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_incidenten_wherescape_development</source_table>
+                <source_column>modifier_name</source_column>
+                <source_label>modifier_name</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_change_hash_topdesk_incidenten_mroc" />
+            <column_mappings column_name="dss_record_source">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_incidenten_wherescape_development</source_table>
+                <source_column>dss_record_source</source_column>
+                <source_label>dss record source</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_load_date">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_incidenten_wherescape_development</source_table>
+                <source_column>dss_load_date</source_column>
+                <source_label>dss load date</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_create_time" />
+            <referenced_connections>
+              <referenced_connection preferred="true">SQLTestCon</referenced_connection>
+            </referenced_connections>
+          </source_set>
+        </source_sets>
+      </table>
+      <table name="stage_vault_topdesk_incidenten_topdesk_branches" schema="dbo" database="red_9012_sql">
+        <discovered_name>stage_vault_topdesk_incidenten_topdesk_branches</discovered_name>
+        <discovered_schema>dbo</discovered_schema>
+        <discovered_database>red_9012_sql</discovered_database>
+        <table_types>
+          <table_type name="Stage" />
+        </table_types>
+        <columns>
+          <column name="hk_l_topdesk_incidenten_topdesk_branches">
+            <discovered_name>hk_l_topdesk_incidenten_topdesk_branches</discovered_name>
+            <data_type>char(66)</data_type>
+            <label>hk_l_topdesk_incidenten_topdesk_branches</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Link hash key" />
+            </column_types>
+          </column>
+          <column name="hk_h_topdesk_incidenten">
+            <discovered_name>hk_h_topdesk_incidenten</discovered_name>
+            <data_type>char(66)</data_type>
+            <label>hk_h_topdesk_incidenten</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Hub hash key" />
+            </column_types>
+          </column>
+          <column name="hk_h_topdesk_branches">
+            <discovered_name>hk_h_topdesk_branches</discovered_name>
+            <data_type>char(66)</data_type>
+            <label>hk_h_topdesk_branches</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Hub hash key" />
+            </column_types>
+          </column>
+          <column name="callerbranch_id" nullable="true">
+            <discovered_name>callerbranch_id</discovered_name>
+            <data_type>char(36)</data_type>
+            <label>callerbranch_id</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="number" nullable="true">
+            <discovered_name>number</discovered_name>
+            <data_type>nvarchar(1000)</data_type>
+            <label>number</label>
+            <comment>Dit is het kenmerk van de TOPDESK melding</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_record_source" nullable="true">
+            <discovered_name>dss_record_source</discovered_name>
+            <data_type>varchar(255)</data_type>
+            <label>dss record source</label>
+            <comment>Record source</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_load_date" nullable="true">
+            <discovered_name>dss_load_date</discovered_name>
+            <data_type>datetime</data_type>
+            <label>dss load date</label>
+            <comment>Date and time the row was loaded in the data vault</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_create_time" nullable="true">
+            <discovered_name>dss_create_time</discovered_name>
+            <data_type>datetime</data_type>
+            <label>dss create time</label>
+            <comment>Date and time the row was inserted in the data vault</comment>
+            <created_by>Discovery</created_by>
+          </column>
+        </columns>
+        <table_icon>other_table.png</table_icon>
+        <source_sets>
+          <source_set name="Default Source">
+            <table_mappings>
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_incidenten_wherescape_development</source_table>
+                <source_is_trigger_file>false</source_is_trigger_file>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </table_mappings>
+            <column_mappings column_name="hk_l_topdesk_incidenten_topdesk_branches" />
+            <column_mappings column_name="hk_h_topdesk_incidenten" />
+            <column_mappings column_name="hk_h_topdesk_branches" />
+            <column_mappings column_name="callerbranch_id">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_incidenten_wherescape_development</source_table>
+                <source_column>callerbranch_id</source_column>
+                <source_label>callerbranch_id</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="number">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_incidenten_wherescape_development</source_table>
+                <source_column>number</source_column>
+                <source_label>number</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_record_source">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_incidenten_wherescape_development</source_table>
+                <source_column>dss_record_source</source_column>
+                <source_label>dss record source</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_load_date">
+              <source_mapping>
+                <source_database>red_9012_sql</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>load_topdesk_incidenten_wherescape_development</source_table>
+                <source_column>dss_load_date</source_column>
+                <source_label>dss load date</source_label>
+                <source_category>RED Import</source_category>
+                <source_model>Sqltest1</source_model>
+                <source_version>1.1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_create_time" />
+            <referenced_connections>
+              <referenced_connection preferred="true">SQLTestCon</referenced_connection>
+            </referenced_connections>
+          </source_set>
+        </source_sets>
+      </table>
+    </tables>
+    <relations>
+      <relation>
+        <fk_database>red_9012_sql</fk_database>
+        <fk_schema>dbo</fk_schema>
+        <fk_table>l_topdesk_incidenten_topdesk_branches</fk_table>
+        <fk_column>hk_h_topdesk_incidenten</fk_column>
+        <referenced_database>red_9012_sql</referenced_database>
+        <referenced_schema>dbo</referenced_schema>
+        <referenced_table>h_topdesk_incidenten</referenced_table>
+        <referenced_column>hk_h_topdesk_incidenten</referenced_column>
+        <fk_constraint_name>l_topdesk_incidenten_topdesk_branches_h_topdesk_incidenten</fk_constraint_name>
+        <fk_sequence>3</fk_sequence>
+        <label>l_topdesk_incidenten_topdesk_branches_h_topdesk_incidenten</label>
+        <visible>true</visible>
+        <generated>false</generated>
+      </relation>
+      <relation>
+        <fk_database>red_9012_sql</fk_database>
+        <fk_schema>dbo</fk_schema>
+        <fk_table>l_topdesk_incidenten_topdesk_branches</fk_table>
+        <fk_column>hk_h_topdesk_branches</fk_column>
+        <referenced_database>red_9012_sql</referenced_database>
+        <referenced_schema>dbo</referenced_schema>
+        <referenced_table>h_topdesk_branches</referenced_table>
+        <referenced_column>hk_h_topdesk_branches</referenced_column>
+        <fk_constraint_name>l_topdesk_incidenten_topdesk_branches_h_topdesk_branches</fk_constraint_name>
+        <fk_sequence>2</fk_sequence>
+        <label>l_topdesk_incidenten_topdesk_branches_h_topdesk_branches</label>
+        <visible>true</visible>
+        <generated>false</generated>
+      </relation>
+      <relation>
+        <fk_database>red_9012_sql</fk_database>
+        <fk_schema>dbo</fk_schema>
+        <fk_table>s_topdesk_incidenten_mroc</fk_table>
+        <fk_column>hk_h_topdesk_incidenten</fk_column>
+        <referenced_database>red_9012_sql</referenced_database>
+        <referenced_schema>dbo</referenced_schema>
+        <referenced_table>h_topdesk_incidenten</referenced_table>
+        <referenced_column>hk_h_topdesk_incidenten</referenced_column>
+        <fk_constraint_name>s_topdesk_incidenten_mroc_h_topdesk_incidenten</fk_constraint_name>
+        <fk_sequence>1</fk_sequence>
+        <label>s_topdesk_incidenten_mroc_h_topdesk_incidenten</label>
+        <visible>true</visible>
+        <generated>false</generated>
+      </relation>
+    </relations>
+    <groups>
+      <group name="TOPDESK">
+        <member schema="dbo">h_topdesk_branches</member>
+        <member schema="dbo">h_topdesk_incidenten</member>
+        <member schema="dbo">l_topdesk_incidenten_topdesk_branches</member>
+        <member schema="dbo">load_topdesk_branches_wherescape_development</member>
+        <member schema="dbo">load_topdesk_incidenten_wherescape_development</member>
+        <member schema="dbo">s_topdesk_incidenten_mroc</member>
+        <member schema="dbo">stage_vault_topdesk_branches</member>
+        <member schema="dbo">stage_vault_topdesk_incidenten</member>
+        <member schema="dbo">stage_vault_topdesk_incidenten_topdesk_branches</member>
+        <documentation>
+          <subject label="Description" name="Group description" />
+        </documentation>
+      </group>
+    </groups>
+    <schemas>
+      <schema name="dbo" />
+    </schemas>
+  </structure>
+  <connections>
+    <odbc_connection name="SQLTestCon">
+      <dsn>red_9012_sql</dsn>
+      <max_simultaneous>7</max_simultaneous>
+      <rdbms>MS SQL SERVER</rdbms>
+      <documentation>
+        <subject label="General info" name="General information" />
+      </documentation>
+    </odbc_connection>
+  </connections>
+  <source_system_connection>SQLTestCon</source_system_connection>
+  <source_system_discovery>
+    <discover_type>USER</discover_type>
+    <discover_database>WhereScape RED</discover_database>
+    <discover_database_version>*</discover_database_version>
+  </source_system_discovery>
+  <source_system_profiling>
+    <profiling_type>JDBC</profiling_type>
+    <profiling_stored_versions>3</profiling_stored_versions>
+    <profiling_retry_fail_period>0</profiling_retry_fail_period>
+  </source_system_profiling>
+  <notes>
+    <categories>
+      <category>
+        <name>Observation Note</name>
+        <colour>255,255,255</colour>
+      </category>
+    </categories>
+  </notes>
+  <effort_calculations>
+    <effort_calculation name="WhereScape Basic">
+      <calculation>(%connection_count%+1) * (%table_count% + (%column_count% / %table_count%))</calculation>
+      <description>WhereScape's basic calculation of business effort.</description>
+    </effort_calculation>
+  </effort_calculations>
+</source_system>

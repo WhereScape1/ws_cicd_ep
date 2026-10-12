@@ -1,0 +1,3915 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<source_system xmlns="http://www.wherescape.com/xml/3D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wherescape.com/xml/3D ./source_system_50.xsd">
+  <xml_version>50</xml_version>
+  <source_application>WhereScape 3D</source_application>
+  <structure>
+    <table_types>
+      <table_type name="View">
+        <group>View</group>
+        <description>A view entity</description>
+        <colour>228,224,233</colour>
+        <object_icon>view_table.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="Load">
+        <colour>204,255,204</colour>
+        <object_icon>Load.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+        <table_prefix>load_</table_prefix>
+        <robots>
+          <robot name="dss_record_source">
+            <generated_object>COLUMN</generated_object>
+            <generated_object_name>dss_record_source</generated_object_name>
+            <data_type size="255" scale="">tgt_varchar</data_type>
+            <positioning>BOTTOM</positioning>
+            <col_description>Record source</col_description>
+            <is_pk>false</is_pk>
+            <is_auto_increment>false</is_auto_increment>
+            <is_unique>false</is_unique>
+            <is_nullable>true</is_nullable>
+            <column_types>
+              <column_type name="dss_record_source" />
+            </column_types>
+          </robot>
+          <robot name="dss_load_date">
+            <generated_object>COLUMN</generated_object>
+            <generated_object_name>dss_load_date</generated_object_name>
+            <data_type size="" scale="">tgt_datetime</data_type>
+            <positioning>BOTTOM</positioning>
+            <col_description>Date and time the row was loaded</col_description>
+            <is_pk>false</is_pk>
+            <is_auto_increment>false</is_auto_increment>
+            <is_unique>false</is_unique>
+            <is_nullable>true</is_nullable>
+            <column_types>
+              <column_type name="dss_load_date" />
+            </column_types>
+          </robot>
+        </robots>
+      </table_type>
+      <table_type name="Stage">
+        <colour>204,204,255</colour>
+        <object_icon>Stage.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+        <table_prefix>stage_</table_prefix>
+        <robots>
+          <robot name="dss_update_time">
+            <generated_object>COLUMN</generated_object>
+            <generated_object_name>dss_update_time</generated_object_name>
+            <data_type size="" scale="">tgt_datetime</data_type>
+            <positioning>BOTTOM</positioning>
+            <col_description>Date and time the row was updated in the data warehouse</col_description>
+            <is_pk>false</is_pk>
+            <is_auto_increment>false</is_auto_increment>
+            <is_unique>false</is_unique>
+            <is_nullable>true</is_nullable>
+            <column_types>
+              <column_type name="dss_update_time" />
+            </column_types>
+          </robot>
+        </robots>
+      </table_type>
+      <table_type name="Stage-Data Vault Stage">
+        <colour>165,165,207</colour>
+        <object_icon>Stage.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+        <table_prefix>stage_</table_prefix>
+        <robots>
+          <robot name="dss_record_source">
+            <generated_object>COLUMN</generated_object>
+            <generated_object_name>dss_record_source</generated_object_name>
+            <data_type size="255" scale="">tgt_varchar</data_type>
+            <positioning>BOTTOM</positioning>
+            <col_description>Record source</col_description>
+            <is_pk>false</is_pk>
+            <is_auto_increment>false</is_auto_increment>
+            <is_unique>false</is_unique>
+            <is_nullable>true</is_nullable>
+            <column_types>
+              <column_type name="dss_record_source" />
+            </column_types>
+          </robot>
+          <robot name="dss_load_date">
+            <generated_object>COLUMN</generated_object>
+            <generated_object_name>dss_load_date</generated_object_name>
+            <data_type size="" scale="">tgt_datetime</data_type>
+            <positioning>BOTTOM</positioning>
+            <col_description>Date and time the row was loaded in the data vault</col_description>
+            <is_pk>false</is_pk>
+            <is_auto_increment>false</is_auto_increment>
+            <is_unique>false</is_unique>
+            <is_nullable>true</is_nullable>
+            <column_types>
+              <column_type name="dss_load_date" />
+            </column_types>
+          </robot>
+          <robot name="dss_create_time">
+            <generated_object>COLUMN</generated_object>
+            <generated_object_name>dss_create_time</generated_object_name>
+            <data_type size="" scale="">tgt_datetime</data_type>
+            <positioning>BOTTOM</positioning>
+            <col_description>Date and time the row was inserted in the data vault</col_description>
+            <is_pk>false</is_pk>
+            <is_auto_increment>false</is_auto_increment>
+            <is_unique>false</is_unique>
+            <is_nullable>true</is_nullable>
+            <column_types>
+              <column_type name="dss_create_time" />
+            </column_types>
+          </robot>
+        </robots>
+      </table_type>
+      <table_type name="MCTemp_Hub_Stage">
+        <colour>204,204,255</colour>
+        <object_icon>Stage.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="MCTemp_Link_Stage">
+        <colour>204,204,255</colour>
+        <object_icon>Stage.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="MCTemp_Sat_Stage">
+        <colour>204,204,255</colour>
+        <object_icon>Stage.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="Hub">
+        <group>Hub</group>
+        <description>Data Vault Hub</description>
+        <colour>187,224,255</colour>
+        <object_icon>dv_hub.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+        <table_prefix>h_</table_prefix>
+        <robots>
+          <robot name="dss_record_source">
+            <generated_object>COLUMN</generated_object>
+            <generated_object_name>dss_record_source</generated_object_name>
+            <data_type size="255" scale="">tgt_varchar</data_type>
+            <positioning>BOTTOM</positioning>
+            <col_description>Record source</col_description>
+            <is_pk>false</is_pk>
+            <is_auto_increment>false</is_auto_increment>
+            <is_unique>false</is_unique>
+            <is_nullable>true</is_nullable>
+            <column_types>
+              <column_type name="dss_record_source" />
+            </column_types>
+          </robot>
+          <robot name="dss_load_date">
+            <generated_object>COLUMN</generated_object>
+            <generated_object_name>dss_load_date</generated_object_name>
+            <data_type size="" scale="">tgt_datetime</data_type>
+            <positioning>BOTTOM</positioning>
+            <col_description>Date and time the row was loaded in the data vault</col_description>
+            <is_pk>false</is_pk>
+            <is_auto_increment>false</is_auto_increment>
+            <is_unique>false</is_unique>
+            <is_nullable>true</is_nullable>
+            <column_types>
+              <column_type name="dss_load_date" />
+            </column_types>
+          </robot>
+          <robot name="dss_create_time">
+            <generated_object>COLUMN</generated_object>
+            <generated_object_name>dss_create_time</generated_object_name>
+            <data_type size="" scale="">tgt_datetime</data_type>
+            <positioning>BOTTOM</positioning>
+            <col_description>Date and time the row was inserted in the data vault</col_description>
+            <is_pk>false</is_pk>
+            <is_auto_increment>false</is_auto_increment>
+            <is_unique>false</is_unique>
+            <is_nullable>true</is_nullable>
+            <column_types>
+              <column_type name="dss_create_time" />
+            </column_types>
+          </robot>
+        </robots>
+      </table_type>
+      <table_type name="Satellite">
+        <group>Satellite</group>
+        <description>Data Vault Satellite</description>
+        <colour>255,248,220</colour>
+        <object_icon>dv_satellite.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+        <table_prefix>s_</table_prefix>
+        <robots>
+          <robot name="dss_change_hash">
+            <generated_object>COLUMN</generated_object>
+            <generated_object_name>dss_change_hash</generated_object_name>
+            <data_type size="32" scale="">tgt_char</data_type>
+            <positioning>BOTTOM</positioning>
+            <col_description>The changing hash</col_description>
+            <is_pk>false</is_pk>
+            <is_auto_increment>false</is_auto_increment>
+            <is_unique>false</is_unique>
+            <is_nullable>false</is_nullable>
+            <column_types>
+              <column_type name="Change hash key" />
+            </column_types>
+          </robot>
+          <robot name="dss_record_source">
+            <generated_object>COLUMN</generated_object>
+            <generated_object_name>dss_record_source</generated_object_name>
+            <data_type size="255" scale="">tgt_varchar</data_type>
+            <positioning>BOTTOM</positioning>
+            <col_description>Record source</col_description>
+            <is_pk>false</is_pk>
+            <is_auto_increment>false</is_auto_increment>
+            <is_unique>false</is_unique>
+            <is_nullable>true</is_nullable>
+            <column_types>
+              <column_type name="dss_record_source" />
+            </column_types>
+          </robot>
+          <robot name="dss_load_date">
+            <generated_object>COLUMN</generated_object>
+            <generated_object_name>dss_load_date</generated_object_name>
+            <data_type size="" scale="">tgt_datetime</data_type>
+            <positioning>BOTTOM</positioning>
+            <col_description>Date and time the row was loaded in the data vault</col_description>
+            <is_pk>false</is_pk>
+            <is_auto_increment>false</is_auto_increment>
+            <is_unique>false</is_unique>
+            <is_nullable>true</is_nullable>
+            <column_types>
+              <column_type name="dss_load_date" />
+            </column_types>
+          </robot>
+          <robot name="dss_start_date">
+            <generated_object>COLUMN</generated_object>
+            <generated_object_name>dss_start_date</generated_object_name>
+            <data_type size="" scale="">tgt_datetime</data_type>
+            <positioning>BOTTOM</positioning>
+            <col_description>Date and time the row started in the data vault</col_description>
+            <is_pk>false</is_pk>
+            <is_auto_increment>false</is_auto_increment>
+            <is_unique>false</is_unique>
+            <is_nullable>true</is_nullable>
+            <column_types>
+              <column_type name="dss_start_date" />
+            </column_types>
+          </robot>
+          <robot name="dss_version">
+            <generated_object>COLUMN</generated_object>
+            <generated_object_name>dss_version</generated_object_name>
+            <data_type size="" scale="">tgt_integer</data_type>
+            <positioning>BOTTOM</positioning>
+            <col_description>Version number of a business key in the data vault</col_description>
+            <is_pk>false</is_pk>
+            <is_auto_increment>false</is_auto_increment>
+            <is_unique>false</is_unique>
+            <is_nullable>true</is_nullable>
+            <column_types>
+              <column_type name="dss_version" />
+            </column_types>
+          </robot>
+          <robot name="dss_create_time">
+            <generated_object>COLUMN</generated_object>
+            <generated_object_name>dss_create_time</generated_object_name>
+            <data_type size="" scale="">tgt_datetime</data_type>
+            <positioning>BOTTOM</positioning>
+            <col_description>Date and time the row was inserted in the data vault</col_description>
+            <is_pk>false</is_pk>
+            <is_auto_increment>false</is_auto_increment>
+            <is_unique>false</is_unique>
+            <is_nullable>true</is_nullable>
+            <column_types>
+              <column_type name="dss_create_time" />
+            </column_types>
+          </robot>
+        </robots>
+      </table_type>
+      <table_type name="Link">
+        <group>Link</group>
+        <description>Data Vault Link</description>
+        <colour>245,201,208</colour>
+        <object_icon>dv_link.png</object_icon>
+        <positioning_characteristic>HUB</positioning_characteristic>
+        <table_prefix>l_</table_prefix>
+        <robots>
+          <robot name="dss_record_source">
+            <generated_object>COLUMN</generated_object>
+            <generated_object_name>dss_record_source</generated_object_name>
+            <data_type size="255" scale="">tgt_varchar</data_type>
+            <positioning>BOTTOM</positioning>
+            <col_description>Record source</col_description>
+            <is_pk>false</is_pk>
+            <is_auto_increment>false</is_auto_increment>
+            <is_unique>false</is_unique>
+            <is_nullable>true</is_nullable>
+            <column_types>
+              <column_type name="dss_record_source" />
+            </column_types>
+          </robot>
+          <robot name="dss_load_date">
+            <generated_object>COLUMN</generated_object>
+            <generated_object_name>dss_load_date</generated_object_name>
+            <data_type size="" scale="">tgt_datetime</data_type>
+            <positioning>BOTTOM</positioning>
+            <col_description>Date and time the row was loaded in the data vault</col_description>
+            <is_pk>false</is_pk>
+            <is_auto_increment>false</is_auto_increment>
+            <is_unique>false</is_unique>
+            <is_nullable>true</is_nullable>
+            <column_types>
+              <column_type name="dss_load_date" />
+            </column_types>
+          </robot>
+          <robot name="dss_create_time">
+            <generated_object>COLUMN</generated_object>
+            <generated_object_name>dss_create_time</generated_object_name>
+            <data_type size="" scale="">tgt_datetime</data_type>
+            <positioning>BOTTOM</positioning>
+            <col_description>Date and time the row was inserted in the data vault</col_description>
+            <is_pk>false</is_pk>
+            <is_auto_increment>false</is_auto_increment>
+            <is_unique>false</is_unique>
+            <is_nullable>true</is_nullable>
+            <column_types>
+              <column_type name="dss_create_time" />
+            </column_types>
+          </robot>
+        </robots>
+      </table_type>
+    </table_types>
+    <column_types>
+      <column_type name="Business key">
+        <description>A business key column (Do not rename)</description>
+        <colour>0,0,255</colour>
+      </column_type>
+      <column_type name="Surrogate key">
+        <description>A surrogate key column (Do not rename)</description>
+        <colour>255,0,0</colour>
+      </column_type>
+      <column_type name="Changing attribute">
+        <description>A changing column (Do not rename)</description>
+        <colour>255,208,0</colour>
+      </column_type>
+      <column_type name="dss_load_date">
+        <description>A dss column for load date</description>
+        <colour>178,178,178</colour>
+      </column_type>
+      <column_type name="dss_start_date">
+        <description>A dss column for start date</description>
+        <colour>178,178,178</colour>
+      </column_type>
+      <column_type name="dss_end_date">
+        <description>A dss column for end date</description>
+        <colour>178,178,178</colour>
+      </column_type>
+      <column_type name="dss_record_source">
+        <description>A dss column for record source</description>
+        <colour>178,178,178</colour>
+      </column_type>
+      <column_type name="dss_update_time">
+        <description>A dss column for last update time</description>
+        <colour>178,178,178</colour>
+      </column_type>
+      <column_type name="dss_create_time">
+        <description>A dss column for create time</description>
+        <colour>178,178,178</colour>
+      </column_type>
+      <column_type name="dss_version">
+        <description>A dss column for version number</description>
+        <colour>178,178,178</colour>
+      </column_type>
+      <column_type name="dss_current_flag">
+        <description>A dss column for indicating current version</description>
+        <colour>178,178,178</colour>
+      </column_type>
+      <column_type name="To be deleted">
+        <description>A column that will be removed</description>
+        <colour>0,0,0</colour>
+      </column_type>
+      <column_type name="MCTemp_Key">
+        <description>Temporary attribute type for model conversions</description>
+        <colour>192,192,192</colour>
+      </column_type>
+      <column_type name="Multi-Active Satellite Sequence Key">
+        <description>Multi-Active Satellite Sequence Key in conjoint with another Satellite attribute</description>
+        <colour>153,204,255</colour>
+      </column_type>
+      <column_type name="Multi-Active Satellite Natural Key">
+        <description>Create a Satellite with Multi-Active natural key</description>
+        <colour>248,231,28</colour>
+      </column_type>
+      <column_type name="Hub hash key">
+        <description>A Hub hash column (Do not rename)</description>
+        <colour>31,229,236</colour>
+      </column_type>
+      <column_type name="Change hash key">
+        <description>A change hash column (Do not rename)</description>
+        <colour>128,128,128</colour>
+      </column_type>
+      <column_type name="Link hash key">
+        <description>A Link hash column (Do not rename)</description>
+        <colour>138,28,0</colour>
+      </column_type>
+      <column_type name="Link business key">
+        <description>Foreign key attributes that make up the Link Business key (Do not rename)</description>
+        <colour>255,0,0</colour>
+      </column_type>
+    </column_types>
+    <relationship_types>
+      <relationship_type name="Unitive on FK">
+        <description>Unitive on FK</description>
+        <colour>255,0,0</colour>
+      </relationship_type>
+      <relationship_type name="Duplicate data">
+        <description>Duplicate data</description>
+        <colour>51,102,255</colour>
+      </relationship_type>
+      <relationship_type name="Artificial key">
+        <description>An artificial key</description>
+        <colour>156,79,224</colour>
+      </relationship_type>
+    </relationship_types>
+    <table_ratings>
+      <table_rating>
+        <name>Mandatory</name>
+        <colour>255,0,0</colour>
+      </table_rating>
+      <table_rating>
+        <name>Preferred</name>
+        <colour>255,102,0</colour>
+      </table_rating>
+      <table_rating>
+        <name>Optional</name>
+        <colour>0,255,0</colour>
+      </table_rating>
+    </table_ratings>
+    <column_ratings>
+      <column_rating>
+        <name>Mandatory</name>
+        <colour>255,0,0</colour>
+      </column_rating>
+      <column_rating>
+        <name>Preferred</name>
+        <colour>255,102,0</colour>
+      </column_rating>
+      <column_rating>
+        <name>Optional</name>
+        <colour>0,255,0</colour>
+      </column_rating>
+    </column_ratings>
+    <rdbms_information>
+      <involved_databases>
+        <involved_rdbms>MS_SQL_SERVER</involved_rdbms>
+      </involved_databases>
+    </rdbms_information>
+    <storage_target_locations />
+    <tables>
+      <table name="h_customers">
+        <label>customers</label>
+        <table_types>
+          <table_type name="Hub" />
+        </table_types>
+        <columns>
+          <column name="hk_h_customers" pk="true">
+            <data_type size="32">char</data_type>
+            <label>hk_h_customers</label>
+            <created_by>User</created_by>
+            <column_types>
+              <column_type name="Hub hash key" />
+            </column_types>
+          </column>
+          <column name="customerid" nullable="true">
+            <data_type size="5">nchar</data_type>
+            <label>customerid</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Business key" />
+            </column_types>
+          </column>
+          <column name="companyname" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>companyname</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Business key" />
+            </column_types>
+          </column>
+          <column name="contactname" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>contactname</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Business key" />
+            </column_types>
+          </column>
+          <column name="dss_record_source" nullable="true">
+            <data_type size="255">tgt_varchar</data_type>
+            <comment>Record source</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_record_source" />
+            </column_types>
+          </column>
+          <column name="dss_load_date" nullable="true">
+            <data_type>tgt_datetime</data_type>
+            <comment>Date and time the row was loaded in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_load_date" />
+            </column_types>
+          </column>
+          <column name="dss_create_time" nullable="true">
+            <data_type>tgt_datetime</data_type>
+            <comment>Date and time the row was inserted in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_create_time" />
+            </column_types>
+          </column>
+        </columns>
+        <table_icon>dv_hub.png</table_icon>
+        <source_sets>
+          <source_set name="Default source">
+            <table_mappings>
+              <source_mapping>
+                <source_table>stage_customers</source_table>
+                <source_label>customers</source_label>
+                <source_is_trigger_file>false</source_is_trigger_file>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </table_mappings>
+            <column_mappings column_name="hk_h_customers">
+              <source_mapping>
+                <source_table>stage_customers</source_table>
+                <source_column>hk_h_customers</source_column>
+                <source_label>hk_h_customers</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="customerid">
+              <source_mapping>
+                <source_table>stage_customers</source_table>
+                <source_column>customerid</source_column>
+                <source_label>customerid</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="companyname">
+              <source_mapping>
+                <source_table>stage_customers</source_table>
+                <source_column>companyname</source_column>
+                <source_label>companyname</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="contactname">
+              <source_mapping>
+                <source_table>stage_customers</source_table>
+                <source_column>contactname</source_column>
+                <source_label>contactname</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_record_source">
+              <source_mapping>
+                <source_table>stage_customers</source_table>
+                <source_column>dss_record_source</source_column>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_load_date">
+              <source_mapping>
+                <source_table>stage_customers</source_table>
+                <source_column>dss_load_date</source_column>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_create_time">
+              <source_mapping>
+                <source_table>stage_customers</source_table>
+                <source_column>dss_create_time</source_column>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <referenced_connections>
+              <referenced_connection preferred="true">Northwind</referenced_connection>
+            </referenced_connections>
+            <dw_query>SELECT
+    "stage_customers"."hk_h_customers" as "hk_h_customers"
+    , "stage_customers"."customerid" as "customerid"
+    , "stage_customers"."companyname" as "companyname"
+    , "stage_customers"."contactname" as "contactname"
+    , "stage_customers"."dss_record_source" as "dss_record_source"
+    , "stage_customers"."dss_load_date" as "dss_load_date"
+    , "stage_customers"."dss_create_time" as "dss_create_time"
+FROM
+    "stage_customers" "stage_customers"</dw_query>
+          </source_set>
+        </source_sets>
+      </table>
+      <table name="h_employees">
+        <label>employees</label>
+        <table_types>
+          <table_type name="Hub" />
+        </table_types>
+        <columns>
+          <column name="hk_h_employees" pk="true">
+            <data_type size="32">char</data_type>
+            <label>hk_h_employees</label>
+            <created_by>User</created_by>
+            <column_types>
+              <column_type name="Hub hash key" />
+            </column_types>
+          </column>
+          <column name="employeeid" nullable="true">
+            <data_type>int identity</data_type>
+            <label>employeeid</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Business key" />
+            </column_types>
+          </column>
+          <column name="lastname" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>lastname</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Business key" />
+            </column_types>
+          </column>
+          <column name="firstname" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>firstname</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Business key" />
+            </column_types>
+          </column>
+          <column name="title" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>title</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Business key" />
+            </column_types>
+          </column>
+          <column name="titleofcourtesy" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>titleofcourtesy</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Business key" />
+            </column_types>
+          </column>
+          <column name="dss_record_source" nullable="true">
+            <data_type size="255">tgt_varchar</data_type>
+            <comment>Record source</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_record_source" />
+            </column_types>
+          </column>
+          <column name="dss_load_date" nullable="true">
+            <data_type>tgt_datetime</data_type>
+            <comment>Date and time the row was loaded in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_load_date" />
+            </column_types>
+          </column>
+          <column name="dss_create_time" nullable="true">
+            <data_type>tgt_datetime</data_type>
+            <comment>Date and time the row was inserted in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_create_time" />
+            </column_types>
+          </column>
+        </columns>
+        <table_icon>dv_hub.png</table_icon>
+        <source_sets>
+          <source_set name="Default source">
+            <table_mappings>
+              <source_mapping>
+                <source_table>stage_employees</source_table>
+                <source_label>employees</source_label>
+                <source_is_trigger_file>false</source_is_trigger_file>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </table_mappings>
+            <column_mappings column_name="hk_h_employees">
+              <source_mapping>
+                <source_table>stage_employees</source_table>
+                <source_column>hk_h_employees</source_column>
+                <source_label>hk_h_employees</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="employeeid">
+              <source_mapping>
+                <source_table>stage_employees</source_table>
+                <source_column>employeeid</source_column>
+                <source_label>employeeid</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="lastname">
+              <source_mapping>
+                <source_table>stage_employees</source_table>
+                <source_column>lastname</source_column>
+                <source_label>lastname</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="firstname">
+              <source_mapping>
+                <source_table>stage_employees</source_table>
+                <source_column>firstname</source_column>
+                <source_label>firstname</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="title">
+              <source_mapping>
+                <source_table>stage_employees</source_table>
+                <source_column>title</source_column>
+                <source_label>title</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="titleofcourtesy">
+              <source_mapping>
+                <source_table>stage_employees</source_table>
+                <source_column>titleofcourtesy</source_column>
+                <source_label>titleofcourtesy</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_record_source">
+              <source_mapping>
+                <source_table>stage_employees</source_table>
+                <source_column>dss_record_source</source_column>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_load_date">
+              <source_mapping>
+                <source_table>stage_employees</source_table>
+                <source_column>dss_load_date</source_column>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_create_time">
+              <source_mapping>
+                <source_table>stage_employees</source_table>
+                <source_column>dss_create_time</source_column>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <referenced_connections>
+              <referenced_connection preferred="true">Northwind</referenced_connection>
+            </referenced_connections>
+            <dw_query>SELECT
+    "stage_employees"."hk_h_employees" as "hk_h_employees"
+    , "stage_employees"."employeeid" as "employeeid"
+    , "stage_employees"."lastname" as "lastname"
+    , "stage_employees"."firstname" as "firstname"
+    , "stage_employees"."title" as "title"
+    , "stage_employees"."titleofcourtesy" as "titleofcourtesy"
+    , "stage_employees"."dss_record_source" as "dss_record_source"
+    , "stage_employees"."dss_load_date" as "dss_load_date"
+    , "stage_employees"."dss_create_time" as "dss_create_time"
+FROM
+    "stage_employees" "stage_employees"</dw_query>
+          </source_set>
+        </source_sets>
+      </table>
+      <table name="l_orders">
+        <label>orders</label>
+        <table_types>
+          <table_type name="Link" />
+        </table_types>
+        <columns>
+          <column name="hk_l_orders" pk="true">
+            <data_type size="32">char</data_type>
+            <label>hk_l_orders</label>
+            <created_by>User</created_by>
+            <column_types>
+              <column_type name="Link hash key" />
+            </column_types>
+          </column>
+          <column name="hk_h_customers">
+            <data_type size="32">char</data_type>
+            <label>hk_h_customers</label>
+            <created_by>Surrogate key</created_by>
+            <column_types>
+              <column_type name="Hub hash key" />
+            </column_types>
+          </column>
+          <column name="hk_h_employees">
+            <data_type size="32">char</data_type>
+            <label>hk_h_employees</label>
+            <created_by>Surrogate key</created_by>
+            <column_types>
+              <column_type name="Hub hash key" />
+            </column_types>
+          </column>
+          <column name="dss_record_source" nullable="true">
+            <data_type size="255">tgt_varchar</data_type>
+            <comment>Record source</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_record_source" />
+            </column_types>
+          </column>
+          <column name="dss_load_date" nullable="true">
+            <data_type>tgt_datetime</data_type>
+            <comment>Date and time the row was loaded in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_load_date" />
+            </column_types>
+          </column>
+          <column name="dss_create_time" nullable="true">
+            <data_type>tgt_datetime</data_type>
+            <comment>Date and time the row was inserted in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_create_time" />
+            </column_types>
+          </column>
+        </columns>
+        <table_icon>dv_link.png</table_icon>
+        <source_sets>
+          <source_set name="Default source">
+            <table_mappings>
+              <source_mapping>
+                <source_table>stage_orders</source_table>
+                <source_label>orders</source_label>
+                <source_is_trigger_file>false</source_is_trigger_file>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </table_mappings>
+            <column_mappings column_name="hk_l_orders">
+              <source_mapping>
+                <source_table>stage_orders</source_table>
+                <source_column>hk_l_orders</source_column>
+                <source_label>hk_l_orders</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="hk_h_customers">
+              <source_mapping>
+                <source_table>stage_orders</source_table>
+                <source_column>hk_h_customers</source_column>
+                <source_label>hk_h_customers</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="hk_h_employees">
+              <source_mapping>
+                <source_table>stage_orders</source_table>
+                <source_column>hk_h_employees</source_column>
+                <source_label>hk_h_employees</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_record_source">
+              <source_mapping>
+                <source_table>stage_orders</source_table>
+                <source_column>dss_record_source</source_column>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_load_date">
+              <source_mapping>
+                <source_table>stage_orders</source_table>
+                <source_column>dss_load_date</source_column>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_create_time">
+              <source_mapping>
+                <source_table>stage_orders</source_table>
+                <source_column>dss_create_time</source_column>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <referenced_connections>
+              <referenced_connection preferred="true">Northwind</referenced_connection>
+            </referenced_connections>
+            <dw_query>SELECT
+    "stage_orders"."hk_l_orders" as "hk_l_orders"
+    , "stage_orders"."hk_h_customers" as "hk_h_customers"
+    , "stage_orders"."hk_h_employees" as "hk_h_employees"
+    , "stage_orders"."dss_record_source" as "dss_record_source"
+    , "stage_orders"."dss_load_date" as "dss_load_date"
+    , "stage_orders"."dss_create_time" as "dss_create_time"
+FROM
+    "stage_orders" "stage_orders"</dw_query>
+          </source_set>
+        </source_sets>
+      </table>
+      <table name="load_6empty#load_customers_northwind">
+        <label>customers</label>
+        <table_types>
+          <table_type name="Load" />
+        </table_types>
+        <columns>
+          <column name="customerid" nullable="true">
+            <data_type size="5">nchar</data_type>
+            <label>customerid</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="companyname" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>companyname</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="contactname" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>contactname</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="contacttitle" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>contacttitle</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="address" nullable="true">
+            <data_type size="60">varchar</data_type>
+            <label>address</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="city" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>city</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="region" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>region</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="postalcode" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>postalcode</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="country" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>country</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="phone" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>phone</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="fax" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>fax</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="dss_record_source" nullable="true">
+            <data_type size="255">tgt_varchar</data_type>
+            <comment>Record source</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_record_source" />
+            </column_types>
+          </column>
+          <column name="dss_load_date" nullable="true">
+            <data_type>tgt_datetime</data_type>
+            <comment>Date and time the row was loaded in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_load_date" />
+            </column_types>
+          </column>
+        </columns>
+        <table_icon>Load.png</table_icon>
+        <source_sets>
+          <source_set name="Default source">
+            <table_mappings>
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Customers</source_table>
+                <source_is_trigger_file>false</source_is_trigger_file>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </table_mappings>
+            <column_mappings column_name="customerid">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Customers</source_table>
+                <source_column>CustomerID</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="companyname">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Customers</source_table>
+                <source_column>CompanyName</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="contactname">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Customers</source_table>
+                <source_column>ContactName</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="contacttitle">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Customers</source_table>
+                <source_column>ContactTitle</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="address">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Customers</source_table>
+                <source_column>Address</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="city">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Customers</source_table>
+                <source_column>City</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="region">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Customers</source_table>
+                <source_column>Region</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="postalcode">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Customers</source_table>
+                <source_column>PostalCode</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="country">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Customers</source_table>
+                <source_column>Country</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="phone">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Customers</source_table>
+                <source_column>Phone</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="fax">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Customers</source_table>
+                <source_column>Fax</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_record_source" />
+            <column_mappings column_name="dss_load_date" />
+            <referenced_connections>
+              <referenced_connection preferred="true">Northwind</referenced_connection>
+            </referenced_connections>
+            <dw_query>SELECT
+    "Customers"."CustomerID" as "customerid"
+    , "Customers"."CompanyName" as "companyname"
+    , "Customers"."ContactName" as "contactname"
+    , "Customers"."ContactTitle" as "contacttitle"
+    , "Customers"."Address" as "address"
+    , "Customers"."City" as "city"
+    , "Customers"."Region" as "region"
+    , "Customers"."PostalCode" as "postalcode"
+    , "Customers"."Country" as "country"
+    , "Customers"."Phone" as "phone"
+    , "Customers"."Fax" as "fax"
+FROM
+    "dbo"."Customers" "Customers"</dw_query>
+          </source_set>
+        </source_sets>
+      </table>
+      <table name="load_6empty#load_employees_northwind">
+        <label>employees</label>
+        <table_types>
+          <table_type name="Load" />
+        </table_types>
+        <columns>
+          <column name="employeeid" nullable="true">
+            <data_type>int identity</data_type>
+            <label>employeeid</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="lastname" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>lastname</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="firstname" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>firstname</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="title" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>title</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="titleofcourtesy" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>titleofcourtesy</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="birthdate" nullable="true">
+            <data_type>datetime</data_type>
+            <label>birthdate</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="hiredate" nullable="true">
+            <data_type>datetime</data_type>
+            <label>hiredate</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="address" nullable="true">
+            <data_type size="60">varchar</data_type>
+            <label>address</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="city" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>city</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="region" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>region</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="postalcode" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>postalcode</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="country" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>country</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="homephone" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>homephone</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="extension" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>extension</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="reportsto" nullable="true">
+            <data_type>int</data_type>
+            <label>reportsto</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="dss_record_source" nullable="true">
+            <data_type size="255">tgt_varchar</data_type>
+            <comment>Record source</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_record_source" />
+            </column_types>
+          </column>
+          <column name="dss_load_date" nullable="true">
+            <data_type>tgt_datetime</data_type>
+            <comment>Date and time the row was loaded in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_load_date" />
+            </column_types>
+          </column>
+        </columns>
+        <table_icon>Load.png</table_icon>
+        <source_sets>
+          <source_set name="Default source">
+            <table_mappings>
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Employees</source_table>
+                <source_is_trigger_file>false</source_is_trigger_file>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </table_mappings>
+            <column_mappings column_name="employeeid">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Employees</source_table>
+                <source_column>EmployeeID</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="lastname">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Employees</source_table>
+                <source_column>LastName</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="firstname">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Employees</source_table>
+                <source_column>FirstName</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="title">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Employees</source_table>
+                <source_column>Title</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="titleofcourtesy">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Employees</source_table>
+                <source_column>TitleOfCourtesy</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="birthdate">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Employees</source_table>
+                <source_column>BirthDate</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="hiredate">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Employees</source_table>
+                <source_column>HireDate</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="address">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Employees</source_table>
+                <source_column>Address</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="city">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Employees</source_table>
+                <source_column>City</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="region">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Employees</source_table>
+                <source_column>Region</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="postalcode">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Employees</source_table>
+                <source_column>PostalCode</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="country">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Employees</source_table>
+                <source_column>Country</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="homephone">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Employees</source_table>
+                <source_column>HomePhone</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="extension">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Employees</source_table>
+                <source_column>Extension</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="reportsto">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Employees</source_table>
+                <source_column>ReportsTo</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_record_source" />
+            <column_mappings column_name="dss_load_date" />
+            <referenced_connections>
+              <referenced_connection preferred="true">Northwind</referenced_connection>
+            </referenced_connections>
+            <dw_query>SELECT
+    "Employees"."EmployeeID" as "employeeid"
+    , "Employees_1"."EmployeeID" as "employeeid"
+    , "Employees"."LastName" as "lastname"
+    , "Employees_1"."LastName" as "lastname"
+    , "Employees"."FirstName" as "firstname"
+    , "Employees_1"."FirstName" as "firstname"
+    , "Employees"."Title" as "title"
+    , "Employees_1"."Title" as "title"
+    , "Employees"."TitleOfCourtesy" as "titleofcourtesy"
+    , "Employees_1"."TitleOfCourtesy" as "titleofcourtesy"
+    , "Employees"."BirthDate" as "birthdate"
+    , "Employees_1"."BirthDate" as "birthdate"
+    , "Employees"."HireDate" as "hiredate"
+    , "Employees_1"."HireDate" as "hiredate"
+    , "Employees"."Address" as "address"
+    , "Employees_1"."Address" as "address"
+    , "Employees"."City" as "city"
+    , "Employees_1"."City" as "city"
+    , "Employees"."Region" as "region"
+    , "Employees_1"."Region" as "region"
+    , "Employees"."PostalCode" as "postalcode"
+    , "Employees_1"."PostalCode" as "postalcode"
+    , "Employees"."Country" as "country"
+    , "Employees_1"."Country" as "country"
+    , "Employees"."HomePhone" as "homephone"
+    , "Employees_1"."HomePhone" as "homephone"
+    , "Employees"."Extension" as "extension"
+    , "Employees_1"."Extension" as "extension"
+    , "Employees"."ReportsTo" as "reportsto"
+    , "Employees_1"."ReportsTo" as "reportsto"
+FROM
+        "dbo"."Employees" "Employees"
+INNER JOIN "dbo"."Employees" "Employees_1"
+ON "Employees_1"."ReportsTo" = "Employees"."EmployeeID"</dw_query>
+          </source_set>
+        </source_sets>
+      </table>
+      <table name="load_6empty#load_orders_northwind">
+        <label>orders</label>
+        <table_types>
+          <table_type name="Load" />
+        </table_types>
+        <columns>
+          <column name="orderid" nullable="true">
+            <data_type>int identity</data_type>
+            <comment>This is the internal order id</comment>
+            <created_by>User</created_by>
+          </column>
+          <column name="customerid" nullable="true">
+            <data_type size="5">nchar</data_type>
+            <label>customerid</label>
+            <comment>The internal customerid associated with the order</comment>
+            <created_by>User</created_by>
+          </column>
+          <column name="employeeid" nullable="true">
+            <data_type>int</data_type>
+            <label>employeeid</label>
+            <comment>The internal Employee id associated with the order</comment>
+            <created_by>User</created_by>
+          </column>
+          <column name="orderdate" nullable="true">
+            <data_type>datetime</data_type>
+            <label>orderdate</label>
+            <comment>The data the order was entered into the system</comment>
+            <created_by>User</created_by>
+          </column>
+          <column name="requireddate" nullable="true">
+            <data_type>datetime</data_type>
+            <label>requireddate</label>
+            <comment>The date that the order is required for delivery by the customer</comment>
+            <created_by>User</created_by>
+          </column>
+          <column name="shippeddate" nullable="true">
+            <data_type>datetime</data_type>
+            <label>shippeddate</label>
+            <comment>The date that the order was shipped from our factory</comment>
+            <created_by>User</created_by>
+          </column>
+          <column name="shipvia" nullable="true">
+            <data_type>int</data_type>
+            <label>shipvia</label>
+            <comment>Shipper internal id</comment>
+            <created_by>User</created_by>
+          </column>
+          <column name="freight" nullable="true">
+            <data_type>money</data_type>
+            <label>freight</label>
+            <comment>The order freight costs</comment>
+            <created_by>User</created_by>
+          </column>
+          <column name="shipname" nullable="true">
+            <data_type size="40">nvarchar</data_type>
+            <label>shipname</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="shipaddress" nullable="true">
+            <data_type size="60">nvarchar</data_type>
+            <label>shipaddress</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="shipcity" nullable="true">
+            <data_type size="15">nvarchar</data_type>
+            <label>shipcity</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="shipregion" nullable="true">
+            <data_type size="15">nvarchar</data_type>
+            <label>shipregion</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="shippostalcode" nullable="true">
+            <data_type size="10">nvarchar</data_type>
+            <label>shippostalcode</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="shipcountry" nullable="true">
+            <data_type size="15">nvarchar</data_type>
+            <label>shipcountry</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="dss_record_source" nullable="true">
+            <data_type size="255">tgt_varchar</data_type>
+            <comment>Record source</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_record_source" />
+            </column_types>
+          </column>
+          <column name="dss_load_date" nullable="true">
+            <data_type>tgt_datetime</data_type>
+            <comment>Date and time the row was loaded in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_load_date" />
+            </column_types>
+          </column>
+        </columns>
+        <table_icon>Load.png</table_icon>
+        <source_sets>
+          <source_set name="Default source">
+            <table_mappings>
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Orders</source_table>
+                <source_is_trigger_file>false</source_is_trigger_file>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </table_mappings>
+            <column_mappings column_name="orderid">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Orders</source_table>
+                <source_column>OrderID</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="customerid">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Orders</source_table>
+                <source_column>CustomerID</source_column>
+                <source_description>The internal customerid associated with the order</source_description>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="employeeid">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Orders</source_table>
+                <source_column>EmployeeID</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="orderdate">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Orders</source_table>
+                <source_column>OrderDate</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="requireddate">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Orders</source_table>
+                <source_column>RequiredDate</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="shippeddate">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Orders</source_table>
+                <source_column>ShippedDate</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="shipvia">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Orders</source_table>
+                <source_column>ShipVia</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="freight">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Orders</source_table>
+                <source_column>Freight</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="shipname">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Orders</source_table>
+                <source_column>ShipName</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="shipaddress">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Orders</source_table>
+                <source_column>ShipAddress</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="shipcity">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Orders</source_table>
+                <source_column>ShipCity</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="shipregion">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Orders</source_table>
+                <source_column>ShipRegion</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="shippostalcode">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Orders</source_table>
+                <source_column>ShipPostalCode</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="shipcountry">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Orders</source_table>
+                <source_column>ShipCountry</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_record_source" />
+            <column_mappings column_name="dss_load_date" />
+            <referenced_connections>
+              <referenced_connection preferred="true">Northwind</referenced_connection>
+            </referenced_connections>
+            <dw_query>SELECT
+    "Orders"."OrderID" as "orderid"
+    , "Orders"."CustomerID" as "customerid"
+    , "Orders"."EmployeeID" as "employeeid"
+    , "Orders"."OrderDate" as "orderdate"
+    , "Orders"."RequiredDate" as "requireddate"
+    , "Orders"."ShippedDate" as "shippeddate"
+    , "Orders"."ShipVia" as "shipvia"
+    , "Orders"."Freight" as "freight"
+    , "Orders"."ShipName" as "shipname"
+    , "Orders"."ShipAddress" as "shipaddress"
+    , "Orders"."ShipCity" as "shipcity"
+    , "Orders"."ShipRegion" as "shipregion"
+    , "Orders"."ShipPostalCode" as "shippostalcode"
+    , "Orders"."ShipCountry" as "shipcountry"
+FROM
+    "dbo"."Orders" "Orders"</dw_query>
+          </source_set>
+        </source_sets>
+      </table>
+      <table name="s_customers_lroc">
+        <label>customers</label>
+        <table_types>
+          <table_type name="Satellite" />
+        </table_types>
+        <columns>
+          <column name="hk_h_customers" pk="true">
+            <data_type size="32">char</data_type>
+            <label>hk_h_customers</label>
+            <created_by>Surrogate key</created_by>
+            <column_types>
+              <column_type name="Hub hash key" />
+            </column_types>
+          </column>
+          <column name="contacttitle" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>contacttitle</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="address" nullable="true">
+            <data_type size="60">varchar</data_type>
+            <label>address</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="city" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>city</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="region" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>region</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="postalcode" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>postalcode</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="country" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>country</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="phone" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>phone</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="fax" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>fax</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_change_hash">
+            <data_type size="32">tgt_char</data_type>
+            <comment>The changing hash</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="Change hash key" />
+            </column_types>
+          </column>
+          <column name="dss_record_source" nullable="true">
+            <data_type size="255">tgt_varchar</data_type>
+            <comment>Record source</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_record_source" />
+            </column_types>
+          </column>
+          <column name="dss_load_date" nullable="true">
+            <data_type>tgt_datetime</data_type>
+            <comment>Date and time the row was loaded in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_load_date" />
+            </column_types>
+          </column>
+          <column name="dss_start_date" pk="true" nullable="true">
+            <data_type>tgt_datetime</data_type>
+            <comment>Date and time the row started in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_start_date" />
+            </column_types>
+          </column>
+          <column name="dss_version" nullable="true">
+            <data_type>tgt_integer</data_type>
+            <comment>Version number of a business key in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_version" />
+            </column_types>
+          </column>
+          <column name="dss_create_time" nullable="true">
+            <data_type>tgt_datetime</data_type>
+            <comment>Date and time the row was inserted in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_create_time" />
+            </column_types>
+          </column>
+        </columns>
+        <table_icon>dv_satellite.png</table_icon>
+        <source_sets>
+          <source_set name="Default source">
+            <table_mappings>
+              <source_mapping>
+                <source_table>stage_customers</source_table>
+                <source_label>customers</source_label>
+                <source_is_trigger_file>false</source_is_trigger_file>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </table_mappings>
+            <column_mappings column_name="hk_h_customers">
+              <source_mapping>
+                <source_table>stage_customers</source_table>
+                <source_column>hk_h_customers</source_column>
+                <source_label>hk_h_customers</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="contacttitle">
+              <source_mapping>
+                <source_table>stage_customers</source_table>
+                <source_column>contacttitle</source_column>
+                <source_label>contacttitle</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="address">
+              <source_mapping>
+                <source_table>stage_customers</source_table>
+                <source_column>address</source_column>
+                <source_label>address</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="city">
+              <source_mapping>
+                <source_table>stage_customers</source_table>
+                <source_column>city</source_column>
+                <source_label>city</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="region">
+              <source_mapping>
+                <source_table>stage_customers</source_table>
+                <source_column>region</source_column>
+                <source_label>region</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="postalcode">
+              <source_mapping>
+                <source_table>stage_customers</source_table>
+                <source_column>postalcode</source_column>
+                <source_label>postalcode</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="country">
+              <source_mapping>
+                <source_table>stage_customers</source_table>
+                <source_column>country</source_column>
+                <source_label>country</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="phone">
+              <source_mapping>
+                <source_table>stage_customers</source_table>
+                <source_column>phone</source_column>
+                <source_label>phone</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="fax">
+              <source_mapping>
+                <source_table>stage_customers</source_table>
+                <source_column>fax</source_column>
+                <source_label>fax</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_change_hash">
+              <source_mapping>
+                <source_table>stage_customers</source_table>
+                <source_column>dss_change_hash_customers_lroc</source_column>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_record_source">
+              <source_mapping>
+                <source_table>stage_customers</source_table>
+                <source_column>dss_record_source</source_column>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_load_date">
+              <source_mapping>
+                <source_table>stage_customers</source_table>
+                <source_column>dss_load_date</source_column>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_start_date" />
+            <column_mappings column_name="dss_version" />
+            <column_mappings column_name="dss_create_time">
+              <source_mapping>
+                <source_table>stage_customers</source_table>
+                <source_column>dss_create_time</source_column>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <referenced_connections>
+              <referenced_connection preferred="true">Northwind</referenced_connection>
+            </referenced_connections>
+            <dw_query>SELECT
+    "stage_customers"."hk_h_customers" as "hk_h_customers"
+    , "stage_customers"."contacttitle" as "contacttitle"
+    , "stage_customers"."address" as "address"
+    , "stage_customers"."city" as "city"
+    , "stage_customers"."region" as "region"
+    , "stage_customers"."postalcode" as "postalcode"
+    , "stage_customers"."country" as "country"
+    , "stage_customers"."phone" as "phone"
+    , "stage_customers"."fax" as "fax"
+    , "stage_customers"."dss_change_hash_customers_lroc" as "dss_change_hash"
+    , "stage_customers"."dss_record_source" as "dss_record_source"
+    , "stage_customers"."dss_load_date" as "dss_load_date"
+    , "stage_customers"."dss_create_time" as "dss_create_time"
+FROM
+    "stage_customers" "stage_customers"</dw_query>
+          </source_set>
+        </source_sets>
+      </table>
+      <table name="s_employees_lroc">
+        <label>employees</label>
+        <table_types>
+          <table_type name="Satellite" />
+        </table_types>
+        <columns>
+          <column name="hk_h_employees" pk="true">
+            <data_type size="32">char</data_type>
+            <label>hk_h_employees</label>
+            <created_by>Surrogate key</created_by>
+            <column_types>
+              <column_type name="Hub hash key" />
+            </column_types>
+          </column>
+          <column name="birthdate" nullable="true">
+            <data_type>datetime</data_type>
+            <label>birthdate</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="hiredate" nullable="true">
+            <data_type>datetime</data_type>
+            <label>hiredate</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="address" nullable="true">
+            <data_type size="60">varchar</data_type>
+            <label>address</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="city" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>city</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="region" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>region</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="postalcode" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>postalcode</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="country" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>country</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="homephone" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>homephone</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="extension" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>extension</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="reportsto" nullable="true">
+            <data_type>int</data_type>
+            <label>reportsto</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_change_hash">
+            <data_type size="32">tgt_char</data_type>
+            <comment>The changing hash</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="Change hash key" />
+            </column_types>
+          </column>
+          <column name="dss_record_source" nullable="true">
+            <data_type size="255">tgt_varchar</data_type>
+            <comment>Record source</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_record_source" />
+            </column_types>
+          </column>
+          <column name="dss_load_date" nullable="true">
+            <data_type>tgt_datetime</data_type>
+            <comment>Date and time the row was loaded in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_load_date" />
+            </column_types>
+          </column>
+          <column name="dss_start_date" pk="true" nullable="true">
+            <data_type>tgt_datetime</data_type>
+            <comment>Date and time the row started in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_start_date" />
+            </column_types>
+          </column>
+          <column name="dss_version" nullable="true">
+            <data_type>tgt_integer</data_type>
+            <comment>Version number of a business key in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_version" />
+            </column_types>
+          </column>
+          <column name="dss_create_time" nullable="true">
+            <data_type>tgt_datetime</data_type>
+            <comment>Date and time the row was inserted in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_create_time" />
+            </column_types>
+          </column>
+        </columns>
+        <table_icon>dv_satellite.png</table_icon>
+        <source_sets>
+          <source_set name="Default source">
+            <table_mappings>
+              <source_mapping>
+                <source_table>stage_employees</source_table>
+                <source_label>employees</source_label>
+                <source_is_trigger_file>false</source_is_trigger_file>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </table_mappings>
+            <column_mappings column_name="hk_h_employees">
+              <source_mapping>
+                <source_table>stage_employees</source_table>
+                <source_column>hk_h_employees</source_column>
+                <source_label>hk_h_employees</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="birthdate">
+              <source_mapping>
+                <source_table>stage_employees</source_table>
+                <source_column>birthdate</source_column>
+                <source_label>birthdate</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="hiredate">
+              <source_mapping>
+                <source_table>stage_employees</source_table>
+                <source_column>hiredate</source_column>
+                <source_label>hiredate</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="address">
+              <source_mapping>
+                <source_table>stage_employees</source_table>
+                <source_column>address</source_column>
+                <source_label>address</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="city">
+              <source_mapping>
+                <source_table>stage_employees</source_table>
+                <source_column>city</source_column>
+                <source_label>city</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="region">
+              <source_mapping>
+                <source_table>stage_employees</source_table>
+                <source_column>region</source_column>
+                <source_label>region</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="postalcode">
+              <source_mapping>
+                <source_table>stage_employees</source_table>
+                <source_column>postalcode</source_column>
+                <source_label>postalcode</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="country">
+              <source_mapping>
+                <source_table>stage_employees</source_table>
+                <source_column>country</source_column>
+                <source_label>country</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="homephone">
+              <source_mapping>
+                <source_table>stage_employees</source_table>
+                <source_column>homephone</source_column>
+                <source_label>homephone</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="extension">
+              <source_mapping>
+                <source_table>stage_employees</source_table>
+                <source_column>extension</source_column>
+                <source_label>extension</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="reportsto">
+              <source_mapping>
+                <source_table>stage_employees</source_table>
+                <source_column>reportsto</source_column>
+                <source_label>reportsto</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_change_hash">
+              <source_mapping>
+                <source_table>stage_employees</source_table>
+                <source_column>dss_change_hash_employees_lroc</source_column>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_record_source">
+              <source_mapping>
+                <source_table>stage_employees</source_table>
+                <source_column>dss_record_source</source_column>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_load_date">
+              <source_mapping>
+                <source_table>stage_employees</source_table>
+                <source_column>dss_load_date</source_column>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_start_date" />
+            <column_mappings column_name="dss_version" />
+            <column_mappings column_name="dss_create_time">
+              <source_mapping>
+                <source_table>stage_employees</source_table>
+                <source_column>dss_create_time</source_column>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <referenced_connections>
+              <referenced_connection preferred="true">Northwind</referenced_connection>
+            </referenced_connections>
+            <dw_query>SELECT
+    "stage_employees"."hk_h_employees" as "hk_h_employees"
+    , "stage_employees"."birthdate" as "birthdate"
+    , "stage_employees"."hiredate" as "hiredate"
+    , "stage_employees"."address" as "address"
+    , "stage_employees"."city" as "city"
+    , "stage_employees"."region" as "region"
+    , "stage_employees"."postalcode" as "postalcode"
+    , "stage_employees"."country" as "country"
+    , "stage_employees"."homephone" as "homephone"
+    , "stage_employees"."extension" as "extension"
+    , "stage_employees"."reportsto" as "reportsto"
+    , "stage_employees"."dss_change_hash_employees_lroc" as "dss_change_hash"
+    , "stage_employees"."dss_record_source" as "dss_record_source"
+    , "stage_employees"."dss_load_date" as "dss_load_date"
+    , "stage_employees"."dss_create_time" as "dss_create_time"
+FROM
+    "stage_employees" "stage_employees"</dw_query>
+          </source_set>
+        </source_sets>
+      </table>
+      <table name="s_orders_lroc">
+        <label>orders</label>
+        <table_types>
+          <table_type name="Satellite" />
+        </table_types>
+        <columns>
+          <column name="hk_l_orders" pk="true">
+            <data_type size="32">char</data_type>
+            <label>hk_l_orders</label>
+            <created_by>Surrogate key</created_by>
+            <column_types>
+              <column_type name="Link hash key" />
+            </column_types>
+          </column>
+          <column name="orderdate" nullable="true">
+            <data_type>datetime</data_type>
+            <label>orderdate</label>
+            <comment>The data the order was entered into the system</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="requireddate" nullable="true">
+            <data_type>datetime</data_type>
+            <label>requireddate</label>
+            <comment>The date that the order is required for delivery by the customer</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="shippeddate" nullable="true">
+            <data_type>datetime</data_type>
+            <label>shippeddate</label>
+            <comment>The date that the order was shipped from our factory</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="shipvia" nullable="true">
+            <data_type>int</data_type>
+            <label>shipvia</label>
+            <comment>Shipper internal id</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="freight" nullable="true">
+            <data_type>money</data_type>
+            <label>freight</label>
+            <comment>The order freight costs</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="shipname" nullable="true">
+            <data_type size="40">nvarchar</data_type>
+            <label>shipname</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="shipaddress" nullable="true">
+            <data_type size="60">nvarchar</data_type>
+            <label>shipaddress</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="shipcity" nullable="true">
+            <data_type size="15">nvarchar</data_type>
+            <label>shipcity</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="shipregion" nullable="true">
+            <data_type size="15">nvarchar</data_type>
+            <label>shipregion</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="shippostalcode" nullable="true">
+            <data_type size="10">nvarchar</data_type>
+            <label>shippostalcode</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="shipcountry" nullable="true">
+            <data_type size="15">nvarchar</data_type>
+            <label>shipcountry</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_change_hash">
+            <data_type size="32">tgt_char</data_type>
+            <comment>The changing hash</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="Change hash key" />
+            </column_types>
+          </column>
+          <column name="dss_record_source" nullable="true">
+            <data_type size="255">tgt_varchar</data_type>
+            <comment>Record source</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_record_source" />
+            </column_types>
+          </column>
+          <column name="dss_load_date" nullable="true">
+            <data_type>tgt_datetime</data_type>
+            <comment>Date and time the row was loaded in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_load_date" />
+            </column_types>
+          </column>
+          <column name="dss_start_date" pk="true" nullable="true">
+            <data_type>tgt_datetime</data_type>
+            <comment>Date and time the row started in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_start_date" />
+            </column_types>
+          </column>
+          <column name="dss_version" nullable="true">
+            <data_type>tgt_integer</data_type>
+            <comment>Version number of a business key in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_version" />
+            </column_types>
+          </column>
+          <column name="dss_create_time" nullable="true">
+            <data_type>tgt_datetime</data_type>
+            <comment>Date and time the row was inserted in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_create_time" />
+            </column_types>
+          </column>
+        </columns>
+        <table_icon>dv_satellite.png</table_icon>
+        <source_sets>
+          <source_set name="Default source">
+            <table_mappings>
+              <source_mapping>
+                <source_table>stage_orders</source_table>
+                <source_label>orders</source_label>
+                <source_is_trigger_file>false</source_is_trigger_file>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </table_mappings>
+            <column_mappings column_name="hk_l_orders">
+              <source_mapping>
+                <source_table>stage_orders</source_table>
+                <source_column>hk_l_orders</source_column>
+                <source_label>hk_l_orders</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="orderdate">
+              <source_mapping>
+                <source_table>stage_orders</source_table>
+                <source_column>orderdate</source_column>
+                <source_label>orderdate</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="requireddate">
+              <source_mapping>
+                <source_table>stage_orders</source_table>
+                <source_column>requireddate</source_column>
+                <source_label>requireddate</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="shippeddate">
+              <source_mapping>
+                <source_table>stage_orders</source_table>
+                <source_column>shippeddate</source_column>
+                <source_label>shippeddate</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="shipvia">
+              <source_mapping>
+                <source_table>stage_orders</source_table>
+                <source_column>shipvia</source_column>
+                <source_label>shipvia</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="freight">
+              <source_mapping>
+                <source_table>stage_orders</source_table>
+                <source_column>freight</source_column>
+                <source_label>freight</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="shipname">
+              <source_mapping>
+                <source_table>stage_orders</source_table>
+                <source_column>shipname</source_column>
+                <source_label>shipname</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="shipaddress">
+              <source_mapping>
+                <source_table>stage_orders</source_table>
+                <source_column>shipaddress</source_column>
+                <source_label>shipaddress</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="shipcity">
+              <source_mapping>
+                <source_table>stage_orders</source_table>
+                <source_column>shipcity</source_column>
+                <source_label>shipcity</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="shipregion">
+              <source_mapping>
+                <source_table>stage_orders</source_table>
+                <source_column>shipregion</source_column>
+                <source_label>shipregion</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="shippostalcode">
+              <source_mapping>
+                <source_table>stage_orders</source_table>
+                <source_column>shippostalcode</source_column>
+                <source_label>shippostalcode</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="shipcountry">
+              <source_mapping>
+                <source_table>stage_orders</source_table>
+                <source_column>shipcountry</source_column>
+                <source_label>shipcountry</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_change_hash">
+              <source_mapping>
+                <source_table>stage_orders</source_table>
+                <source_column>dss_change_hash_orders_lroc</source_column>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_record_source">
+              <source_mapping>
+                <source_table>stage_orders</source_table>
+                <source_column>dss_record_source</source_column>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_load_date">
+              <source_mapping>
+                <source_table>stage_orders</source_table>
+                <source_column>dss_load_date</source_column>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_start_date" />
+            <column_mappings column_name="dss_version" />
+            <column_mappings column_name="dss_create_time">
+              <source_mapping>
+                <source_table>stage_orders</source_table>
+                <source_column>dss_create_time</source_column>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <referenced_connections>
+              <referenced_connection preferred="true">Northwind</referenced_connection>
+            </referenced_connections>
+            <dw_query>SELECT
+    "stage_orders"."hk_l_orders" as "hk_l_orders"
+    , "stage_orders"."orderdate" as "orderdate"
+    , "stage_orders"."requireddate" as "requireddate"
+    , "stage_orders"."shippeddate" as "shippeddate"
+    , "stage_orders"."shipvia" as "shipvia"
+    , "stage_orders"."freight" as "freight"
+    , "stage_orders"."shipname" as "shipname"
+    , "stage_orders"."shipaddress" as "shipaddress"
+    , "stage_orders"."shipcity" as "shipcity"
+    , "stage_orders"."shipregion" as "shipregion"
+    , "stage_orders"."shippostalcode" as "shippostalcode"
+    , "stage_orders"."shipcountry" as "shipcountry"
+    , "stage_orders"."dss_change_hash_orders_lroc" as "dss_change_hash"
+    , "stage_orders"."dss_record_source" as "dss_record_source"
+    , "stage_orders"."dss_load_date" as "dss_load_date"
+    , "stage_orders"."dss_create_time" as "dss_create_time"
+FROM
+    "stage_orders" "stage_orders"</dw_query>
+          </source_set>
+        </source_sets>
+      </table>
+      <table name="stage_customers">
+        <label>customers</label>
+        <table_types>
+          <table_type name="Stage-Data Vault Stage" />
+        </table_types>
+        <columns>
+          <column name="hk_h_customers">
+            <data_type size="32">char</data_type>
+            <label>hk_h_customers</label>
+            <created_by>User</created_by>
+            <column_types>
+              <column_type name="Hub hash key" />
+            </column_types>
+          </column>
+          <column name="customerid" nullable="true">
+            <data_type size="5">nchar</data_type>
+            <label>customerid</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="companyname" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>companyname</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="contactname" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>contactname</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="contacttitle" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>contacttitle</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="address" nullable="true">
+            <data_type size="60">varchar</data_type>
+            <label>address</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="city" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>city</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="region" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>region</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="postalcode" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>postalcode</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="country" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>country</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="phone" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>phone</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="fax" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>fax</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_change_hash_customers_lroc">
+            <data_type size="32">tgt_char</data_type>
+            <comment>The changing hash</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="Change hash key" />
+            </column_types>
+          </column>
+          <column name="dss_record_source" nullable="true">
+            <data_type size="255">tgt_varchar</data_type>
+            <comment>Record source</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_record_source" />
+            </column_types>
+          </column>
+          <column name="dss_load_date" nullable="true">
+            <data_type>tgt_datetime</data_type>
+            <comment>Date and time the row was loaded in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_load_date" />
+            </column_types>
+          </column>
+          <column name="dss_create_time" nullable="true">
+            <data_type>tgt_datetime</data_type>
+            <comment>Date and time the row was inserted in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_create_time" />
+            </column_types>
+          </column>
+        </columns>
+        <table_icon>Stage.png</table_icon>
+        <source_sets>
+          <source_set name="Default source">
+            <table_mappings>
+              <source_mapping>
+                <source_table>load_6empty#load_customers_northwind</source_table>
+                <source_label>customers</source_label>
+                <source_is_trigger_file>false</source_is_trigger_file>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </table_mappings>
+            <column_mappings column_name="hk_h_customers" />
+            <column_mappings column_name="customerid">
+              <source_mapping>
+                <source_table>load_6empty#load_customers_northwind</source_table>
+                <source_column>customerid</source_column>
+                <source_label>customerid</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="companyname">
+              <source_mapping>
+                <source_table>load_6empty#load_customers_northwind</source_table>
+                <source_column>companyname</source_column>
+                <source_label>companyname</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="contactname">
+              <source_mapping>
+                <source_table>load_6empty#load_customers_northwind</source_table>
+                <source_column>contactname</source_column>
+                <source_label>contactname</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="contacttitle">
+              <source_mapping>
+                <source_table>load_6empty#load_customers_northwind</source_table>
+                <source_column>contacttitle</source_column>
+                <source_label>contacttitle</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="address">
+              <source_mapping>
+                <source_table>load_6empty#load_customers_northwind</source_table>
+                <source_column>address</source_column>
+                <source_label>address</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="city">
+              <source_mapping>
+                <source_table>load_6empty#load_customers_northwind</source_table>
+                <source_column>city</source_column>
+                <source_label>city</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="region">
+              <source_mapping>
+                <source_table>load_6empty#load_customers_northwind</source_table>
+                <source_column>region</source_column>
+                <source_label>region</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="postalcode">
+              <source_mapping>
+                <source_table>load_6empty#load_customers_northwind</source_table>
+                <source_column>postalcode</source_column>
+                <source_label>postalcode</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="country">
+              <source_mapping>
+                <source_table>load_6empty#load_customers_northwind</source_table>
+                <source_column>country</source_column>
+                <source_label>country</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="phone">
+              <source_mapping>
+                <source_table>load_6empty#load_customers_northwind</source_table>
+                <source_column>phone</source_column>
+                <source_label>phone</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="fax">
+              <source_mapping>
+                <source_table>load_6empty#load_customers_northwind</source_table>
+                <source_column>fax</source_column>
+                <source_label>fax</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_change_hash_customers_lroc" />
+            <column_mappings column_name="dss_record_source">
+              <source_mapping>
+                <source_table>load_6empty#load_customers_northwind</source_table>
+                <source_column>dss_record_source</source_column>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_load_date">
+              <source_mapping>
+                <source_table>load_6empty#load_customers_northwind</source_table>
+                <source_column>dss_load_date</source_column>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_create_time" />
+            <referenced_connections>
+              <referenced_connection preferred="true">Northwind</referenced_connection>
+            </referenced_connections>
+            <dw_query>SELECT
+    "load_customers_northwind"."customerid" as "customerid"
+    , "load_customers_northwind"."companyname" as "companyname"
+    , "load_customers_northwind"."contactname" as "contactname"
+    , "load_customers_northwind"."contacttitle" as "contacttitle"
+    , "load_customers_northwind"."address" as "address"
+    , "load_customers_northwind"."city" as "city"
+    , "load_customers_northwind"."region" as "region"
+    , "load_customers_northwind"."postalcode" as "postalcode"
+    , "load_customers_northwind"."country" as "country"
+    , "load_customers_northwind"."phone" as "phone"
+    , "load_customers_northwind"."fax" as "fax"
+    , "load_customers_northwind"."dss_record_source" as "dss_record_source"
+    , "load_customers_northwind"."dss_load_date" as "dss_load_date"
+FROM
+    "load_customers_northwind" "load_customers_northwind"</dw_query>
+          </source_set>
+        </source_sets>
+      </table>
+      <table name="stage_employees">
+        <label>employees</label>
+        <table_types>
+          <table_type name="Stage-Data Vault Stage" />
+        </table_types>
+        <columns>
+          <column name="hk_h_employees">
+            <data_type size="32">char</data_type>
+            <label>hk_h_employees</label>
+            <created_by>User</created_by>
+            <column_types>
+              <column_type name="Hub hash key" />
+            </column_types>
+          </column>
+          <column name="employeeid" nullable="true">
+            <data_type>int identity</data_type>
+            <label>employeeid</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="lastname" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>lastname</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="firstname" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>firstname</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="title" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>title</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="titleofcourtesy" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>titleofcourtesy</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="birthdate" nullable="true">
+            <data_type>datetime</data_type>
+            <label>birthdate</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="hiredate" nullable="true">
+            <data_type>datetime</data_type>
+            <label>hiredate</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="address" nullable="true">
+            <data_type size="60">varchar</data_type>
+            <label>address</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="city" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>city</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="region" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>region</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="postalcode" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>postalcode</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="country" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>country</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="homephone" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>homephone</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="extension" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <label>extension</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="reportsto" nullable="true">
+            <data_type>int</data_type>
+            <label>reportsto</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="dss_change_hash_employees_lroc">
+            <data_type size="32">tgt_char</data_type>
+            <comment>The changing hash</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="Change hash key" />
+            </column_types>
+          </column>
+          <column name="dss_record_source" nullable="true">
+            <data_type size="255">tgt_varchar</data_type>
+            <comment>Record source</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_record_source" />
+            </column_types>
+          </column>
+          <column name="dss_load_date" nullable="true">
+            <data_type>tgt_datetime</data_type>
+            <comment>Date and time the row was loaded in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_load_date" />
+            </column_types>
+          </column>
+          <column name="dss_create_time" nullable="true">
+            <data_type>tgt_datetime</data_type>
+            <comment>Date and time the row was inserted in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_create_time" />
+            </column_types>
+          </column>
+        </columns>
+        <table_icon>Stage.png</table_icon>
+        <source_sets>
+          <source_set name="Default source">
+            <table_mappings>
+              <source_mapping>
+                <source_table>load_6empty#load_employees_northwind</source_table>
+                <source_label>employees</source_label>
+                <source_is_trigger_file>false</source_is_trigger_file>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </table_mappings>
+            <column_mappings column_name="hk_h_employees" />
+            <column_mappings column_name="employeeid">
+              <source_mapping>
+                <source_table>load_6empty#load_employees_northwind</source_table>
+                <source_column>employeeid</source_column>
+                <source_label>employeeid</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="lastname">
+              <source_mapping>
+                <source_table>load_6empty#load_employees_northwind</source_table>
+                <source_column>lastname</source_column>
+                <source_label>lastname</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="firstname">
+              <source_mapping>
+                <source_table>load_6empty#load_employees_northwind</source_table>
+                <source_column>firstname</source_column>
+                <source_label>firstname</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="title">
+              <source_mapping>
+                <source_table>load_6empty#load_employees_northwind</source_table>
+                <source_column>title</source_column>
+                <source_label>title</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="titleofcourtesy">
+              <source_mapping>
+                <source_table>load_6empty#load_employees_northwind</source_table>
+                <source_column>titleofcourtesy</source_column>
+                <source_label>titleofcourtesy</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="birthdate">
+              <source_mapping>
+                <source_table>load_6empty#load_employees_northwind</source_table>
+                <source_column>birthdate</source_column>
+                <source_label>birthdate</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="hiredate">
+              <source_mapping>
+                <source_table>load_6empty#load_employees_northwind</source_table>
+                <source_column>hiredate</source_column>
+                <source_label>hiredate</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="address">
+              <source_mapping>
+                <source_table>load_6empty#load_employees_northwind</source_table>
+                <source_column>address</source_column>
+                <source_label>address</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="city">
+              <source_mapping>
+                <source_table>load_6empty#load_employees_northwind</source_table>
+                <source_column>city</source_column>
+                <source_label>city</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="region">
+              <source_mapping>
+                <source_table>load_6empty#load_employees_northwind</source_table>
+                <source_column>region</source_column>
+                <source_label>region</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="postalcode">
+              <source_mapping>
+                <source_table>load_6empty#load_employees_northwind</source_table>
+                <source_column>postalcode</source_column>
+                <source_label>postalcode</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="country">
+              <source_mapping>
+                <source_table>load_6empty#load_employees_northwind</source_table>
+                <source_column>country</source_column>
+                <source_label>country</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="homephone">
+              <source_mapping>
+                <source_table>load_6empty#load_employees_northwind</source_table>
+                <source_column>homephone</source_column>
+                <source_label>homephone</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="extension">
+              <source_mapping>
+                <source_table>load_6empty#load_employees_northwind</source_table>
+                <source_column>extension</source_column>
+                <source_label>extension</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="reportsto">
+              <source_mapping>
+                <source_table>load_6empty#load_employees_northwind</source_table>
+                <source_column>reportsto</source_column>
+                <source_label>reportsto</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_change_hash_employees_lroc" />
+            <column_mappings column_name="dss_record_source">
+              <source_mapping>
+                <source_table>load_6empty#load_employees_northwind</source_table>
+                <source_column>dss_record_source</source_column>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_load_date">
+              <source_mapping>
+                <source_table>load_6empty#load_employees_northwind</source_table>
+                <source_column>dss_load_date</source_column>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_create_time" />
+            <referenced_connections>
+              <referenced_connection preferred="true">Northwind</referenced_connection>
+            </referenced_connections>
+            <dw_query>SELECT
+    "load_employees_northwind"."employeeid" as "employeeid"
+    , "load_employees_northwind"."lastname" as "lastname"
+    , "load_employees_northwind"."firstname" as "firstname"
+    , "load_employees_northwind"."title" as "title"
+    , "load_employees_northwind"."titleofcourtesy" as "titleofcourtesy"
+    , "load_employees_northwind"."birthdate" as "birthdate"
+    , "load_employees_northwind"."hiredate" as "hiredate"
+    , "load_employees_northwind"."address" as "address"
+    , "load_employees_northwind"."city" as "city"
+    , "load_employees_northwind"."region" as "region"
+    , "load_employees_northwind"."postalcode" as "postalcode"
+    , "load_employees_northwind"."country" as "country"
+    , "load_employees_northwind"."homephone" as "homephone"
+    , "load_employees_northwind"."extension" as "extension"
+    , "load_employees_northwind"."reportsto" as "reportsto"
+    , "load_employees_northwind"."dss_record_source" as "dss_record_source"
+    , "load_employees_northwind"."dss_load_date" as "dss_load_date"
+FROM
+    "load_employees_northwind" "load_employees_northwind"</dw_query>
+          </source_set>
+        </source_sets>
+      </table>
+      <table name="stage_orders">
+        <label>orders</label>
+        <table_types>
+          <table_type name="Stage-Data Vault Stage" />
+        </table_types>
+        <columns>
+          <column name="hk_l_orders">
+            <data_type size="32">char</data_type>
+            <label>hk_l_orders</label>
+            <created_by>User</created_by>
+            <column_types>
+              <column_type name="Link hash key" />
+            </column_types>
+          </column>
+          <column name="hk_h_customers">
+            <data_type size="32">char</data_type>
+            <label>hk_h_customers</label>
+            <created_by>Surrogate key</created_by>
+            <column_types>
+              <column_type name="Hub hash key" />
+            </column_types>
+          </column>
+          <column name="hk_h_employees">
+            <data_type size="32">char</data_type>
+            <label>hk_h_employees</label>
+            <created_by>Surrogate key</created_by>
+            <column_types>
+              <column_type name="Hub hash key" />
+            </column_types>
+          </column>
+          <column name="customerid" nullable="true">
+            <data_type size="5">nchar</data_type>
+            <label>customerid</label>
+            <comment>The internal customerid associated with the order</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="employeeid" nullable="true">
+            <data_type>int</data_type>
+            <label>employeeid</label>
+            <comment>The internal Employee id associated with the order</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="orderdate" nullable="true">
+            <data_type>datetime</data_type>
+            <label>orderdate</label>
+            <comment>The data the order was entered into the system</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="requireddate" nullable="true">
+            <data_type>datetime</data_type>
+            <label>requireddate</label>
+            <comment>The date that the order is required for delivery by the customer</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="shippeddate" nullable="true">
+            <data_type>datetime</data_type>
+            <label>shippeddate</label>
+            <comment>The date that the order was shipped from our factory</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="shipvia" nullable="true">
+            <data_type>int</data_type>
+            <label>shipvia</label>
+            <comment>Shipper internal id</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="freight" nullable="true">
+            <data_type>money</data_type>
+            <label>freight</label>
+            <comment>The order freight costs</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="shipname" nullable="true">
+            <data_type size="40">nvarchar</data_type>
+            <label>shipname</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="shipaddress" nullable="true">
+            <data_type size="60">nvarchar</data_type>
+            <label>shipaddress</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="shipcity" nullable="true">
+            <data_type size="15">nvarchar</data_type>
+            <label>shipcity</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="shipregion" nullable="true">
+            <data_type size="15">nvarchar</data_type>
+            <label>shipregion</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="shippostalcode" nullable="true">
+            <data_type size="10">nvarchar</data_type>
+            <label>shippostalcode</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="shipcountry" nullable="true">
+            <data_type size="15">nvarchar</data_type>
+            <label>shipcountry</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="lastname" nullable="true">
+            <data_type>varchar</data_type>
+            <label>lastname</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="firstname" nullable="true">
+            <data_type>nvarchar</data_type>
+            <label>firstname</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="title" nullable="true">
+            <data_type>varchar</data_type>
+            <label>title</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="titleofcourtesy" nullable="true">
+            <data_type>nvarchar</data_type>
+            <label>titleofcourtesy</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="companyname" nullable="true">
+            <data_type size="100">varchar</data_type>
+            <label>companyname</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="contactname" nullable="true">
+            <data_type size="50">nvarchar</data_type>
+            <label>contactname</label>
+            <created_by>User</created_by>
+          </column>
+          <column name="dss_change_hash_orders_lroc">
+            <data_type size="32">tgt_char</data_type>
+            <comment>The changing hash</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="Change hash key" />
+            </column_types>
+          </column>
+          <column name="dss_record_source" nullable="true">
+            <data_type size="255">tgt_varchar</data_type>
+            <comment>Record source</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_record_source" />
+            </column_types>
+          </column>
+          <column name="dss_load_date" nullable="true">
+            <data_type>tgt_datetime</data_type>
+            <comment>Date and time the row was loaded in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_load_date" />
+            </column_types>
+          </column>
+          <column name="dss_create_time" nullable="true">
+            <data_type>tgt_datetime</data_type>
+            <comment>Date and time the row was inserted in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_create_time" />
+            </column_types>
+          </column>
+        </columns>
+        <table_icon>Stage.png</table_icon>
+        <source_sets>
+          <source_set name="Default source">
+            <table_mappings>
+              <source_mapping>
+                <source_table>load_6empty#load_orders_northwind</source_table>
+                <source_label>orders</source_label>
+                <source_is_trigger_file>false</source_is_trigger_file>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+              <source_mapping>
+                <source_table>load_6empty#load_employees_northwind</source_table>
+                <source_label>employees</source_label>
+                <source_is_trigger_file>false</source_is_trigger_file>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+              <source_mapping>
+                <source_table>load_6empty#load_customers_northwind</source_table>
+                <source_label>customers</source_label>
+                <source_is_trigger_file>false</source_is_trigger_file>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </table_mappings>
+            <column_mappings column_name="hk_l_orders" />
+            <column_mappings column_name="hk_h_customers" />
+            <column_mappings column_name="hk_h_employees" />
+            <column_mappings column_name="customerid">
+              <source_mapping>
+                <source_table>load_6empty#load_orders_northwind</source_table>
+                <source_column>customerid</source_column>
+                <source_label>customerid</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+              <source_mapping>
+                <source_table>load_6empty#load_customers_northwind</source_table>
+                <source_column>customerid</source_column>
+                <source_label>customerid</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="employeeid">
+              <source_mapping>
+                <source_table>load_6empty#load_orders_northwind</source_table>
+                <source_column>employeeid</source_column>
+                <source_label>employeeid</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+              <source_mapping>
+                <source_table>load_6empty#load_employees_northwind</source_table>
+                <source_column>employeeid</source_column>
+                <source_label>employeeid</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="orderdate">
+              <source_mapping>
+                <source_table>load_6empty#load_orders_northwind</source_table>
+                <source_column>orderdate</source_column>
+                <source_label>orderdate</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="requireddate">
+              <source_mapping>
+                <source_table>load_6empty#load_orders_northwind</source_table>
+                <source_column>requireddate</source_column>
+                <source_label>requireddate</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="shippeddate">
+              <source_mapping>
+                <source_table>load_6empty#load_orders_northwind</source_table>
+                <source_column>shippeddate</source_column>
+                <source_label>shippeddate</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="shipvia">
+              <source_mapping>
+                <source_table>load_6empty#load_orders_northwind</source_table>
+                <source_column>shipvia</source_column>
+                <source_label>shipvia</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="freight">
+              <source_mapping>
+                <source_table>load_6empty#load_orders_northwind</source_table>
+                <source_column>freight</source_column>
+                <source_label>freight</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="shipname">
+              <source_mapping>
+                <source_table>load_6empty#load_orders_northwind</source_table>
+                <source_column>shipname</source_column>
+                <source_label>shipname</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="shipaddress">
+              <source_mapping>
+                <source_table>load_6empty#load_orders_northwind</source_table>
+                <source_column>shipaddress</source_column>
+                <source_label>shipaddress</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="shipcity">
+              <source_mapping>
+                <source_table>load_6empty#load_orders_northwind</source_table>
+                <source_column>shipcity</source_column>
+                <source_label>shipcity</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="shipregion">
+              <source_mapping>
+                <source_table>load_6empty#load_orders_northwind</source_table>
+                <source_column>shipregion</source_column>
+                <source_label>shipregion</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="shippostalcode">
+              <source_mapping>
+                <source_table>load_6empty#load_orders_northwind</source_table>
+                <source_column>shippostalcode</source_column>
+                <source_label>shippostalcode</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="shipcountry">
+              <source_mapping>
+                <source_table>load_6empty#load_orders_northwind</source_table>
+                <source_column>shipcountry</source_column>
+                <source_label>shipcountry</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="lastname">
+              <source_mapping>
+                <source_table>load_6empty#load_employees_northwind</source_table>
+                <source_column>lastname</source_column>
+                <source_label>lastname</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="firstname">
+              <source_mapping>
+                <source_table>load_6empty#load_employees_northwind</source_table>
+                <source_column>firstname</source_column>
+                <source_label>firstname</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="title">
+              <source_mapping>
+                <source_table>load_6empty#load_employees_northwind</source_table>
+                <source_column>title</source_column>
+                <source_label>title</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="titleofcourtesy">
+              <source_mapping>
+                <source_table>load_6empty#load_employees_northwind</source_table>
+                <source_column>titleofcourtesy</source_column>
+                <source_label>titleofcourtesy</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="companyname">
+              <source_mapping>
+                <source_table>load_6empty#load_customers_northwind</source_table>
+                <source_column>companyname</source_column>
+                <source_label>companyname</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="contactname">
+              <source_mapping>
+                <source_table>load_6empty#load_customers_northwind</source_table>
+                <source_column>contactname</source_column>
+                <source_label>contactname</source_label>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_change_hash_orders_lroc" />
+            <column_mappings column_name="dss_record_source">
+              <source_mapping>
+                <source_table>load_6empty#load_orders_northwind</source_table>
+                <source_column>dss_record_source</source_column>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+              <source_mapping>
+                <source_table>load_6empty#load_employees_northwind</source_table>
+                <source_column>dss_record_source</source_column>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+              <source_mapping>
+                <source_table>load_6empty#load_customers_northwind</source_table>
+                <source_column>dss_record_source</source_column>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_load_date">
+              <source_mapping>
+                <source_table>load_6empty#load_orders_northwind</source_table>
+                <source_column>dss_load_date</source_column>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+              <source_mapping>
+                <source_table>load_6empty#load_employees_northwind</source_table>
+                <source_column>dss_load_date</source_column>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+              <source_mapping>
+                <source_table>load_6empty#load_customers_northwind</source_table>
+                <source_column>dss_load_date</source_column>
+                <source_category>Load and staging</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>3_correct_order</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="dss_create_time" />
+            <referenced_connections>
+              <referenced_connection preferred="true">Northwind</referenced_connection>
+            </referenced_connections>
+            <dw_query>SELECT
+    "load_customers_northwind"."customerid" as "customerid"
+    , "load_orders_northwind"."customerid" as "customerid"
+    , "load_orders_northwind"."employeeid" as "employeeid"
+    , "load_employees_northwind"."employeeid" as "employeeid"
+    , "load_orders_northwind"."orderdate" as "orderdate"
+    , "load_orders_northwind"."requireddate" as "requireddate"
+    , "load_orders_northwind"."shippeddate" as "shippeddate"
+    , "load_orders_northwind"."shipvia" as "shipvia"
+    , "load_orders_northwind"."freight" as "freight"
+    , "load_orders_northwind"."shipname" as "shipname"
+    , "load_orders_northwind"."shipaddress" as "shipaddress"
+    , "load_orders_northwind"."shipcity" as "shipcity"
+    , "load_orders_northwind"."shipregion" as "shipregion"
+    , "load_orders_northwind"."shippostalcode" as "shippostalcode"
+    , "load_orders_northwind"."shipcountry" as "shipcountry"
+    , "load_employees_northwind"."lastname" as "lastname"
+    , "load_employees_northwind"."firstname" as "firstname"
+    , "load_employees_northwind"."title" as "title"
+    , "load_employees_northwind"."titleofcourtesy" as "titleofcourtesy"
+    , "load_customers_northwind"."companyname" as "companyname"
+    , "load_customers_northwind"."contactname" as "contactname"
+    , "load_customers_northwind"."dss_record_source" as "dss_record_source"
+    , "load_orders_northwind"."dss_record_source" as "dss_record_source"
+    , "load_employees_northwind"."dss_record_source" as "dss_record_source"
+    , "load_customers_northwind"."dss_load_date" as "dss_load_date"
+    , "load_orders_northwind"."dss_load_date" as "dss_load_date"
+    , "load_employees_northwind"."dss_load_date" as "dss_load_date"
+FROM
+        "load_customers_northwind" "load_customers_northwind"
+INNER JOIN "load_orders_northwind" "load_orders_northwind"
+ON "load_orders_northwind"."customerid" = "load_customers_northwind"."customerid"
+INNER JOIN "load_employees_northwind" "load_employees_northwind"
+ON "load_orders_northwind"."employeeid" = "load_employees_northwind"."employeeid"</dw_query>
+          </source_set>
+        </source_sets>
+      </table>
+    </tables>
+    <relations>
+      <relation>
+        <fk_table>l_orders</fk_table>
+        <fk_column>hk_h_customers</fk_column>
+        <referenced_table>h_customers</referenced_table>
+        <referenced_column>hk_h_customers</referenced_column>
+        <visible>true</visible>
+        <generated>true</generated>
+      </relation>
+      <relation>
+        <fk_table>l_orders</fk_table>
+        <fk_column>hk_h_employees</fk_column>
+        <referenced_table>h_employees</referenced_table>
+        <referenced_column>hk_h_employees</referenced_column>
+        <visible>true</visible>
+        <generated>true</generated>
+      </relation>
+      <relation>
+        <fk_table>load_6empty#load_orders_northwind</fk_table>
+        <fk_column>customerid</fk_column>
+        <referenced_table>load_6empty#load_customers_northwind</referenced_table>
+        <referenced_column>customerid</referenced_column>
+        <fk_constraint_name>FK_Orders_Customers</fk_constraint_name>
+        <fk_sequence>1</fk_sequence>
+        <label>FK_Orders_Customers</label>
+        <visible>true</visible>
+        <generated>false</generated>
+      </relation>
+      <relation>
+        <fk_table>load_6empty#load_orders_northwind</fk_table>
+        <fk_column>employeeid</fk_column>
+        <referenced_table>load_6empty#load_employees_northwind</referenced_table>
+        <referenced_column>employeeid</referenced_column>
+        <fk_constraint_name>FK_Orders_Employees</fk_constraint_name>
+        <fk_sequence>1</fk_sequence>
+        <label>FK_Orders_Employees</label>
+        <visible>true</visible>
+        <generated>false</generated>
+      </relation>
+      <relation>
+        <fk_table>s_customers_lroc</fk_table>
+        <fk_column>hk_h_customers</fk_column>
+        <referenced_table>h_customers</referenced_table>
+        <referenced_column>hk_h_customers</referenced_column>
+        <visible>true</visible>
+        <generated>true</generated>
+      </relation>
+      <relation>
+        <fk_table>s_employees_lroc</fk_table>
+        <fk_column>hk_h_employees</fk_column>
+        <referenced_table>h_employees</referenced_table>
+        <referenced_column>hk_h_employees</referenced_column>
+        <visible>true</visible>
+        <generated>true</generated>
+      </relation>
+      <relation>
+        <fk_table>s_orders_lroc</fk_table>
+        <fk_column>hk_l_orders</fk_column>
+        <referenced_table>l_orders</referenced_table>
+        <referenced_column>hk_l_orders</referenced_column>
+        <visible>true</visible>
+        <generated>true</generated>
+      </relation>
+    </relations>
+    <schemas />
+    <extended_properties>
+      <extended_column_property table="stage_customers" column="hk_h_customers">
+        <property_name>HashColumn</property_name>
+        <property_value>["customerid","companyname","contactname"]</property_value>
+        <property_type>JSON</property_type>
+      </extended_column_property>
+      <extended_column_property table="stage_customers" column="dss_change_hash_customers_lroc">
+        <property_name>HashColumn</property_name>
+        <property_value>["contacttitle","address","city","region","postalcode","country","phone","fax"]</property_value>
+        <property_type>JSON</property_type>
+      </extended_column_property>
+      <extended_column_property table="stage_employees" column="hk_h_employees">
+        <property_name>HashColumn</property_name>
+        <property_value>["employeeid","lastname","firstname","title","titleofcourtesy"]</property_value>
+        <property_type>JSON</property_type>
+      </extended_column_property>
+      <extended_column_property table="stage_employees" column="dss_change_hash_employees_lroc">
+        <property_name>HashColumn</property_name>
+        <property_value>["birthdate","hiredate","address","city","region","postalcode","country","homephone","extension","reportsto"]</property_value>
+        <property_type>JSON</property_type>
+      </extended_column_property>
+      <extended_column_property table="stage_orders" column="hk_l_orders">
+        <property_name>HashColumn</property_name>
+        <property_value>["hk_h_customers","hk_h_employees"]</property_value>
+        <property_type>JSON</property_type>
+      </extended_column_property>
+      <extended_column_property table="stage_orders" column="hk_h_customers">
+        <property_name>HashColumn</property_name>
+        <property_value>["companyname","customerid","contactname"]</property_value>
+        <property_type>JSON</property_type>
+      </extended_column_property>
+      <extended_column_property table="stage_orders" column="hk_h_employees">
+        <property_name>HashColumn</property_name>
+        <property_value>["employeeid","lastname","firstname","title","titleofcourtesy"]</property_value>
+        <property_type>JSON</property_type>
+      </extended_column_property>
+      <extended_column_property table="stage_orders" column="dss_change_hash_orders_lroc">
+        <property_name>HashColumn</property_name>
+        <property_value>["orderdate","requireddate","shippeddate","shipvia","freight","shipname","shipaddress","shipcity","shipregion","shippostalcode","shipcountry"]</property_value>
+        <property_type>JSON</property_type>
+      </extended_column_property>
+    </extended_properties>
+  </structure>
+  <connections>
+    <odbc_connection name="Northwind">
+      <dsn>NORTHWIND</dsn>
+      <max_simultaneous>7</max_simultaneous>
+      <rdbms>MS SQL SERVER</rdbms>
+      <documentation>
+        <subject label="General info" name="General information" />
+      </documentation>
+    </odbc_connection>
+  </connections>
+  <notes>
+    <categories>
+      <category>
+        <name>Observation Note</name>
+        <colour>255,255,255</colour>
+      </category>
+    </categories>
+  </notes>
+  <effort_calculations>
+    <effort_calculation name="WhereScape Basic">
+      <calculation>(%connection_count%+1) * (%table_count% + (%column_count% / %table_count%))</calculation>
+      <description>WhereScape's basic calculation of business effort.</description>
+    </effort_calculation>
+  </effort_calculations>
+</source_system>

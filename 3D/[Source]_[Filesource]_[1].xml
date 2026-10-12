@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<source_system xmlns="http://www.wherescape.com/xml/3D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wherescape.com/xml/3D ./source_system_50.xsd">
+  <xml_version>50</xml_version>
+  <source_application>WhereScape 3D</source_application>
+  <structure>
+    <table_types>
+      <table_type name="View">
+        <group>View</group>
+        <description>A view entity</description>
+        <colour>217,216,217</colour>
+        <object_icon>view_table.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+    </table_types>
+    <table_ratings>
+      <table_rating>
+        <name>Mandatory</name>
+        <colour>255,0,0</colour>
+      </table_rating>
+      <table_rating>
+        <name>Preferred</name>
+        <colour>255,102,0</colour>
+      </table_rating>
+      <table_rating>
+        <name>Optional</name>
+        <colour>0,255,0</colour>
+      </table_rating>
+    </table_ratings>
+    <column_ratings>
+      <column_rating>
+        <name>Mandatory</name>
+        <colour>255,0,0</colour>
+      </column_rating>
+      <column_rating>
+        <name>Preferred</name>
+        <colour>255,102,0</colour>
+      </column_rating>
+      <column_rating>
+        <name>Optional</name>
+        <colour>0,255,0</colour>
+      </column_rating>
+    </column_ratings>
+    <rdbms_information>
+      <involved_databases>
+        <involved_rdbms>FILE</involved_rdbms>
+      </involved_databases>
+    </rdbms_information>
+    <storage_target_locations />
+    <tables>
+      <table name="forecast_txt">
+        <discovered_name>forecast_txt</discovered_name>
+        <columns>
+          <column name="product_code" nullable="true">
+            <discovered_name>product_code</discovered_name>
+            <data_type>INTEGER</data_type>
+            <label>COL1</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="customer_code" nullable="true">
+            <discovered_name>customer_code</discovered_name>
+            <data_type>INTEGER</data_type>
+            <label>COL2</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="forecast_quantity" nullable="true">
+            <discovered_name>forecast_quantity</discovered_name>
+            <data_type>INTEGER</data_type>
+            <label>COL3</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="forecast_sales_value" nullable="true">
+            <discovered_name>forecast_sales_value</discovered_name>
+            <data_type size="5" scale="2">NUMERIC</data_type>
+            <label>COL4</label>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="forecast_date" nullable="true">
+            <discovered_name>forecast_date</discovered_name>
+            <data_type size="16">VARCHAR</data_type>
+            <label>COL5</label>
+            <created_by>Discovery</created_by>
+          </column>
+        </columns>
+        <table_icon>file_table.png</table_icon>
+        <source_sets>
+          <source_set name="Default source">
+            <table_mappings>
+              <source_mapping>
+                <source_table>forecast.txt</source_table>
+                <source_is_trigger_file>false</source_is_trigger_file>
+                <source_location>file:///C:/Program Files/WhereScape/RED/RED9022/Tutorial/forecast.txt</source_location>
+              </source_mapping>
+            </table_mappings>
+            <column_mappings column_name="product_code" />
+            <column_mappings column_name="customer_code" />
+            <column_mappings column_name="forecast_quantity" />
+            <column_mappings column_name="forecast_sales_value" />
+            <column_mappings column_name="forecast_date" />
+            <referenced_connections>
+              <referenced_connection preferred="true">Filesource</referenced_connection>
+            </referenced_connections>
+          </source_set>
+        </source_sets>
+      </table>
+    </tables>
+    <relations />
+    <schemas />
+  </structure>
+  <connections>
+    <host_connection name="Filesource">
+      <protocol>LOCAL_FS</protocol>
+      <path>C:\Program Files\WhereScape\RED\RED9022\Tutorial</path>
+      <kerberos enabled="false" />
+      <documentation>
+        <subject label="General info" name="General information" />
+      </documentation>
+    </host_connection>
+  </connections>
+  <source_system_profiling>
+    <profiling_type>JDBC</profiling_type>
+    <profiling_stored_versions>3</profiling_stored_versions>
+    <profiling_retry_fail_period>0</profiling_retry_fail_period>
+  </source_system_profiling>
+  <notes>
+    <categories>
+      <category>
+        <name>Observation Note</name>
+        <colour>255,255,255</colour>
+      </category>
+    </categories>
+  </notes>
+  <effort_calculations>
+    <effort_calculation name="WhereScape Basic">
+      <calculation>(%connection_count%+1) * (%table_count% + (%column_count% / %table_count%))</calculation>
+      <description>WhereScape's basic calculation of business effort.</description>
+    </effort_calculation>
+  </effort_calculations>
+</source_system>

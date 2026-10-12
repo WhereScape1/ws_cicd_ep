@@ -1,0 +1,1190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<source_system xmlns="http://www.wherescape.com/xml/3D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wherescape.com/xml/3D ./source_system_50.xsd">
+  <xml_version>50</xml_version>
+  <source_application>WhereScape 3D</source_application>
+  <structure>
+    <table_types>
+      <table_type name="View">
+        <group>View</group>
+        <description>A view entity</description>
+        <colour>217,216,217</colour>
+        <object_icon>view_table.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+    </table_types>
+    <table_ratings>
+      <table_rating>
+        <name>Mandatory</name>
+        <colour>255,0,0</colour>
+      </table_rating>
+      <table_rating>
+        <name>Preferred</name>
+        <colour>255,102,0</colour>
+      </table_rating>
+      <table_rating>
+        <name>Optional</name>
+        <colour>0,255,0</colour>
+      </table_rating>
+    </table_ratings>
+    <column_ratings>
+      <column_rating>
+        <name>Mandatory</name>
+        <colour>255,0,0</colour>
+      </column_rating>
+      <column_rating>
+        <name>Preferred</name>
+        <colour>255,102,0</colour>
+      </column_rating>
+      <column_rating>
+        <name>Optional</name>
+        <colour>0,255,0</colour>
+      </column_rating>
+    </column_ratings>
+    <rdbms_information>
+      <involved_databases>
+        <involved_rdbms>MS_SQL_SERVER</involved_rdbms>
+      </involved_databases>
+    </rdbms_information>
+    <storage_target_locations />
+    <tables>
+      <table name="Categories" schema="dbo" database="Northwind">
+        <discovered_name>Categories</discovered_name>
+        <discovered_schema>dbo</discovered_schema>
+        <discovered_database>Northwind</discovered_database>
+        <columns>
+          <column name="CategoryID" pk="true">
+            <discovered_name>CategoryID</discovered_name>
+            <data_type>int identity</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="CategoryName">
+            <discovered_name>CategoryName</discovered_name>
+            <data_type size="15">nvarchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="Description" nullable="true">
+            <discovered_name>Description</discovered_name>
+            <data_type>ntext</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+        </columns>
+        <table_icon>user_table.png</table_icon>
+        <indices>
+          <index name="CategoryName">
+            <generated>false</generated>
+            <indexed_columns>
+              <indexed_column>CategoryName</indexed_column>
+            </indexed_columns>
+          </index>
+          <index name="PK_Categories">
+            <generated>false</generated>
+            <index_types>
+              <index_type>Unique</index_type>
+              <index_type>Clustered</index_type>
+            </index_types>
+            <indexed_columns>
+              <indexed_column>CategoryID</indexed_column>
+            </indexed_columns>
+          </index>
+        </indices>
+        <source_sets />
+      </table>
+      <table name="CustomerCustomerDemo" schema="dbo" database="Northwind">
+        <discovered_name>CustomerCustomerDemo</discovered_name>
+        <discovered_schema>dbo</discovered_schema>
+        <discovered_database>Northwind</discovered_database>
+        <columns>
+          <column name="CustomerID" pk="true">
+            <discovered_name>CustomerID</discovered_name>
+            <data_type size="5">nchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="CustomerTypeID" pk="true">
+            <discovered_name>CustomerTypeID</discovered_name>
+            <data_type size="10">nchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+        </columns>
+        <table_icon>user_table.png</table_icon>
+        <indices>
+          <index name="PK_CustomerCustomerDemo">
+            <generated>false</generated>
+            <index_types>
+              <index_type>Unique</index_type>
+            </index_types>
+            <indexed_columns>
+              <indexed_column>CustomerID</indexed_column>
+              <indexed_column>CustomerTypeID</indexed_column>
+            </indexed_columns>
+          </index>
+        </indices>
+        <source_sets />
+      </table>
+      <table name="CustomerDemographics" schema="dbo" database="Northwind">
+        <discovered_name>CustomerDemographics</discovered_name>
+        <discovered_schema>dbo</discovered_schema>
+        <discovered_database>Northwind</discovered_database>
+        <columns>
+          <column name="CustomerTypeID" pk="true">
+            <discovered_name>CustomerTypeID</discovered_name>
+            <data_type size="10">nchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="CustomerDesc" nullable="true">
+            <discovered_name>CustomerDesc</discovered_name>
+            <data_type>ntext</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+        </columns>
+        <table_icon>user_table.png</table_icon>
+        <indices>
+          <index name="PK_CustomerDemographics">
+            <generated>false</generated>
+            <index_types>
+              <index_type>Unique</index_type>
+            </index_types>
+            <indexed_columns>
+              <indexed_column>CustomerTypeID</indexed_column>
+            </indexed_columns>
+          </index>
+        </indices>
+        <source_sets />
+      </table>
+      <table name="Customers" schema="dbo" database="Northwind">
+        <discovered_name>Customers</discovered_name>
+        <discovered_schema>dbo</discovered_schema>
+        <discovered_database>Northwind</discovered_database>
+        <columns>
+          <column name="CustomerID" pk="true">
+            <discovered_name>CustomerID</discovered_name>
+            <data_type size="5">nchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="CompanyName">
+            <discovered_name>CompanyName</discovered_name>
+            <data_type size="50">varchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="ContactName" nullable="true">
+            <discovered_name>ContactName</discovered_name>
+            <data_type size="50">varchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="ContactTitle" nullable="true">
+            <discovered_name>ContactTitle</discovered_name>
+            <data_type size="50">varchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="Address" nullable="true">
+            <discovered_name>Address</discovered_name>
+            <data_type size="60">varchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="City" nullable="true">
+            <discovered_name>City</discovered_name>
+            <data_type size="50">varchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="Region" nullable="true">
+            <discovered_name>Region</discovered_name>
+            <data_type size="50">varchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="PostalCode" nullable="true">
+            <discovered_name>PostalCode</discovered_name>
+            <data_type size="50">varchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="Country" nullable="true">
+            <discovered_name>Country</discovered_name>
+            <data_type size="50">varchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="Phone" nullable="true">
+            <discovered_name>Phone</discovered_name>
+            <data_type size="50">varchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="Fax" nullable="true">
+            <discovered_name>Fax</discovered_name>
+            <data_type size="50">varchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+        </columns>
+        <table_icon>user_table.png</table_icon>
+        <indices>
+          <index name="City">
+            <generated>false</generated>
+            <indexed_columns>
+              <indexed_column>City</indexed_column>
+            </indexed_columns>
+          </index>
+          <index name="CompanyName">
+            <generated>false</generated>
+            <indexed_columns>
+              <indexed_column>CompanyName</indexed_column>
+            </indexed_columns>
+          </index>
+          <index name="PK_Customers">
+            <generated>false</generated>
+            <index_types>
+              <index_type>Unique</index_type>
+              <index_type>Clustered</index_type>
+            </index_types>
+            <indexed_columns>
+              <indexed_column>CustomerID</indexed_column>
+            </indexed_columns>
+          </index>
+          <index name="PostalCode">
+            <generated>false</generated>
+            <indexed_columns>
+              <indexed_column>PostalCode</indexed_column>
+            </indexed_columns>
+          </index>
+          <index name="Region">
+            <generated>false</generated>
+            <indexed_columns>
+              <indexed_column>Region</indexed_column>
+            </indexed_columns>
+          </index>
+        </indices>
+        <source_sets />
+      </table>
+      <table name="Employees" schema="dbo" database="Northwind">
+        <discovered_name>Employees</discovered_name>
+        <discovered_schema>dbo</discovered_schema>
+        <discovered_database>Northwind</discovered_database>
+        <columns>
+          <column name="EmployeeID" pk="true">
+            <discovered_name>EmployeeID</discovered_name>
+            <data_type>int identity</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="LastName">
+            <discovered_name>LastName</discovered_name>
+            <data_type size="50">varchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="FirstName">
+            <discovered_name>FirstName</discovered_name>
+            <data_type size="50">varchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="Title" nullable="true">
+            <discovered_name>Title</discovered_name>
+            <data_type size="50">varchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="TitleOfCourtesy" nullable="true">
+            <discovered_name>TitleOfCourtesy</discovered_name>
+            <data_type size="50">varchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="BirthDate" nullable="true">
+            <discovered_name>BirthDate</discovered_name>
+            <data_type>datetime</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="HireDate" nullable="true">
+            <discovered_name>HireDate</discovered_name>
+            <data_type>datetime</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="Address" nullable="true">
+            <discovered_name>Address</discovered_name>
+            <data_type size="60">varchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="City" nullable="true">
+            <discovered_name>City</discovered_name>
+            <data_type size="50">varchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="Region" nullable="true">
+            <discovered_name>Region</discovered_name>
+            <data_type size="50">varchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="PostalCode" nullable="true">
+            <discovered_name>PostalCode</discovered_name>
+            <data_type size="50">varchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="Country" nullable="true">
+            <discovered_name>Country</discovered_name>
+            <data_type size="50">varchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="HomePhone" nullable="true">
+            <discovered_name>HomePhone</discovered_name>
+            <data_type size="50">varchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="Extension" nullable="true">
+            <discovered_name>Extension</discovered_name>
+            <data_type size="50">varchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="ReportsTo" nullable="true">
+            <discovered_name>ReportsTo</discovered_name>
+            <data_type>int</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+        </columns>
+        <table_icon>user_table.png</table_icon>
+        <indices>
+          <index name="LastName">
+            <generated>false</generated>
+            <indexed_columns>
+              <indexed_column>LastName</indexed_column>
+            </indexed_columns>
+          </index>
+          <index name="PK_Employees">
+            <generated>false</generated>
+            <index_types>
+              <index_type>Unique</index_type>
+              <index_type>Clustered</index_type>
+            </index_types>
+            <indexed_columns>
+              <indexed_column>EmployeeID</indexed_column>
+            </indexed_columns>
+          </index>
+          <index name="PostalCode">
+            <generated>false</generated>
+            <indexed_columns>
+              <indexed_column>PostalCode</indexed_column>
+            </indexed_columns>
+          </index>
+        </indices>
+        <source_sets />
+      </table>
+      <table name="EmployeeTerritories" schema="dbo" database="Northwind">
+        <discovered_name>EmployeeTerritories</discovered_name>
+        <discovered_schema>dbo</discovered_schema>
+        <discovered_database>Northwind</discovered_database>
+        <columns>
+          <column name="EmployeeID" pk="true">
+            <discovered_name>EmployeeID</discovered_name>
+            <data_type>int</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="TerritoryID" pk="true">
+            <discovered_name>TerritoryID</discovered_name>
+            <data_type size="20">nvarchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+        </columns>
+        <table_icon>user_table.png</table_icon>
+        <indices>
+          <index name="PK_EmployeeTerritories">
+            <generated>false</generated>
+            <index_types>
+              <index_type>Unique</index_type>
+            </index_types>
+            <indexed_columns>
+              <indexed_column>EmployeeID</indexed_column>
+              <indexed_column>TerritoryID</indexed_column>
+            </indexed_columns>
+          </index>
+        </indices>
+        <source_sets />
+      </table>
+      <table name="Order_Details" schema="dbo" database="Northwind">
+        <discovered_name>Order_Details</discovered_name>
+        <discovered_schema>dbo</discovered_schema>
+        <discovered_database>Northwind</discovered_database>
+        <columns>
+          <column name="OrderID" pk="true">
+            <discovered_name>OrderID</discovered_name>
+            <data_type>int</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="orderlinenumber" pk="true">
+            <discovered_name>orderlinenumber</discovered_name>
+            <data_type>int</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="ProductID">
+            <discovered_name>ProductID</discovered_name>
+            <data_type>int</data_type>
+            <comment>The internal product id of the order line</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="UnitPrice">
+            <discovered_name>UnitPrice</discovered_name>
+            <data_type>money</data_type>
+            <default_value>((0))</default_value>
+            <comment>Unit price of the product for this order line</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="Quantity">
+            <discovered_name>Quantity</discovered_name>
+            <data_type>int</data_type>
+            <default_value>((1))</default_value>
+            <comment>Ordered quantity</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="Discount">
+            <discovered_name>Discount</discovered_name>
+            <data_type>real</data_type>
+            <default_value>((0))</default_value>
+            <comment>Discount applied to the order line</comment>
+            <created_by>Discovery</created_by>
+          </column>
+        </columns>
+        <table_icon>user_table.png</table_icon>
+        <indices>
+          <index name="PK_Order_Details">
+            <generated>false</generated>
+            <index_types>
+              <index_type>Unique</index_type>
+              <index_type>Clustered</index_type>
+            </index_types>
+            <indexed_columns>
+              <indexed_column>OrderID</indexed_column>
+              <indexed_column>orderlinenumber</indexed_column>
+            </indexed_columns>
+          </index>
+        </indices>
+        <source_sets />
+      </table>
+      <table name="Orders" schema="dbo" database="Northwind">
+        <discovered_name>Orders</discovered_name>
+        <discovered_schema>dbo</discovered_schema>
+        <discovered_database>Northwind</discovered_database>
+        <columns>
+          <column name="OrderID" pk="true">
+            <discovered_name>OrderID</discovered_name>
+            <data_type>int identity</data_type>
+            <comment>This is the internal order id</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="CustomerID" nullable="true">
+            <discovered_name>CustomerID</discovered_name>
+            <data_type size="5">nchar</data_type>
+            <comment>The internal customerid associated with the order</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="EmployeeID" nullable="true">
+            <discovered_name>EmployeeID</discovered_name>
+            <data_type>int</data_type>
+            <comment>The internal Employee id associated with the order</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="OrderDate" nullable="true">
+            <discovered_name>OrderDate</discovered_name>
+            <data_type>datetime</data_type>
+            <comment>The data the order was entered into the system</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="RequiredDate" nullable="true">
+            <discovered_name>RequiredDate</discovered_name>
+            <data_type>datetime</data_type>
+            <comment>The date that the order is required for delivery by the customer</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="ShippedDate" nullable="true">
+            <discovered_name>ShippedDate</discovered_name>
+            <data_type>datetime</data_type>
+            <comment>The date that the order was shipped from our factory</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="ShipVia" nullable="true">
+            <discovered_name>ShipVia</discovered_name>
+            <data_type>int</data_type>
+            <comment>Shipper internal id</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="Freight" nullable="true">
+            <discovered_name>Freight</discovered_name>
+            <data_type>money</data_type>
+            <default_value>(0)</default_value>
+            <comment>The order freight costs</comment>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="ShipName" nullable="true">
+            <discovered_name>ShipName</discovered_name>
+            <data_type size="40">nvarchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="ShipAddress" nullable="true">
+            <discovered_name>ShipAddress</discovered_name>
+            <data_type size="60">nvarchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="ShipCity" nullable="true">
+            <discovered_name>ShipCity</discovered_name>
+            <data_type size="15">nvarchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="ShipRegion" nullable="true">
+            <discovered_name>ShipRegion</discovered_name>
+            <data_type size="15">nvarchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="ShipPostalCode" nullable="true">
+            <discovered_name>ShipPostalCode</discovered_name>
+            <data_type size="10">nvarchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="ShipCountry" nullable="true">
+            <discovered_name>ShipCountry</discovered_name>
+            <data_type size="15">nvarchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+        </columns>
+        <table_icon>user_table.png</table_icon>
+        <indices>
+          <index name="CustomerID">
+            <generated>false</generated>
+            <indexed_columns>
+              <indexed_column>CustomerID</indexed_column>
+            </indexed_columns>
+          </index>
+          <index name="CustomersOrders">
+            <generated>false</generated>
+            <indexed_columns>
+              <indexed_column>CustomerID</indexed_column>
+            </indexed_columns>
+          </index>
+          <index name="EmployeeID">
+            <generated>false</generated>
+            <indexed_columns>
+              <indexed_column>EmployeeID</indexed_column>
+            </indexed_columns>
+          </index>
+          <index name="EmployeesOrders">
+            <generated>false</generated>
+            <indexed_columns>
+              <indexed_column>EmployeeID</indexed_column>
+            </indexed_columns>
+          </index>
+          <index name="OrderDate">
+            <generated>false</generated>
+            <indexed_columns>
+              <indexed_column>OrderDate</indexed_column>
+            </indexed_columns>
+          </index>
+          <index name="PK_Orders">
+            <generated>false</generated>
+            <index_types>
+              <index_type>Unique</index_type>
+              <index_type>Clustered</index_type>
+            </index_types>
+            <indexed_columns>
+              <indexed_column>OrderID</indexed_column>
+            </indexed_columns>
+          </index>
+          <index name="ShippedDate">
+            <generated>false</generated>
+            <indexed_columns>
+              <indexed_column>ShippedDate</indexed_column>
+            </indexed_columns>
+          </index>
+          <index name="ShippersOrders">
+            <generated>false</generated>
+            <indexed_columns>
+              <indexed_column>ShipVia</indexed_column>
+            </indexed_columns>
+          </index>
+          <index name="ShipPostalCode">
+            <generated>false</generated>
+            <indexed_columns>
+              <indexed_column>ShipPostalCode</indexed_column>
+            </indexed_columns>
+          </index>
+        </indices>
+        <source_sets />
+      </table>
+      <table name="Products" schema="dbo" database="Northwind">
+        <discovered_name>Products</discovered_name>
+        <discovered_schema>dbo</discovered_schema>
+        <discovered_database>Northwind</discovered_database>
+        <columns>
+          <column name="ProductID" pk="true">
+            <discovered_name>ProductID</discovered_name>
+            <data_type>int identity</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="ProductName">
+            <discovered_name>ProductName</discovered_name>
+            <data_type size="40">nvarchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="SupplierID" nullable="true">
+            <discovered_name>SupplierID</discovered_name>
+            <data_type>int</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="CategoryID" nullable="true">
+            <discovered_name>CategoryID</discovered_name>
+            <data_type>int</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="QuantityPerUnit" nullable="true">
+            <discovered_name>QuantityPerUnit</discovered_name>
+            <data_type size="20">nvarchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="UnitPrice" nullable="true">
+            <discovered_name>UnitPrice</discovered_name>
+            <data_type>money</data_type>
+            <default_value>(0)</default_value>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="UnitsInStock" nullable="true">
+            <discovered_name>UnitsInStock</discovered_name>
+            <data_type>smallint</data_type>
+            <default_value>(0)</default_value>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="UnitsOnOrder" nullable="true">
+            <discovered_name>UnitsOnOrder</discovered_name>
+            <data_type>smallint</data_type>
+            <default_value>(0)</default_value>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="ReorderLevel" nullable="true">
+            <discovered_name>ReorderLevel</discovered_name>
+            <data_type>smallint</data_type>
+            <default_value>(0)</default_value>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="Discontinued">
+            <discovered_name>Discontinued</discovered_name>
+            <data_type>bit</data_type>
+            <default_value>(0)</default_value>
+            <created_by>Discovery</created_by>
+          </column>
+        </columns>
+        <table_icon>user_table.png</table_icon>
+        <indices>
+          <index name="CategoriesProducts">
+            <generated>false</generated>
+            <indexed_columns>
+              <indexed_column>CategoryID</indexed_column>
+            </indexed_columns>
+          </index>
+          <index name="CategoryID">
+            <generated>false</generated>
+            <indexed_columns>
+              <indexed_column>CategoryID</indexed_column>
+            </indexed_columns>
+          </index>
+          <index name="PK_Products">
+            <generated>false</generated>
+            <index_types>
+              <index_type>Unique</index_type>
+              <index_type>Clustered</index_type>
+            </index_types>
+            <indexed_columns>
+              <indexed_column>ProductID</indexed_column>
+            </indexed_columns>
+          </index>
+          <index name="ProductName">
+            <generated>false</generated>
+            <indexed_columns>
+              <indexed_column>ProductName</indexed_column>
+            </indexed_columns>
+          </index>
+          <index name="SupplierID">
+            <generated>false</generated>
+            <indexed_columns>
+              <indexed_column>SupplierID</indexed_column>
+            </indexed_columns>
+          </index>
+          <index name="SuppliersProducts">
+            <generated>false</generated>
+            <indexed_columns>
+              <indexed_column>SupplierID</indexed_column>
+            </indexed_columns>
+          </index>
+        </indices>
+        <source_sets />
+      </table>
+      <table name="Region" schema="dbo" database="Northwind">
+        <discovered_name>Region</discovered_name>
+        <discovered_schema>dbo</discovered_schema>
+        <discovered_database>Northwind</discovered_database>
+        <columns>
+          <column name="RegionID" pk="true">
+            <discovered_name>RegionID</discovered_name>
+            <data_type>int</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="RegionDescription">
+            <discovered_name>RegionDescription</discovered_name>
+            <data_type size="50">nchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+        </columns>
+        <table_icon>user_table.png</table_icon>
+        <indices>
+          <index name="PK_Region">
+            <generated>false</generated>
+            <index_types>
+              <index_type>Unique</index_type>
+            </index_types>
+            <indexed_columns>
+              <indexed_column>RegionID</indexed_column>
+            </indexed_columns>
+          </index>
+        </indices>
+        <source_sets />
+      </table>
+      <table name="Shippers" schema="dbo" database="Northwind">
+        <discovered_name>Shippers</discovered_name>
+        <discovered_schema>dbo</discovered_schema>
+        <discovered_database>Northwind</discovered_database>
+        <columns>
+          <column name="ShipperID" pk="true">
+            <discovered_name>ShipperID</discovered_name>
+            <data_type>int identity</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="CompanyName">
+            <discovered_name>CompanyName</discovered_name>
+            <data_type size="40">nvarchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="Phone" nullable="true">
+            <discovered_name>Phone</discovered_name>
+            <data_type size="24">nvarchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+        </columns>
+        <table_icon>user_table.png</table_icon>
+        <indices>
+          <index name="PK_Shippers">
+            <generated>false</generated>
+            <index_types>
+              <index_type>Unique</index_type>
+              <index_type>Clustered</index_type>
+            </index_types>
+            <indexed_columns>
+              <indexed_column>ShipperID</indexed_column>
+            </indexed_columns>
+          </index>
+        </indices>
+        <source_sets />
+      </table>
+      <table name="Suppliers" schema="dbo" database="Northwind">
+        <discovered_name>Suppliers</discovered_name>
+        <discovered_schema>dbo</discovered_schema>
+        <discovered_database>Northwind</discovered_database>
+        <columns>
+          <column name="SupplierID" pk="true">
+            <discovered_name>SupplierID</discovered_name>
+            <data_type>int identity</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="CompanyName">
+            <discovered_name>CompanyName</discovered_name>
+            <data_type size="40">nvarchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="ContactName" nullable="true">
+            <discovered_name>ContactName</discovered_name>
+            <data_type size="30">nvarchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="ContactTitle" nullable="true">
+            <discovered_name>ContactTitle</discovered_name>
+            <data_type size="30">nvarchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="Address" nullable="true">
+            <discovered_name>Address</discovered_name>
+            <data_type size="60">nvarchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="City" nullable="true">
+            <discovered_name>City</discovered_name>
+            <data_type size="15">nvarchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="Region" nullable="true">
+            <discovered_name>Region</discovered_name>
+            <data_type size="15">nvarchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="PostalCode" nullable="true">
+            <discovered_name>PostalCode</discovered_name>
+            <data_type size="10">nvarchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="Country" nullable="true">
+            <discovered_name>Country</discovered_name>
+            <data_type size="15">nvarchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="Phone" nullable="true">
+            <discovered_name>Phone</discovered_name>
+            <data_type size="24">nvarchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="Fax" nullable="true">
+            <discovered_name>Fax</discovered_name>
+            <data_type size="24">nvarchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="HomePage" nullable="true">
+            <discovered_name>HomePage</discovered_name>
+            <data_type>ntext</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+        </columns>
+        <table_icon>user_table.png</table_icon>
+        <indices>
+          <index name="CompanyName">
+            <generated>false</generated>
+            <indexed_columns>
+              <indexed_column>CompanyName</indexed_column>
+            </indexed_columns>
+          </index>
+          <index name="PK_Suppliers">
+            <generated>false</generated>
+            <index_types>
+              <index_type>Unique</index_type>
+              <index_type>Clustered</index_type>
+            </index_types>
+            <indexed_columns>
+              <indexed_column>SupplierID</indexed_column>
+            </indexed_columns>
+          </index>
+          <index name="PostalCode">
+            <generated>false</generated>
+            <indexed_columns>
+              <indexed_column>PostalCode</indexed_column>
+            </indexed_columns>
+          </index>
+        </indices>
+        <source_sets />
+      </table>
+      <table name="sysdiagrams" schema="dbo" database="Northwind">
+        <discovered_name>sysdiagrams</discovered_name>
+        <discovered_schema>dbo</discovered_schema>
+        <discovered_database>Northwind</discovered_database>
+        <columns>
+          <column name="name">
+            <discovered_name>name</discovered_name>
+            <data_type>sysname</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="principal_id">
+            <discovered_name>principal_id</discovered_name>
+            <data_type>int</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="diagram_id" pk="true">
+            <discovered_name>diagram_id</discovered_name>
+            <data_type>int identity</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="version" nullable="true">
+            <discovered_name>version</discovered_name>
+            <data_type>int</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="definition" nullable="true">
+            <discovered_name>definition</discovered_name>
+            <data_type>varbinary</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+        </columns>
+        <table_icon>user_table.png</table_icon>
+        <indices>
+          <index name="PK__sysdiagrams__5EBF139D">
+            <generated>false</generated>
+            <index_types>
+              <index_type>Unique</index_type>
+              <index_type>Clustered</index_type>
+            </index_types>
+            <indexed_columns>
+              <indexed_column>diagram_id</indexed_column>
+            </indexed_columns>
+          </index>
+          <index name="UK_principal_name">
+            <generated>false</generated>
+            <index_types>
+              <index_type>Unique</index_type>
+            </index_types>
+            <indexed_columns>
+              <indexed_column>principal_id</indexed_column>
+              <indexed_column>name</indexed_column>
+            </indexed_columns>
+          </index>
+        </indices>
+        <source_sets />
+      </table>
+      <table name="Territories" schema="dbo" database="Northwind">
+        <discovered_name>Territories</discovered_name>
+        <discovered_schema>dbo</discovered_schema>
+        <discovered_database>Northwind</discovered_database>
+        <columns>
+          <column name="TerritoryID" pk="true">
+            <discovered_name>TerritoryID</discovered_name>
+            <data_type size="20">nvarchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="TerritoryDescription">
+            <discovered_name>TerritoryDescription</discovered_name>
+            <data_type size="50">nchar</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+          <column name="RegionID">
+            <discovered_name>RegionID</discovered_name>
+            <data_type>int</data_type>
+            <created_by>Discovery</created_by>
+          </column>
+        </columns>
+        <table_icon>user_table.png</table_icon>
+        <indices>
+          <index name="PK_Territories">
+            <generated>false</generated>
+            <index_types>
+              <index_type>Unique</index_type>
+            </index_types>
+            <indexed_columns>
+              <indexed_column>TerritoryID</indexed_column>
+            </indexed_columns>
+          </index>
+        </indices>
+        <source_sets />
+      </table>
+    </tables>
+    <relations>
+      <relation>
+        <fk_database>Northwind</fk_database>
+        <fk_schema>dbo</fk_schema>
+        <fk_table>CustomerCustomerDemo</fk_table>
+        <fk_column>CustomerID</fk_column>
+        <referenced_database>Northwind</referenced_database>
+        <referenced_schema>dbo</referenced_schema>
+        <referenced_table>Customers</referenced_table>
+        <referenced_column>CustomerID</referenced_column>
+        <fk_constraint_name>FK_CustomerCustomerDemo_Customers</fk_constraint_name>
+        <fk_sequence>1</fk_sequence>
+        <label>FK_CustomerCustomerDemo_Customers</label>
+        <visible>true</visible>
+        <generated>false</generated>
+      </relation>
+      <relation>
+        <fk_database>Northwind</fk_database>
+        <fk_schema>dbo</fk_schema>
+        <fk_table>CustomerCustomerDemo</fk_table>
+        <fk_column>CustomerTypeID</fk_column>
+        <referenced_database>Northwind</referenced_database>
+        <referenced_schema>dbo</referenced_schema>
+        <referenced_table>CustomerDemographics</referenced_table>
+        <referenced_column>CustomerTypeID</referenced_column>
+        <fk_constraint_name>FK_CustomerCustomerDemo</fk_constraint_name>
+        <fk_sequence>1</fk_sequence>
+        <label>FK_CustomerCustomerDemo</label>
+        <visible>true</visible>
+        <generated>false</generated>
+      </relation>
+      <relation>
+        <fk_database>Northwind</fk_database>
+        <fk_schema>dbo</fk_schema>
+        <fk_table>Employees</fk_table>
+        <fk_column>ReportsTo</fk_column>
+        <referenced_database>Northwind</referenced_database>
+        <referenced_schema>dbo</referenced_schema>
+        <referenced_table>Employees</referenced_table>
+        <referenced_column>EmployeeID</referenced_column>
+        <fk_constraint_name>FK_Employees_Employees</fk_constraint_name>
+        <fk_sequence>1</fk_sequence>
+        <label>FK_Employees_Employees</label>
+        <visible>true</visible>
+        <generated>false</generated>
+      </relation>
+      <relation>
+        <fk_database>Northwind</fk_database>
+        <fk_schema>dbo</fk_schema>
+        <fk_table>EmployeeTerritories</fk_table>
+        <fk_column>EmployeeID</fk_column>
+        <referenced_database>Northwind</referenced_database>
+        <referenced_schema>dbo</referenced_schema>
+        <referenced_table>Employees</referenced_table>
+        <referenced_column>EmployeeID</referenced_column>
+        <fk_constraint_name>FK_EmployeeTerritories_Employees</fk_constraint_name>
+        <fk_sequence>1</fk_sequence>
+        <label>FK_EmployeeTerritories_Employees</label>
+        <visible>true</visible>
+        <generated>false</generated>
+      </relation>
+      <relation>
+        <fk_database>Northwind</fk_database>
+        <fk_schema>dbo</fk_schema>
+        <fk_table>EmployeeTerritories</fk_table>
+        <fk_column>TerritoryID</fk_column>
+        <referenced_database>Northwind</referenced_database>
+        <referenced_schema>dbo</referenced_schema>
+        <referenced_table>Territories</referenced_table>
+        <referenced_column>TerritoryID</referenced_column>
+        <fk_constraint_name>FK_EmployeeTerritories_Territories</fk_constraint_name>
+        <fk_sequence>1</fk_sequence>
+        <label>FK_EmployeeTerritories_Territories</label>
+        <visible>true</visible>
+        <generated>false</generated>
+      </relation>
+      <relation>
+        <fk_database>Northwind</fk_database>
+        <fk_schema>dbo</fk_schema>
+        <fk_table>Order_Details</fk_table>
+        <fk_column>OrderID</fk_column>
+        <referenced_database>Northwind</referenced_database>
+        <referenced_schema>dbo</referenced_schema>
+        <referenced_table>Orders</referenced_table>
+        <referenced_column>OrderID</referenced_column>
+        <fk_constraint_name>FK_Order_Details_Orders</fk_constraint_name>
+        <fk_sequence>1</fk_sequence>
+        <label>FK_Order_Details_Orders</label>
+        <visible>true</visible>
+        <generated>false</generated>
+      </relation>
+      <relation>
+        <fk_database>Northwind</fk_database>
+        <fk_schema>dbo</fk_schema>
+        <fk_table>Order_Details</fk_table>
+        <fk_column>ProductID</fk_column>
+        <referenced_database>Northwind</referenced_database>
+        <referenced_schema>dbo</referenced_schema>
+        <referenced_table>Products</referenced_table>
+        <referenced_column>ProductID</referenced_column>
+        <fk_constraint_name>FK_Order_Details_Products</fk_constraint_name>
+        <fk_sequence>1</fk_sequence>
+        <label>FK_Order_Details_Products</label>
+        <visible>true</visible>
+        <generated>false</generated>
+      </relation>
+      <relation>
+        <fk_database>Northwind</fk_database>
+        <fk_schema>dbo</fk_schema>
+        <fk_table>Orders</fk_table>
+        <fk_column>CustomerID</fk_column>
+        <referenced_database>Northwind</referenced_database>
+        <referenced_schema>dbo</referenced_schema>
+        <referenced_table>Customers</referenced_table>
+        <referenced_column>CustomerID</referenced_column>
+        <fk_constraint_name>FK_Orders_Customers</fk_constraint_name>
+        <fk_sequence>1</fk_sequence>
+        <label>FK_Orders_Customers</label>
+        <visible>true</visible>
+        <generated>false</generated>
+      </relation>
+      <relation>
+        <fk_database>Northwind</fk_database>
+        <fk_schema>dbo</fk_schema>
+        <fk_table>Orders</fk_table>
+        <fk_column>EmployeeID</fk_column>
+        <referenced_database>Northwind</referenced_database>
+        <referenced_schema>dbo</referenced_schema>
+        <referenced_table>Employees</referenced_table>
+        <referenced_column>EmployeeID</referenced_column>
+        <fk_constraint_name>FK_Orders_Employees</fk_constraint_name>
+        <fk_sequence>1</fk_sequence>
+        <label>FK_Orders_Employees</label>
+        <visible>true</visible>
+        <generated>false</generated>
+      </relation>
+      <relation>
+        <fk_database>Northwind</fk_database>
+        <fk_schema>dbo</fk_schema>
+        <fk_table>Orders</fk_table>
+        <fk_column>ShipVia</fk_column>
+        <referenced_database>Northwind</referenced_database>
+        <referenced_schema>dbo</referenced_schema>
+        <referenced_table>Shippers</referenced_table>
+        <referenced_column>ShipperID</referenced_column>
+        <fk_constraint_name>FK_Orders_Shippers</fk_constraint_name>
+        <fk_sequence>1</fk_sequence>
+        <label>FK_Orders_Shippers</label>
+        <visible>true</visible>
+        <generated>false</generated>
+      </relation>
+      <relation>
+        <fk_database>Northwind</fk_database>
+        <fk_schema>dbo</fk_schema>
+        <fk_table>Products</fk_table>
+        <fk_column>SupplierID</fk_column>
+        <referenced_database>Northwind</referenced_database>
+        <referenced_schema>dbo</referenced_schema>
+        <referenced_table>Suppliers</referenced_table>
+        <referenced_column>SupplierID</referenced_column>
+        <fk_constraint_name>FK_Products_Suppliers</fk_constraint_name>
+        <fk_sequence>1</fk_sequence>
+        <label>FK_Products_Suppliers</label>
+        <visible>true</visible>
+        <generated>false</generated>
+      </relation>
+      <relation>
+        <fk_database>Northwind</fk_database>
+        <fk_schema>dbo</fk_schema>
+        <fk_table>Products</fk_table>
+        <fk_column>CategoryID</fk_column>
+        <referenced_database>Northwind</referenced_database>
+        <referenced_schema>dbo</referenced_schema>
+        <referenced_table>Categories</referenced_table>
+        <referenced_column>CategoryID</referenced_column>
+        <fk_constraint_name>FK_Products_Categories</fk_constraint_name>
+        <fk_sequence>1</fk_sequence>
+        <label>FK_Products_Categories</label>
+        <visible>true</visible>
+        <generated>false</generated>
+      </relation>
+      <relation>
+        <fk_database>Northwind</fk_database>
+        <fk_schema>dbo</fk_schema>
+        <fk_table>Territories</fk_table>
+        <fk_column>RegionID</fk_column>
+        <referenced_database>Northwind</referenced_database>
+        <referenced_schema>dbo</referenced_schema>
+        <referenced_table>Region</referenced_table>
+        <referenced_column>RegionID</referenced_column>
+        <fk_constraint_name>FK_Territories_Region</fk_constraint_name>
+        <fk_sequence>1</fk_sequence>
+        <label>FK_Territories_Region</label>
+        <visible>true</visible>
+        <generated>false</generated>
+      </relation>
+    </relations>
+    <schemas>
+      <schema name="dbo" />
+    </schemas>
+  </structure>
+  <connections>
+    <odbc_connection name="Northwind">
+      <dsn>NORTHWIND</dsn>
+      <max_simultaneous>7</max_simultaneous>
+      <rdbms>MS SQL SERVER</rdbms>
+      <documentation>
+        <subject label="General info" name="General information" />
+      </documentation>
+    </odbc_connection>
+  </connections>
+  <source_system_connection>Northwind</source_system_connection>
+  <source_system_discovery>
+    <discover_type>JDBC</discover_type>
+  </source_system_discovery>
+  <source_system_profiling>
+    <profiling_type>JDBC</profiling_type>
+    <profiling_stored_versions>3</profiling_stored_versions>
+    <profiling_retry_fail_period>0</profiling_retry_fail_period>
+  </source_system_profiling>
+  <notes>
+    <categories>
+      <category>
+        <name>Observation Note</name>
+        <colour>255,255,255</colour>
+      </category>
+    </categories>
+  </notes>
+  <effort_calculations>
+    <effort_calculation name="WhereScape Basic">
+      <calculation>(%connection_count%+1) * (%table_count% + (%column_count% / %table_count%))</calculation>
+      <description>WhereScape's basic calculation of business effort.</description>
+    </effort_calculation>
+  </effort_calculations>
+</source_system>

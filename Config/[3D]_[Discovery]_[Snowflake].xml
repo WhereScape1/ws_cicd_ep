@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Discovery SYSTEM "jar:file:!dtd/discovery_defn_17.dtd">
+<Discovery>
+  <xml_version>17</xml_version>
+  <database name="Snowflake" vendor="Snowflake">
+    <db_version type="RANGE" min_version="*" max_version="*" value="*">
+      <wb_src_table>
+        <src_table_database>
+          <query>SELECT "TABLE_CATALOG", "TABLE_SCHEMA", "TABLE_NAME", "COMMENT", "TABLE_TYPE"&#xD;
+ FROM "INFORMATION_SCHEMA"."TABLES"&#xD;
+ WHERE "TABLE_TYPE" IN ('BASE TABLE', 'VIEW', 'EXTERNAL TABLE')&#xD;
+ --%schema_filter&#xD;
+ --%table_filter</query>
+          <schema_filter replace="schema_name_pattern" insert="%schema_filter">AND "TABLE_SCHEMA" LIKE 'schema_name_pattern'</schema_filter>
+          <table_filter replace="table_name_pattern" insert="%table_filter">AND "TABLE_NAME" LIKE 'table_name_pattern'</table_filter>
+          <query_value query_type="SQL">TABLE_CATALOG</query_value>
+        </src_table_database>
+        <src_table_schema>
+          <query_value query_type="dependency">TABLE_SCHEMA</query_value>
+          <dependency>
+            <on>src_table_database</on>
+          </dependency>
+        </src_table_schema>
+        <src_table_name>
+          <query_value query_type="dependency">TABLE_NAME</query_value>
+          <dependency>
+            <on>src_table_database</on>
+          </dependency>
+        </src_table_name>
+        <src_table_comment>
+          <query_value query_type="dependency">COMMENT</query_value>
+          <dependency>
+            <on>src_table_database</on>
+          </dependency>
+        </src_table_comment>
+        <src_table_type>
+          <query_value query_type="dependency">TABLE_TYPE</query_value>
+          <dependency>
+            <on>src_table_database</on>
+          </dependency>
+          <semantics>
+            <db_type name="TABLE">BASE TABLE</db_type>
+            <db_type name="EXTERNAL TABLE">EXTERNAL TABLE</db_type>
+            <db_type name="VIEW">VIEW</db_type>
+          </semantics>
+        </src_table_type>
+        <src_view_query>
+          <query>SELECT "VIEW_DEFINITION"&#xD;
+ FROM "INFORMATION_SCHEMA"."VIEWS"&#xD;
+ WHERE "TABLE_CATALOG" = 'src_table_database'&#xD;
+ AND "TABLE_SCHEMA" = 'src_table_schema'&#xD;
+ AND "TABLE_NAME" = 'src_table_name'</query>
+          <query_value query_type="SQL">VIEW_DEFINITION</query_value>
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_view_query>
+        <src_target_location>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_target_location>
+        <src_table_group>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_table_group>
+      </wb_src_table>
+      <wb_src_column>
+        <src_column_name>
+          <query>SELECT&#xD;
+ "COLUMN_NAME",&#xD;
+ "DATA_TYPE",&#xD;
+ COALESCE("CHARACTER_MAXIMUM_LENGTH", "NUMERIC_PRECISION") AS "DATA_TYPE_SIZE",&#xD;
+ COALESCE("NUMERIC_SCALE", "DATETIME_PRECISION") AS "DATA_TYPE_SCALE",&#xD;
+ "COLUMN_DEFAULT",&#xD;
+ "IS_NULLABLE",&#xD;
+ "COMMENT",&#xD;
+ "IS_IDENTITY"&#xD;
+ FROM "INFORMATION_SCHEMA"."COLUMNS"&#xD;
+ WHERE "TABLE_CATALOG" = 'src_table_database'&#xD;
+ AND "TABLE_SCHEMA" = 'src_table_schema'&#xD;
+ AND "TABLE_NAME" = 'src_table_name'&#xD;
+ ORDER BY "ORDINAL_POSITION" ASC</query>
+          <query_value query_type="SQL">COLUMN_NAME</query_value>
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_column_name>
+        <src_column_label>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_column_name</replace>
+            <on>src_column_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_column_label>
+        <src_column_datatype>
+          <query_value query_type="dependency">DATA_TYPE</query_value>
+          <dependency>
+            <on>src_column_name</on>
+          </dependency>
+        </src_column_datatype>
+        <src_column_datatype_size>
+          <query_value query_type="dependency">DATA_TYPE_SIZE</query_value>
+          <dependency>
+            <on>src_column_name</on>
+          </dependency>
+        </src_column_datatype_size>
+        <src_column_datatype_scale>
+          <query_value query_type="dependency">DATA_TYPE_SCALE</query_value>
+          <dependency>
+            <on>src_column_name</on>
+          </dependency>
+        </src_column_datatype_scale>
+        <src_column_charset>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_column_name</replace>
+            <on>src_column_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_column_charset>
+        <src_column_default_value>
+          <query_value query_type="dependency">COLUMN_DEFAULT</query_value>
+          <dependency>
+            <on>src_column_name</on>
+          </dependency>
+        </src_column_default_value>
+        <src_column_primary_key_ind>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_column_name</replace>
+            <on>src_column_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_column_primary_key_ind>
+        <src_column_unique_ind>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_column_name</replace>
+            <on>src_column_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_column_unique_ind>
+        <src_column_nullable_ind>
+          <query_value query_type="dependency">IS_NULLABLE</query_value>
+          <dependency>
+            <on>src_column_name</on>
+          </dependency>
+        </src_column_nullable_ind>
+        <src_column_comment>
+          <query_value query_type="dependency">COMMENT</query_value>
+          <dependency>
+            <on>src_column_name</on>
+          </dependency>
+        </src_column_comment>
+        <src_column_auto_increment>
+          <query_value query_type="dependency">IS_IDENTITY</query_value>
+          <dependency>
+            <on>src_column_name</on>
+          </dependency>
+        </src_column_auto_increment>
+        <src_column_type>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_column_name</replace>
+            <on>src_column_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_column_type>
+      </wb_src_column>
+      <wb_src_foreign_key>
+        <src_parent_column_name>
+          <query>SHOW IMPORTED KEYS IN "src_table_schema"."src_table_name"</query>
+          <query_value query_type="SQL">fk_column_name</query_value>
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_parent_column_name>
+        <src_parent_constraint_name>
+          <query_value query_type="dependency">fk_name</query_value>
+          <dependency>
+            <on>src_parent_column_name</on>
+          </dependency>
+        </src_parent_constraint_name>
+        <src_parent_sequence>
+          <query_value query_type="dependency">key_sequence</query_value>
+          <dependency>
+            <on>src_parent_column_name</on>
+          </dependency>
+        </src_parent_sequence>
+        <src_ref_database_name>
+          <query_value query_type="dependency">pk_database_name</query_value>
+          <dependency>
+            <on>src_parent_column_name</on>
+          </dependency>
+        </src_ref_database_name>
+        <src_ref_schema_name>
+          <query_value query_type="dependency">pk_schema_name</query_value>
+          <dependency>
+            <on>src_parent_column_name</on>
+          </dependency>
+        </src_ref_schema_name>
+        <src_ref_table_name>
+          <query_value query_type="dependency">pk_table_name</query_value>
+          <dependency>
+            <on>src_parent_column_name</on>
+          </dependency>
+        </src_ref_table_name>
+        <src_ref_column_name>
+          <query_value query_type="dependency">pk_column_name</query_value>
+          <dependency>
+            <on>src_parent_column_name</on>
+          </dependency>
+        </src_ref_column_name>
+      </wb_src_foreign_key>
+      <wb_src_index>
+        <src_index_name>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_index_name>
+        <src_index_type>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_index_name</replace>
+            <on>src_index_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_index_type>
+        <src_index_col_order>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_index_name</replace>
+            <on>src_index_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_index_col_order>
+        <src_index_col_name>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_index_name</replace>
+            <on>src_index_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_index_col_name>
+      </wb_src_index>
+      <wb_src_source_set>
+        <src_source_set>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_source_set>
+      </wb_src_source_set>
+      <wb_src_source_mappings>
+        <src_source_schema>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_source_schema>
+        <src_source_entity>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_source_entity>
+        <src_source_attribute>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_source_attribute>
+      </wb_src_source_mappings>
+      <wb_src_dw_query>
+        <src_dw_query>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_dw_query>
+      </wb_src_dw_query>
+      <wb_src_data_transformations>
+        <src_transformation_name>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_transformation_name>
+        <src_transformation_condition>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_transformation_condition>
+        <src_transformation_description>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_transformation_description>
+        <src_transformation_change>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_transformation_change>
+      </wb_src_data_transformations>
+      <wb_src_ui_column_properties>
+        <src_property_name>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_property_name>
+        <src_property_value>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_property_value>
+      </wb_src_ui_column_properties>
+      <wb_src_extended_table_property>
+        <src_extended_property_name>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_column_name</replace>
+            <on>src_column_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_extended_property_name>
+        <src_extended_property_value>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_column_name</replace>
+            <on>src_column_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_extended_property_value>
+        <src_extended_property_type>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_column_name</replace>
+            <on>src_column_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_extended_property_type>
+      </wb_src_extended_table_property>
+      <wb_src_extended_column_property>
+        <src_extended_property_name>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_column_name</replace>
+            <on>src_column_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_extended_property_name>
+        <src_extended_property_value>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_column_name</replace>
+            <on>src_column_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_extended_property_value>
+        <src_extended_property_type>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_column_name</replace>
+            <on>src_column_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_extended_property_type>
+      </wb_src_extended_column_property>
+    </db_version>
+  </database>
+</Discovery>

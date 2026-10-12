@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<source_system xmlns="http://www.wherescape.com/xml/3D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wherescape.com/xml/3D ./source_system_50.xsd">
+  <xml_version>50</xml_version>
+  <source_application>WhereScape 3D</source_application>
+  <structure>
+    <table_types>
+      <table_type name="View">
+        <group>View</group>
+        <description>A view entity</description>
+        <colour>217,216,217</colour>
+        <object_icon>view_table.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="Load">
+        <group>Load</group>
+        <description>Load table</description>
+        <colour>204,255,204</colour>
+        <object_icon>Load.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="Stage">
+        <group>Stage</group>
+        <description>Stage table</description>
+        <colour>204,204,255</colour>
+        <object_icon>Stage.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="Stage-Data Vault Stage">
+        <group>Stage</group>
+        <description>Stage table for Data Vault</description>
+        <colour>165,165,207</colour>
+        <object_icon>Stage.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="Fact">
+        <group>Fact</group>
+        <description>Fact table</description>
+        <colour>102,255,102</colour>
+        <object_icon>Fact.png</object_icon>
+        <positioning_characteristic>HUB</positioning_characteristic>
+        <keywords>
+          <keyword name="PARTITION" data_type="BOOLEAN" />
+          <keyword name="AGGREGATE" data_type="BOOLEAN" />
+          <keyword name="ROLLUP" data_type="BOOLEAN" />
+        </keywords>
+      </table_type>
+      <table_type name="Dimension">
+        <group>Dimension</group>
+        <description>Normal dimension</description>
+        <colour>195,228,234</colour>
+        <object_icon>Dimension.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+        <keywords>
+          <keyword name="HIERARCHY" data_type="BOOLEAN" />
+        </keywords>
+      </table_type>
+      <table_type name="Changing Dimension">
+        <group>Dimension</group>
+        <description>Changing dimension</description>
+        <colour>215,237,241</colour>
+        <object_icon>Dimension.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+        <behaviour>changing</behaviour>
+        <keywords>
+          <keyword name="HIERARCHY" data_type="BOOLEAN" />
+        </keywords>
+      </table_type>
+      <table_type name="Previous Dimension">
+        <group>Dimension</group>
+        <description>Previous dimension</description>
+        <colour>175,219,227</colour>
+        <object_icon>Dimension.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+        <keywords>
+          <keyword name="HIERARCHY" data_type="BOOLEAN" />
+        </keywords>
+      </table_type>
+      <table_type name="Ranged Dimension">
+        <group>Dimension</group>
+        <description>Ranged dimension</description>
+        <colour>235,246,248</colour>
+        <object_icon>Dimension.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+        <keywords>
+          <keyword name="HIERARCHY" data_type="BOOLEAN" />
+        </keywords>
+      </table_type>
+      <table_type name="EDW 3NF">
+        <group>EDW 3NF</group>
+        <description>EDW 3NF table</description>
+        <colour>238,255,125</colour>
+        <object_icon>Normalised.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="EDW 3NF-History">
+        <group>EDW 3NF</group>
+        <description>EDW 3NF history table</description>
+        <colour>166,178,87</colour>
+        <object_icon>Normalised.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+        <behaviour>changing</behaviour>
+      </table_type>
+      <table_type name="Data Store">
+        <group>Data Store</group>
+        <description>Data Store table</description>
+        <colour>250,204,117</colour>
+        <object_icon>DataStore.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="Data Store-History">
+        <group>Data Store</group>
+        <description>Data store history table</description>
+        <colour>175,142,81</colour>
+        <object_icon>DataStore.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+        <behaviour>changing</behaviour>
+      </table_type>
+      <table_type name="Hub">
+        <group>Hub</group>
+        <description>Data Vault Hub</description>
+        <colour>187,224,255</colour>
+        <object_icon>dv_hub.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="Link">
+        <group>Link</group>
+        <description>Data Vault Link</description>
+        <colour>245,201,208</colour>
+        <object_icon>dv_link.png</object_icon>
+        <positioning_characteristic>HUB</positioning_characteristic>
+      </table_type>
+      <table_type name="Satellite">
+        <group>Satellite</group>
+        <description>Data Vault Satellite</description>
+        <colour>255,248,220</colour>
+        <object_icon>dv_satellite.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="Reference">
+        <group>Reference</group>
+        <description>Data Vault Reference</description>
+        <colour>227,204,255</colour>
+        <object_icon>dv_reference_table.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="Code">
+        <group>Code</group>
+        <description>Data Vault Code</description>
+        <colour>192,192,192</colour>
+        <object_icon>dv_reference_table.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="Aggregate">
+        <group>Aggregate</group>
+        <description>Aggregate table</description>
+        <colour>0,204,0</colour>
+        <object_icon>Aggregate.png</object_icon>
+        <positioning_characteristic>HUB</positioning_characteristic>
+      </table_type>
+      <table_type name="Custom1">
+        <group>Custom1</group>
+        <description>Custom1 table</description>
+        <colour>204,204,204</colour>
+        <object_icon>crane.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="Custom1-History">
+        <group>Custom1</group>
+        <description>Custom1 history table</description>
+        <colour>229,229,229</colour>
+        <object_icon>crane.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="Custom2">
+        <group>Custom2</group>
+        <description>Custom2 table</description>
+        <colour>153,153,153</colour>
+        <object_icon>crane.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="Custom2-History">
+        <group>Custom2</group>
+        <description>Custom2 history table</description>
+        <colour>178,178,178</colour>
+        <object_icon>crane.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="Retro">
+        <group>Retro</group>
+        <description>Retro table</description>
+        <colour>199,157,219</colour>
+        <object_icon>crane.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+      <table_type name="Predefined">
+        <group>Predefined</group>
+        <description>Predefined table</description>
+        <colour>255,255,255</colour>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+    </table_types>
+    <column_types>
+      <column_type name="Business key">
+        <description>Business key column (Do not rename)</description>
+        <colour>0,0,255</colour>
+      </column_type>
+      <column_type name="Surrogate key">
+        <description>Surrogate key column (Do not rename)</description>
+        <colour>255,0,0</colour>
+      </column_type>
+      <column_type name="Changing attribute">
+        <description>A changing column (Do not rename)</description>
+        <colour>255,208,0</colour>
+      </column_type>
+      <column_type name="Hub hash key">
+        <description>A Hub hash column (Do not rename)</description>
+        <colour>31,229,236</colour>
+      </column_type>
+      <column_type name="Link hash key">
+        <description>A Link hash column (Do not rename)</description>
+        <colour>138,28,0</colour>
+      </column_type>
+      <column_type name="Change hash key">
+        <description>A change hash column (Do not rename)</description>
+        <colour>128,128,128</colour>
+      </column_type>
+      <column_type name="dss_load_date">
+        <description>A dss column for load date</description>
+        <colour>178,178,178</colour>
+      </column_type>
+      <column_type name="dss_start_date">
+        <description>A dss column for start date</description>
+        <colour>178,178,178</colour>
+      </column_type>
+      <column_type name="dss_end_date">
+        <description>A dss column for end date</description>
+        <colour>178,178,178</colour>
+      </column_type>
+      <column_type name="dss_record_source">
+        <description>A dss column for record source</description>
+        <colour>178,178,178</colour>
+      </column_type>
+      <column_type name="dss_update_time">
+        <description>A dss column for last update time</description>
+        <colour>178,178,178</colour>
+      </column_type>
+      <column_type name="dss_create_time">
+        <description>A dss column for create time</description>
+        <colour>178,178,178</colour>
+      </column_type>
+      <column_type name="dss_version">
+        <description>A dss column for version number</description>
+        <colour>178,178,178</colour>
+      </column_type>
+      <column_type name="dss_current_flag">
+        <description>A dss column for indicating current version</description>
+        <colour>178,178,178</colour>
+      </column_type>
+      <column_type name="To be deleted">
+        <description>A column that will be removed</description>
+        <colour>0,0,0</colour>
+      </column_type>
+      <column_type name="Multi-Active Satellite Sequence Key">
+        <description>Multi-Active Satellite Sequence Key in conjoint with another Satellite attribute</description>
+        <colour>153,204,255</colour>
+      </column_type>
+      <column_type name="Multi-Active Satellite Natural Key">
+        <description>Create a Satellite with Multi-Active natural key</description>
+        <colour>248,231,28</colour>
+      </column_type>
+    </column_types>
+    <relationship_types>
+      <relationship_type name="Duplicate data">
+        <description>Duplicate data</description>
+        <colour>51,102,255</colour>
+      </relationship_type>
+      <relationship_type name="Artificial key">
+        <description>An artificial key</description>
+        <colour>156,79,224</colour>
+      </relationship_type>
+    </relationship_types>
+    <table_ratings>
+      <table_rating>
+        <name>Mandatory</name>
+        <colour>255,0,0</colour>
+      </table_rating>
+      <table_rating>
+        <name>Preferred</name>
+        <colour>255,102,0</colour>
+      </table_rating>
+      <table_rating>
+        <name>Optional</name>
+        <colour>0,255,0</colour>
+      </table_rating>
+    </table_ratings>
+    <column_ratings>
+      <column_rating>
+        <name>Mandatory</name>
+        <colour>255,0,0</colour>
+      </column_rating>
+      <column_rating>
+        <name>Preferred</name>
+        <colour>255,102,0</colour>
+      </column_rating>
+      <column_rating>
+        <name>Optional</name>
+        <colour>0,255,0</colour>
+      </column_rating>
+    </column_ratings>
+    <rdbms_information>
+      <involved_databases>
+        <involved_rdbms>MS_SQL_SERVER</involved_rdbms>
+      </involved_databases>
+    </rdbms_information>
+    <storage_target_locations />
+    <tables>
+      <table name="s_load_budget_lroc_current">
+        <label>s_load_budget_lroc_current</label>
+        <table_types>
+          <table_type name="View" />
+        </table_types>
+        <columns>
+          <column name="hk_h_load_budget" pk="true">
+            <data_type size="32">char</data_type>
+            <label>hk_h_load_budget</label>
+            <created_by>Surrogate key</created_by>
+            <column_types>
+              <column_type name="Hub hash key" />
+            </column_types>
+          </column>
+          <column name="customer_code" nullable="true">
+            <data_type size="38" scale="0">numeric</data_type>
+            <label>customer_code</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Changing attribute" />
+            </column_types>
+          </column>
+          <column name="budget_quantity" nullable="true">
+            <data_type size="38" scale="0">numeric</data_type>
+            <label>budget_quantity</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Changing attribute" />
+            </column_types>
+          </column>
+          <column name="budget_sales_value" nullable="true">
+            <data_type size="13" scale="2">numeric</data_type>
+            <label>budget_sales_value</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Changing attribute" />
+            </column_types>
+          </column>
+          <column name="budget_date" nullable="true">
+            <data_type>datetime2</data_type>
+            <label>budget_date</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Changing attribute" />
+            </column_types>
+          </column>
+          <column name="dss_change_hash">
+            <data_type size="32">char</data_type>
+            <comment>The changing hash</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="Change hash key" />
+            </column_types>
+          </column>
+          <column name="dss_record_source" nullable="true">
+            <data_type size="255">varchar</data_type>
+            <comment>Record source</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_record_source" />
+            </column_types>
+          </column>
+          <column name="dss_load_date" nullable="true">
+            <data_type>datetime</data_type>
+            <comment>Date and time the row was loaded in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_load_date" />
+            </column_types>
+          </column>
+          <column name="dss_start_date" pk="true" nullable="true">
+            <data_type>datetime</data_type>
+            <comment>Date and time the row started in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_start_date" />
+            </column_types>
+          </column>
+          <column name="dss_version" nullable="true">
+            <data_type>int</data_type>
+            <comment>Version number of a business key in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_version" />
+            </column_types>
+          </column>
+          <column name="dss_create_time" nullable="true">
+            <data_type>datetime</data_type>
+            <comment>Date and time the row was inserted in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_create_time" />
+            </column_types>
+          </column>
+        </columns>
+        <table_icon>view_table.png</table_icon>
+        <source_sets>
+          <source_set name="src_s_load_budget_lroc_current">
+            <table_mappings />
+            <column_mappings column_name="hk_h_load_budget" />
+            <column_mappings column_name="customer_code" />
+            <column_mappings column_name="budget_quantity" />
+            <column_mappings column_name="budget_sales_value" />
+            <column_mappings column_name="budget_date" />
+            <column_mappings column_name="dss_change_hash" />
+            <column_mappings column_name="dss_record_source" />
+            <column_mappings column_name="dss_load_date" />
+            <column_mappings column_name="dss_start_date" />
+            <column_mappings column_name="dss_version" />
+            <column_mappings column_name="dss_create_time" />
+            <dw_query>SELECT 1
+FROM [TABLEOWNER].[s_load_budget_lroc] s_load_budget_lroc
+INNER JOIN (
+    SELECT 
+    hk_h_load_budget, 
+    MAX(dss_start_date) AS dss_start_date
+    FROM [TABLEOWNER].[s_load_budget_lroc]
+    GROUP BY hk_h_load_budget) curr
+ON curr.hk_h_load_budget = s_load_budget_lroc.hk_h_load_budget
+AND curr.dss_start_date = s_load_budget_lroc.dss_start_date</dw_query>
+          </source_set>
+        </source_sets>
+      </table>
+      <table name="s_load_budget_lroc_history">
+        <label>load_budget</label>
+        <table_types>
+          <table_type name="View" />
+        </table_types>
+        <columns>
+          <column name="hk_h_load_budget" pk="true">
+            <data_type size="32">char</data_type>
+            <label>hk_h_load_budget</label>
+            <created_by>Surrogate key</created_by>
+            <column_types>
+              <column_type name="Hub hash key" />
+            </column_types>
+          </column>
+          <column name="customer_code" nullable="true">
+            <data_type size="38" scale="0">numeric</data_type>
+            <label>customer_code</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Changing attribute" />
+            </column_types>
+          </column>
+          <column name="budget_quantity" nullable="true">
+            <data_type size="38" scale="0">numeric</data_type>
+            <label>budget_quantity</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Changing attribute" />
+            </column_types>
+          </column>
+          <column name="budget_sales_value" nullable="true">
+            <data_type size="13" scale="2">numeric</data_type>
+            <label>budget_sales_value</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Changing attribute" />
+            </column_types>
+          </column>
+          <column name="budget_date" nullable="true">
+            <data_type>datetime2</data_type>
+            <label>budget_date</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Changing attribute" />
+            </column_types>
+          </column>
+          <column name="dss_change_hash">
+            <data_type size="32">char</data_type>
+            <comment>The changing hash</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="Change hash key" />
+            </column_types>
+          </column>
+          <column name="dss_record_source" nullable="true">
+            <data_type size="255">varchar</data_type>
+            <comment>Record source</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_record_source" />
+            </column_types>
+          </column>
+          <column name="dss_load_date" nullable="true">
+            <data_type>datetime</data_type>
+            <comment>Date and time the row was loaded in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_load_date" />
+            </column_types>
+          </column>
+          <column name="dss_start_date" pk="true" nullable="true">
+            <data_type>datetime</data_type>
+            <comment>Date and time the row started in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_start_date" />
+            </column_types>
+          </column>
+          <column name="dss_version" nullable="true">
+            <data_type>int</data_type>
+            <comment>Version number of a business key in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_version" />
+            </column_types>
+          </column>
+          <column name="dss_create_time" nullable="true">
+            <data_type>datetime</data_type>
+            <comment>Date and time the row was inserted in the data vault</comment>
+            <created_by>Table type</created_by>
+            <column_types>
+              <column_type name="dss_create_time" />
+            </column_types>
+          </column>
+          <column name="dss_end_date">
+            <data_type>datetime</data_type>
+            <comment>End date determined by the next Satellite change record dss_start_date</comment>
+            <created_by>User</created_by>
+            <column_types>
+              <column_type name="dss_end_date" />
+            </column_types>
+          </column>
+          <column name="dss_current_flag">
+            <data_type size="1">varchar</data_type>
+            <comment>CurrentFlag 'N' unless next Satellite change record dss_start_date is null, indicating this is the most current record.</comment>
+            <created_by>User</created_by>
+            <column_types>
+              <column_type name="dss_current_flag" />
+            </column_types>
+          </column>
+        </columns>
+        <table_icon>view_table.png</table_icon>
+        <source_sets />
+        <data_transformations>
+          <data_transformation name="dss_end_date">
+            <columns>
+              <column>dss_end_date</column>
+            </columns>
+            <purpose type="change">LEAD(dss_start_date, 1, '9999-12-31') OVER(PARTITION BY
+hk_h_load_budget
+ORDER BY dss_start_date)</purpose>
+          </data_transformation>
+          <data_transformation name="dss_current_flag">
+            <columns>
+              <column>dss_current_flag</column>
+            </columns>
+            <purpose type="change">CASE WHEN LEAD(dss_start_date, 1, NULL) OVER(PARTITION BY
+hk_h_load_budget
+ORDER BY dss_start_date) IS NULL THEN 'Y' ELSE 'N' END</purpose>
+          </data_transformation>
+        </data_transformations>
+      </table>
+    </tables>
+    <relations />
+    <schemas />
+  </structure>
+  <connections />
+  <notes>
+    <categories>
+      <category>
+        <name>Observation Note</name>
+        <colour>255,255,255</colour>
+      </category>
+    </categories>
+  </notes>
+  <effort_calculations>
+    <effort_calculation name="WhereScape Basic">
+      <calculation>(%connection_count%+1) * (%table_count% + (%column_count% / %table_count%))</calculation>
+      <description>WhereScape's basic calculation of business effort.</description>
+    </effort_calculation>
+  </effort_calculations>
+</source_system>

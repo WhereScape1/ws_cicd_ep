@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<source_system xmlns="http://www.wherescape.com/xml/3D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wherescape.com/xml/3D ./source_system_50.xsd">
+  <xml_version>50</xml_version>
+  <source_application>WhereScape 3D</source_application>
+  <structure>
+    <table_types>
+      <table_type name="View">
+        <group>View</group>
+        <description>A view entity</description>
+        <colour>217,216,217</colour>
+        <object_icon>view_table.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+    </table_types>
+    <column_types>
+      <column_type name="Satellite low volatility">
+        <description>To create a Satellite with low volatile attributes</description>
+        <colour>254,244,125</colour>
+      </column_type>
+      <column_type name="Satellite medium volatility">
+        <description>To create a Satellite with medium volatile attributes</description>
+        <colour>255,208,0</colour>
+      </column_type>
+      <column_type name="Satellite high volatility">
+        <description>To create a Satellite with high volatile attributes</description>
+        <colour>239,155,15</colour>
+      </column_type>
+      <column_type name="Satellite transaction">
+        <description>To create a Satellite with transactional attributes</description>
+        <colour>255,186,0</colour>
+      </column_type>
+      <column_type name="Link business key">
+        <description>Foreign key attributes that make up the Link Business key (Do not rename)</description>
+        <colour>255,0,0</colour>
+      </column_type>
+      <column_type name="Link dependent child">
+        <description>Additional attributes that make up the Link Business key (Do not rename)</description>
+        <colour>127,0,0</colour>
+      </column_type>
+      <column_type name="Business key">
+        <description>The business key (Do not rename)</description>
+        <colour>0,0,255</colour>
+      </column_type>
+      <column_type name="Reference attribute">
+        <description>Reference fields</description>
+        <colour>227,204,255</colour>
+      </column_type>
+      <column_type name="Reference history attribute">
+        <description>Reference history fields</description>
+        <colour>227,127,255</colour>
+      </column_type>
+      <column_type name="Code attribute">
+        <description>Code fields</description>
+        <colour>192,192,192</colour>
+      </column_type>
+      <column_type name="Code history attribute">
+        <description>Code history fields</description>
+        <colour>153,153,153</colour>
+      </column_type>
+      <column_type name="Satellite multi-active attribute">
+        <description>To create a Satellite with Multi-Active attributes</description>
+        <colour>248,231,28</colour>
+      </column_type>
+      <column_type name="Satellite multi-active key">
+        <description>Multi Active Key used in conjoint with another Satellite attribute</description>
+        <colour>153,204,255</colour>
+      </column_type>
+    </column_types>
+    <relationship_types>
+      <relationship_type name="Duplicate data">
+        <description>Duplicate data</description>
+        <colour>51,102,255</colour>
+      </relationship_type>
+    </relationship_types>
+    <table_ratings>
+      <table_rating>
+        <name>Mandatory</name>
+        <colour>255,0,0</colour>
+      </table_rating>
+      <table_rating>
+        <name>Preferred</name>
+        <colour>255,102,0</colour>
+      </table_rating>
+      <table_rating>
+        <name>Optional</name>
+        <colour>0,255,0</colour>
+      </table_rating>
+    </table_ratings>
+    <column_ratings>
+      <column_rating>
+        <name>Mandatory</name>
+        <colour>255,0,0</colour>
+      </column_rating>
+      <column_rating>
+        <name>Preferred</name>
+        <colour>255,102,0</colour>
+      </column_rating>
+      <column_rating>
+        <name>Optional</name>
+        <colour>0,255,0</colour>
+      </column_rating>
+    </column_ratings>
+    <rdbms_information>
+      <involved_databases>
+        <involved_rdbms>FILE</involved_rdbms>
+      </involved_databases>
+    </rdbms_information>
+    <storage_target_locations />
+    <tables>
+      <table name="forecast_txt">
+        <columns>
+          <column name="product_code" nullable="true">
+            <data_type>INTEGER</data_type>
+            <label>COL1</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Business key" />
+            </column_types>
+          </column>
+          <column name="customer_code" nullable="true">
+            <data_type>INTEGER</data_type>
+            <label>COL2</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Satellite low volatility" />
+            </column_types>
+          </column>
+          <column name="forecast_quantity" nullable="true">
+            <data_type>INTEGER</data_type>
+            <label>COL3</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Satellite low volatility" />
+            </column_types>
+          </column>
+          <column name="forecast_sales_value" nullable="true">
+            <data_type size="5" scale="2">NUMERIC</data_type>
+            <label>COL4</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Satellite low volatility" />
+            </column_types>
+          </column>
+          <column name="forecast_date" nullable="true">
+            <data_type size="16">VARCHAR</data_type>
+            <label>COL5</label>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Satellite low volatility" />
+            </column_types>
+          </column>
+        </columns>
+        <table_icon>file_table.png</table_icon>
+        <source_sets>
+          <source_set name="Default source">
+            <table_mappings>
+              <source_mapping>
+                <source_table>forecast_txt</source_table>
+                <source_is_trigger_file>false</source_is_trigger_file>
+                <source_category>Source</source_category>
+                <source_model>Filesource</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </table_mappings>
+            <column_mappings column_name="product_code">
+              <source_mapping>
+                <source_table>forecast_txt</source_table>
+                <source_column>product_code</source_column>
+                <source_label>COL1</source_label>
+                <source_category>Source</source_category>
+                <source_model>Filesource</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="customer_code">
+              <source_mapping>
+                <source_table>forecast_txt</source_table>
+                <source_column>customer_code</source_column>
+                <source_label>COL2</source_label>
+                <source_category>Source</source_category>
+                <source_model>Filesource</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="forecast_quantity">
+              <source_mapping>
+                <source_table>forecast_txt</source_table>
+                <source_column>forecast_quantity</source_column>
+                <source_label>COL3</source_label>
+                <source_category>Source</source_category>
+                <source_model>Filesource</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="forecast_sales_value">
+              <source_mapping>
+                <source_table>forecast_txt</source_table>
+                <source_column>forecast_sales_value</source_column>
+                <source_label>COL4</source_label>
+                <source_category>Source</source_category>
+                <source_model>Filesource</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="forecast_date">
+              <source_mapping>
+                <source_table>forecast_txt</source_table>
+                <source_column>forecast_date</source_column>
+                <source_label>COL5</source_label>
+                <source_category>Source</source_category>
+                <source_model>Filesource</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <referenced_connections>
+              <referenced_connection preferred="true">Filesource</referenced_connection>
+            </referenced_connections>
+          </source_set>
+        </source_sets>
+      </table>
+    </tables>
+    <relations />
+    <schemas />
+  </structure>
+  <connections>
+    <host_connection name="Filesource">
+      <protocol>LOCAL_FS</protocol>
+      <path>C:\Program Files\WhereScape\RED\RED9022\Tutorial</path>
+      <kerberos enabled="false" />
+      <documentation>
+        <subject label="General info" name="General information" />
+      </documentation>
+    </host_connection>
+  </connections>
+  <notes>
+    <categories>
+      <category>
+        <name>Observation Note</name>
+        <colour>255,255,255</colour>
+      </category>
+    </categories>
+  </notes>
+  <effort_calculations>
+    <effort_calculation name="WhereScape Basic">
+      <calculation>(%connection_count%+1) * (%table_count% + (%column_count% / %table_count%))</calculation>
+      <description>WhereScape's basic calculation of business effort.</description>
+    </effort_calculation>
+  </effort_calculations>
+</source_system>

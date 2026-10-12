@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<source_system xmlns="http://www.wherescape.com/xml/3D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wherescape.com/xml/3D ./source_system_50.xsd">
+  <xml_version>50</xml_version>
+  <source_application>WhereScape 3D</source_application>
+  <structure>
+    <tables />
+    <relations />
+    <transformation_group name="Default Group">
+      <description>Default Group</description>
+      <transformations>
+        <transformation name="WhereScape RED Export Preparation_Copy">
+          <version>1.1</version>
+          <description>This model conversion prepares the model for importing into WhereScape RED.
+    It will fix naming and add the record source data transformation.</description>
+          <properties />
+          <rules>
+            <rule name="Delete schemas" type="delete-schema" enabled="true" snapshot="false" stopped="false">
+              <rule_description>Remove schema from all entities</rule_description>
+              <rule_attribute name="duplicate-tables">Rename</rule_attribute>
+              <rule type="match-logic-on" value="And" stopped="false">
+                <rule_attribute name="schema-name">%</rule_attribute>
+                <rule_attribute name="schema-name-case-sensitive">F</rule_attribute>
+              </rule>
+            </rule>
+            <rule name="Remove invalid characters from entity names" type="rename-table" enabled="true" snapshot="false" stopped="false">
+              <rule_description>Remove invalid characters from entity names, extend as required</rule_description>
+              <rule_attribute name="rename-table-using">Entity name</rule_attribute>
+              <rule_attribute name="rename-table">{{ table.name | replace({
+                          "Ä":"A",
+                          "Ö":"O",
+                          "Ü":"U",
+                          "?":"SS",
+                          "Å":"A",
+                          "Æ":"A",
+                          "Ø":"O",
+
+                          "ä": "a",
+                          "ö": "o",
+                          "ü": "u",
+                          "ß": "ss",
+                          "å": "a",
+                          "æ": "a",
+                          "ø": "o"
+                          }) }}</rule_attribute>
+              <rule_attribute name="apply-on">Entity</rule_attribute>
+              <rule type="match-logic-on" value="And" stopped="false">
+                <rule_attribute name="table-name">%</rule_attribute>
+                <rule_attribute name="table-name-case-sensitive">F</rule_attribute>
+              </rule>
+            </rule>
+            <rule name="Remove invalid characters from attribute names" type="rename-column" enabled="true" snapshot="false" stopped="false">
+              <rule_description>Remove invalid characters from attribute names, extend as required</rule_description>
+              <rule_attribute name="rename-column-using">Attribute name</rule_attribute>
+              <rule_attribute name="rename-column">{{ column.name | replace({
+                          "Ä":"A",
+                          "Ö":"O",
+                          "Ü":"U",
+                          "?":"SS",
+                          "Å":"A",
+                          "Æ":"A",
+                          "Ø":"O",
+
+                          "ä": "a",
+                          "ö": "o",
+                          "ü": "u",
+                          "ß": "ss",
+                          "å": "a",
+                          "æ": "a",
+                          "ø": "o"
+                          }) }}</rule_attribute>
+              <rule_attribute name="apply-on">Attribute</rule_attribute>
+              <rule type="match-logic-on" value="And" stopped="false">
+                <rule_attribute name="column-name">%</rule_attribute>
+                <rule_attribute name="column-name-case-sensitive">F</rule_attribute>
+              </rule>
+            </rule>
+            <rule name="Remove invalid characters from HashColumn extended property" type="add-attribute-extended-property" enabled="true" snapshot="false" stopped="false">
+              <rule_description>Remove invalid characters from HashColumn extended property, extend as required</rule_description>
+              <rule_attribute name="extended-property-name">HashColumn</rule_attribute>
+              <rule_attribute name="extended-property-value">{{- transformationColumn.extendedPropertyValuesByName.get("HashColumn") | replace({
+                          "Ä":"A",
+                          "Ö":"O",
+                          "Ü":"U",
+                          "?":"SS",
+                          "Å":"A",
+                          "Æ":"A",
+                          "Ø":"O",
+
+                          "ä": "a",
+                          "ö": "o",
+                          "ü": "u",
+                          "ß": "ss",
+                          "å": "a",
+                          "æ": "a",
+                          "ø": "o"
+                          }) -}}</rule_attribute>
+              <rule_attribute name="extended-property-interpret-script">T</rule_attribute>
+              <rule_attribute name="extended-property-type">JSON</rule_attribute>
+              <rule_attribute name="extended-property-duplicate">Overwrite</rule_attribute>
+              <rule type="match-logic-on" value="And" stopped="false">
+                <rule_attribute name="table-type">Stage-Data Vault Stage</rule_attribute>
+                <rule_attribute name="extended-property-attribute-property">HashColumn</rule_attribute>
+                <rule_attribute name="extended-property-attribute-case-sensitive">F</rule_attribute>
+                <rule_attribute name="extended-property-attribute-required">T</rule_attribute>
+                <rule_attribute name="extended-property-attribute-expression">{%- set found = false -%}
+                              {%- if propValue is not empty -%}
+                              {%- set toReplace = [ "Ä"
+                              , "Ö"
+                              , "Ü"
+                              , "?"
+                              , "Å"
+                              , "Æ"
+                              , "Ø"
+                              , "ä"
+                              , "ö"
+                              , "ü"
+                              , "ß"
+                              , "å"
+                              , "æ"
+                              , "ø" ] -%}
+                              {%- for item in toReplace -%}
+                              {%- if (not found) -%}
+                              {%- if (propValue contains item) -%}
+                              {%- set found = true -%}
+                              {%- endif -%}
+                              {%- endif -%}
+                              {%- endfor -%}
+                              {%- endif -%}
+                              {{- found -}}</rule_attribute>
+              </rule>
+            </rule>
+            <rule name="Use entity name for source set names" type="rename-source-mapping-set" enabled="true" snapshot="false" stopped="false">
+              <rule_description>Use entity name for source set names</rule_description>
+              <rule_attribute name="find-source-set">{{- sourceSet.name.matches("Default source.*") -}}</rule_attribute>
+              <rule_attribute name="rename-source-set">src_{{ table.name }}</rule_attribute>
+              <rule type="match-logic-on" value="And" stopped="false">
+                <rule_attribute name="table-name">%</rule_attribute>
+                <rule_attribute name="table-name-case-sensitive">F</rule_attribute>
+              </rule>
+            </rule>
+            <rule name="Add data transformation for dss_record_source" type="add-data-transformation" enabled="true" snapshot="false" stopped="false">
+              <rule_description>Add data transformation to set dss_record_source to the name of the source set</rule_description>
+              <rule_attribute name="find-source-set">{{- sourceSet.name.matches(".*") -}}</rule_attribute>
+              <rule_attribute name="data-transformation-name">Record source</rule_attribute>
+              <rule_attribute name="data-transformation-description">Where the record is sourced from</rule_attribute>
+              <rule_attribute name="data-transformation-interpret-script">T</rule_attribute>
+              <rule_attribute name="data-transformation-change">{%- set connection = closestConnection(transformationColumn) -%}
+                          {%- set schemaName = null -%}
+                          {%- set tableName = null -%}
+                          {%- if table.sourceTables | length == 1 -%}
+                          {%- set schemaName = table.sourceTables[0].schema -%}
+                          {%- set tableName = table.sourceTables[0].name -%}
+                          {%- endif -%}
+                          '{%- if connection is not null -%}{{ connection.name }}{%- endif -%}
+                          {%- if schemaName is not empty -%}.{{ schemaName }}{%- endif -%}
+                          {%- if tableName is not empty -%}.{{ tableName }}{%- endif -%}'</rule_attribute>
+              <rule type="match-logic-on" value="And" stopped="false">
+                <rule_attribute name="table-type">Load</rule_attribute>
+                <rule_attribute name="column-type">dss_record_source</rule_attribute>
+              </rule>
+            </rule>
+            <rule name="Collapse source mappings for flat file loads" type="collapse-source-mappings" enabled="true" snapshot="false" stopped="false">
+              <rule_description>Collapse source mappings for flat file loads, this is needed to ensure that the file path, delimiter, file name etc. are correctly exported to WhereScape RED.</rule_description>
+              <rule_attribute name="resolution">CollapseFull</rule_attribute>
+              <rule_attribute name="keep-lineage">T</rule_attribute>
+              <rule type="match-logic-on" value="And" stopped="false">
+                <rule_attribute name="custom-template-entity-expression">{%- declare result = false -%}
+                              {%- set connection = closestConnection(table) -%}
+                              {%- if connection is not null -%}
+                              {%- if connection.connectionType == "Host" -%}
+                              {%- set result = true -%}
+                              {%- endif -%}
+                              {%- endif -%}
+                              {{- result -}}</rule_attribute>
+                <rule_attribute name="table-type">Load</rule_attribute>
+              </rule>
+            </rule>
+            <rule name="Add TABLEOWNER prefix to DW queries" type="populate-table-queries" enabled="true" snapshot="false" stopped="false">
+              <rule_description>Add the [TABLEOWNER].[] prefix to DW queries ready for WhereScape RED.</rule_description>
+              <rule type="match-logic-on" value="And" stopped="false">
+                <rule_attribute name="custom-template-entity-expression">{%- set result = false -%}
+                              {%- for SSet in table.sourceSets -%}
+                              {%- if not (SSet.dwQuery is empty) -%}
+                              {%- set result = true -%}
+                              {%- endif -%}
+                              {%- endfor -%}
+                              {{- result -}}</rule_attribute>
+              </rule>
+              <rule_attribute name="find-source-set">{{- sourceSet.name.matches(".*") -}}</rule_attribute>
+              <rule_attribute name="query-action">populate dw query</rule_attribute>
+              <rule_attribute name="query-template">ws3d_query_dv_sat_curr_view</rule_attribute>
+              <rule_attribute name="query-override-template">F</rule_attribute>
+              <rule_attribute name="duplicate-query">Overwrite</rule_attribute>
+              <rule_attribute name="encapsulate-query-alias-left">"</rule_attribute>
+              <rule_attribute name="encapsulate-query-alias-right">"</rule_attribute>
+              <rule_attribute name="encapsulate-query-schema-left">"</rule_attribute>
+              <rule_attribute name="encapsulate-query-schema-right">"</rule_attribute>
+              <rule_attribute name="encapsulate-query-table-left">"</rule_attribute>
+              <rule_attribute name="encapsulate-query-table-right">"</rule_attribute>
+              <rule_attribute name="encapsulate-query-column-left">"</rule_attribute>
+              <rule_attribute name="encapsulate-query-column-right">"</rule_attribute>
+              <rule_attribute name="copy-query-where-clause">F</rule_attribute>
+            </rule>
+          </rules>
+          <validation />
+        </transformation>
+      </transformations>
+    </transformation_group>
+  </structure>
+</source_system>

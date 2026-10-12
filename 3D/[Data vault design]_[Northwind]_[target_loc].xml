@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<source_system xmlns="http://www.wherescape.com/xml/3D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wherescape.com/xml/3D ./source_system_50.xsd">
+  <xml_version>50</xml_version>
+  <source_application>WhereScape 3D</source_application>
+  <structure>
+    <table_types>
+      <table_type name="View">
+        <group>View</group>
+        <description>A view entity</description>
+        <colour>217,216,217</colour>
+        <object_icon>view_table.png</object_icon>
+        <positioning_characteristic>TERMINAL</positioning_characteristic>
+      </table_type>
+    </table_types>
+    <column_types>
+      <column_type name="Satellite low volatility">
+        <description>To create a Satellite with low volatile attributes</description>
+        <colour>254,244,125</colour>
+      </column_type>
+      <column_type name="Satellite medium volatility">
+        <description>To create a Satellite with medium volatile attributes</description>
+        <colour>255,208,0</colour>
+      </column_type>
+      <column_type name="Satellite high volatility">
+        <description>To create a Satellite with high volatile attributes</description>
+        <colour>239,155,15</colour>
+      </column_type>
+      <column_type name="Satellite transaction">
+        <description>To create a Satellite with transactional attributes</description>
+        <colour>255,186,0</colour>
+      </column_type>
+      <column_type name="Link business key">
+        <description>Foreign key attributes that make up the Link Business key (Do not rename)</description>
+        <colour>255,0,0</colour>
+      </column_type>
+      <column_type name="Link dependent child">
+        <description>Additional attributes that make up the Link Business key (Do not rename)</description>
+        <colour>127,0,0</colour>
+      </column_type>
+      <column_type name="Business key">
+        <description>The business key (Do not rename)</description>
+        <colour>0,0,255</colour>
+      </column_type>
+      <column_type name="Reference attribute">
+        <description>Reference fields</description>
+        <colour>227,204,255</colour>
+      </column_type>
+      <column_type name="Reference history attribute">
+        <description>Reference history fields</description>
+        <colour>227,127,255</colour>
+      </column_type>
+      <column_type name="Code attribute">
+        <description>Code fields</description>
+        <colour>192,192,192</colour>
+      </column_type>
+      <column_type name="Code history attribute">
+        <description>Code history fields</description>
+        <colour>153,153,153</colour>
+      </column_type>
+      <column_type name="Satellite multi-active attribute">
+        <description>To create a Satellite with Multi-Active attributes</description>
+        <colour>248,231,28</colour>
+      </column_type>
+      <column_type name="Satellite multi-active key">
+        <description>Multi Active Key used in conjoint with another Satellite attribute</description>
+        <colour>153,204,255</colour>
+      </column_type>
+    </column_types>
+    <relationship_types>
+      <relationship_type name="Duplicate data">
+        <description>Duplicate data</description>
+        <colour>51,102,255</colour>
+      </relationship_type>
+    </relationship_types>
+    <table_ratings>
+      <table_rating>
+        <name>Mandatory</name>
+        <colour>255,0,0</colour>
+      </table_rating>
+      <table_rating>
+        <name>Preferred</name>
+        <colour>255,102,0</colour>
+      </table_rating>
+      <table_rating>
+        <name>Optional</name>
+        <colour>0,255,0</colour>
+      </table_rating>
+    </table_ratings>
+    <column_ratings>
+      <column_rating>
+        <name>Mandatory</name>
+        <colour>255,0,0</colour>
+      </column_rating>
+      <column_rating>
+        <name>Preferred</name>
+        <colour>255,102,0</colour>
+      </column_rating>
+      <column_rating>
+        <name>Optional</name>
+        <colour>0,255,0</colour>
+      </column_rating>
+    </column_ratings>
+    <rdbms_information>
+      <involved_databases>
+        <involved_rdbms>MS_SQL_SERVER</involved_rdbms>
+      </involved_databases>
+    </rdbms_information>
+    <storage_target_locations />
+    <tables>
+      <table name="Customers">
+        <columns>
+          <column name="CustomerID" pk="true">
+            <data_type size="5">nchar</data_type>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Business key" />
+            </column_types>
+          </column>
+          <column name="CompanyName">
+            <data_type size="50">varchar</data_type>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Satellite low volatility" />
+            </column_types>
+          </column>
+          <column name="ContactName" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Satellite low volatility" />
+            </column_types>
+          </column>
+          <column name="ContactTitle" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Satellite low volatility" />
+            </column_types>
+          </column>
+          <column name="Address" nullable="true">
+            <data_type size="60">varchar</data_type>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Satellite low volatility" />
+            </column_types>
+          </column>
+          <column name="City" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Satellite low volatility" />
+            </column_types>
+          </column>
+          <column name="Region" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Satellite low volatility" />
+            </column_types>
+          </column>
+          <column name="PostalCode" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Satellite low volatility" />
+            </column_types>
+          </column>
+          <column name="Country" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Satellite low volatility" />
+            </column_types>
+          </column>
+          <column name="Phone" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Satellite low volatility" />
+            </column_types>
+          </column>
+          <column name="Fax" nullable="true">
+            <data_type size="50">varchar</data_type>
+            <created_by>Discovery</created_by>
+            <column_types>
+              <column_type name="Satellite low volatility" />
+            </column_types>
+          </column>
+        </columns>
+        <table_icon>user_table.png</table_icon>
+        <indices>
+          <index name="City">
+            <generated>false</generated>
+            <indexed_columns>
+              <indexed_column>City</indexed_column>
+            </indexed_columns>
+          </index>
+          <index name="CompanyName">
+            <generated>false</generated>
+            <indexed_columns>
+              <indexed_column>CompanyName</indexed_column>
+            </indexed_columns>
+          </index>
+          <index name="PK_Customers">
+            <generated>false</generated>
+            <index_types>
+              <index_type>Unique</index_type>
+              <index_type>Clustered</index_type>
+            </index_types>
+            <indexed_columns>
+              <indexed_column>CustomerID</indexed_column>
+            </indexed_columns>
+          </index>
+          <index name="PostalCode">
+            <generated>false</generated>
+            <indexed_columns>
+              <indexed_column>PostalCode</indexed_column>
+            </indexed_columns>
+          </index>
+          <index name="Region">
+            <generated>false</generated>
+            <indexed_columns>
+              <indexed_column>Region</indexed_column>
+            </indexed_columns>
+          </index>
+        </indices>
+        <source_sets>
+          <source_set name="Default source">
+            <table_mappings>
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Customers</source_table>
+                <source_is_trigger_file>false</source_is_trigger_file>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </table_mappings>
+            <column_mappings column_name="CustomerID">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Customers</source_table>
+                <source_column>CustomerID</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="CompanyName">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Customers</source_table>
+                <source_column>CompanyName</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="ContactName">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Customers</source_table>
+                <source_column>ContactName</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="ContactTitle">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Customers</source_table>
+                <source_column>ContactTitle</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="Address">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Customers</source_table>
+                <source_column>Address</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="City">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Customers</source_table>
+                <source_column>City</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="Region">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Customers</source_table>
+                <source_column>Region</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="PostalCode">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Customers</source_table>
+                <source_column>PostalCode</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="Country">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Customers</source_table>
+                <source_column>Country</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="Phone">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Customers</source_table>
+                <source_column>Phone</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <column_mappings column_name="Fax">
+              <source_mapping>
+                <source_database>Northwind</source_database>
+                <source_schema>dbo</source_schema>
+                <source_table>Customers</source_table>
+                <source_column>Fax</source_column>
+                <source_category>Source</source_category>
+                <source_model>Northwind</source_model>
+                <source_version>1</source_version>
+              </source_mapping>
+            </column_mappings>
+            <referenced_connections>
+              <referenced_connection preferred="true">Northwind</referenced_connection>
+            </referenced_connections>
+          </source_set>
+        </source_sets>
+      </table>
+    </tables>
+    <relations />
+    <schemas />
+  </structure>
+  <connections>
+    <odbc_connection name="Northwind">
+      <dsn>NORTHWIND</dsn>
+      <max_simultaneous>7</max_simultaneous>
+      <rdbms>MS SQL SERVER</rdbms>
+      <documentation>
+        <subject label="General info" name="General information" />
+      </documentation>
+    </odbc_connection>
+  </connections>
+  <notes>
+    <categories>
+      <category>
+        <name>Observation Note</name>
+        <colour>255,255,255</colour>
+      </category>
+    </categories>
+  </notes>
+  <effort_calculations>
+    <effort_calculation name="WhereScape Basic">
+      <calculation>(%connection_count%+1) * (%table_count% + (%column_count% / %table_count%))</calculation>
+      <description>WhereScape's basic calculation of business effort.</description>
+    </effort_calculation>
+  </effort_calculations>
+</source_system>

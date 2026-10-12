@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<source_system xmlns="http://www.wherescape.com/xml/3D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wherescape.com/xml/3D ./source_system_50.xsd">
+  <xml_version>50</xml_version>
+  <source_application>WhereScape 3D</source_application>
+  <structure>
+    <tables />
+    <relations />
+    <transformation_group name="Default Group">
+      <description>Default Group</description>
+      <transformations>
+        <transformation name="validation">
+          <version />
+          <description />
+          <properties />
+          <rules>
+            <rule name="validation_test" type="validation" enabled="true" snapshot="false" stopped="false">
+              <rule_attribute name="validation-template">test</rule_attribute>
+            </rule>
+          </rules>
+          <validation />
+        </transformation>
+      </transformations>
+    </transformation_group>
+  </structure>
+</source_system>

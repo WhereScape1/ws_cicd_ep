@@ -1,0 +1,1152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Discovery SYSTEM "jar:file:!dtd/discovery_defn_17.dtd">
+<Discovery>
+  <xml_version>17</xml_version>
+  <database name="RED SQL Server 8.6" vendor="WhereScape RED">
+    <db_version type="RANGE" min_version="*" max_version="*" value="*">
+      <wb_src_table>
+        <src_table_database>
+          <query>SELECT dt_database AS 'TableDatabase'&#xD;
+ ,(case when isnull(dt_schema, '') = '' then '(Blank)' else dt_schema end) as 'SchemaName'&#xD;
+ ,oo_name AS 'TableName'&#xD;
+ ,dt_name AS 'Target'&#xD;
+ ,oo_type_key AS 'TableType' &#xD;
+ ,op_description AS 'Group'&#xD;
+FROM dbo.ws_dbc_target&#xD;
+LEFT JOIN dbo.ws_obj_object&#xD;
+ON dbo.ws_dbc_target.dt_target_key = dbo.ws_obj_object.oo_target_key&#xD;
+LEFT JOIN dbo.ws_obj_pro_map&#xD;
+ON dbo.ws_obj_object.oo_obj_key = dbo.ws_obj_pro_map.opm_obj_key&#xD;
+LEFT JOIN dbo.ws_obj_project&#xD;
+ON dbo.ws_obj_project.op_project_key = dbo.ws_obj_pro_map.opm_project_key&#xD;
+WHERE oo_type_key IN (2,5,6,7,8,9,12,18,21,26,27,28,29,30)&#xD;
+--%Table_filter&#xD;
+--%Group_filter</query>
+          <schema_filter replace="schema_name_pattern" insert="%Schema_filter">AND dt_schema = 'schema_name_pattern'</schema_filter>
+          <table_filter replace="table_name_pattern" insert="%Table_filter">AND oo_name LIKE 'table_name_pattern'</table_filter>
+          <group_filter replace="group_name_pattern" insert="%Group_filter">AND op_description LIKE 'group_name_pattern'</group_filter>
+          <query_value query_type="SQL">TableDatabase</query_value>
+        </src_table_database>
+        <src_table_schema>
+          <query_value query_type="dependency">SchemaName</query_value>
+          <dependency>
+            <on>src_table_database</on>
+          </dependency>
+        </src_table_schema>
+        <src_table_name>
+          <query_value query_type="dependency">TableName</query_value>
+          <dependency>
+            <on>src_table_database</on>
+          </dependency>
+        </src_table_name>
+        <src_table_comment>
+          <query>SELECT CONVERT(VARCHAR(4000),at_description) AS 'Description'&#xD;
+FROM dbo.ws_agg_tab&#xD;
+WHERE at_table_name = 'src_table_name'&#xD;
+UNION&#xD;
+SELECT CONVERT(VARCHAR(4000),dt_description) AS 'Description'&#xD;
+FROM dbo.ws_dim_tab&#xD;
+WHERE dt_table_name = 'src_table_name'&#xD;
+UNION&#xD;
+SELECT CONVERT(VARCHAR(4000),ft_description) AS 'Description'&#xD;
+FROM dbo.ws_fact_tab&#xD;
+WHERE ft_table_name = 'src_table_name'&#xD;
+UNION&#xD;
+SELECT CONVERT(VARCHAR(4000),lt_description) AS 'Description'&#xD;
+FROM dbo.ws_load_tab&#xD;
+WHERE lt_table_name = 'src_table_name'&#xD;
+UNION&#xD;
+SELECT CONVERT(VARCHAR(4000),nt_description) AS 'Description'&#xD;
+FROM dbo.ws_normal_tab&#xD;
+WHERE nt_table_name = 'src_table_name'&#xD;
+UNION&#xD;
+SELECT CONVERT(VARCHAR(4000),ot_description) AS 'Description'&#xD;
+FROM dbo.ws_ods_tab&#xD;
+WHERE ot_table_name = 'src_table_name'&#xD;
+UNION&#xD;
+SELECT CONVERT(VARCHAR(4000),rt_description) AS 'Description'&#xD;
+FROM dbo.ws_retro_tab&#xD;
+WHERE rt_table_name = 'src_table_name'&#xD;
+UNION&#xD;
+SELECT CONVERT(VARCHAR(4000),st_description) AS 'Description'&#xD;
+FROM dbo.ws_stage_tab&#xD;
+WHERE st_table_name = 'src_table_name'&#xD;
+UNION&#xD;
+SELECT CONVERT(VARCHAR(4000),vt_description) AS 'Description'&#xD;
+FROM dbo.ws_view_tab&#xD;
+WHERE vt_table_name = 'src_table_name'</query>
+          <query_value query_type="SQL">Description</query_value>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_table_comment>
+        <src_table_type>
+          <query_value query_type="dependency">TableType</query_value>
+          <dependency>
+            <on>src_table_database</on>
+          </dependency>
+          <semantics>
+            <db_type name="Previous Dimension">Previous Dimension</db_type>
+            <db_type name="Satellite">29</db_type>
+            <db_type name="Retro">22</db_type>
+            <db_type name="VIEW">18</db_type>
+            <db_type name="TABLE">TABLE</db_type>
+            <db_type name="EDW 3NF">27</db_type>
+            <db_type name="Hub">28</db_type>
+            <db_type name="Custom2-History">Custom2-History</db_type>
+            <db_type name="Changing Dimension">Changing Dimension</db_type>
+            <db_type name="Stage">7</db_type>
+            <db_type name="Stage-Data Vault Stage">Stage-Data Vault Stage</db_type>
+            <db_type name="Custom1-History">Custom1-History</db_type>
+            <db_type name="Load">8</db_type>
+            <db_type name="Ranged Dimension">Ranged Dimension</db_type>
+            <db_type name="Data Store-History">26</db_type>
+            <db_type name="Reference">Reference</db_type>
+            <db_type name="Dimension">6</db_type>
+            <db_type name="Fact">5</db_type>
+            <db_type name="Code">Code</db_type>
+            <db_type name="Custom2">32</db_type>
+            <db_type name="Data Store">Data Store</db_type>
+            <db_type name="Custom1">31</db_type>
+            <db_type name="EDW 3NF-History">EDW 3NF-History</db_type>
+            <db_type name="Aggregate">9</db_type>
+            <db_type name="Predefined">Predefined</db_type>
+            <db_type name="Link">30</db_type>
+          </semantics>
+        </src_table_type>
+        <src_view_query>
+          <query>SELECT "VIEW_DEFINITION"&#xD;
+ FROM "INFORMATION_SCHEMA"."VIEWS"&#xD;
+ WHERE "TABLE_CATALOG" = 'src_table_database'&#xD;
+ AND "TABLE_SCHEMA" = 'src_table_schema'&#xD;
+ AND "TABLE_NAME" = 'src_table_name'</query>
+          <query_value query_type="SQL">col</query_value>
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_view_query>
+        <src_target_location>
+          <query_value query_type="dependency">SchemaName</query_value>
+          <dependency>
+            <on>src_table_database</on>
+          </dependency>
+          <semantics>
+            <db_type name="Mart">Mart</db_type>
+            <db_type name="load">load</db_type>
+            <db_type name="Stage">Stage</db_type>
+            <db_type name="DataVault">DataVault</db_type>
+          </semantics>
+        </src_target_location>
+        <src_table_group>
+          <query_value query_type="dependency">Group</query_value>
+          <dependency>
+            <on>src_table_database</on>
+          </dependency>
+        </src_table_group>
+      </wb_src_table>
+      <wb_src_column>
+        <src_column_name>
+          <query>SELECT ac_col_name AS ColumnName&#xD;
+,ac_display_name AS Lable&#xD;
+,ac_data_type AS DataType&#xD;
+,ac_default_value AS DefaultValue&#xD;
+,CASE WHEN ac_key_type = 'A' THEN 'TRUE' ELSE 'FALSE' END AS PKFlag&#xD;
+,ac_nulls_flag AS Nullable&#xD;
+,CONVERT(VARCHAR(255),ac_src_strategy) AS ColumnComment&#xD;
+,ac_key_type AS ColType&#xD;
+,ac_col_key AS ColOrder&#xD;
+FROM dbo.ws_agg_col&#xD;
+JOIN dbo.ws_obj_object&#xD;
+ON dbo.ws_agg_col.ac_obj_key = dbo.ws_obj_object.oo_obj_key&#xD;
+WHERE dbo.ws_obj_object.oo_name = 'src_table_name'&#xD;
+UNION&#xD;
+SELECT dc_col_name AS ColumnName&#xD;
+,dc_display_name AS Lable&#xD;
+,dc_data_type AS DataType&#xD;
+,dc_default_value AS DefaultValue&#xD;
+,CASE WHEN dc_key_type = 'A' THEN 'TRUE' ELSE 'FALSE' END AS PKFlag&#xD;
+,dc_nulls_flag AS Nullable&#xD;
+,CONVERT(VARCHAR(255),dc_src_strategy) AS ColumnComment&#xD;
+,dc_key_type AS ColType&#xD;
+,dc_col_key AS ColOrder&#xD;
+FROM dbo.ws_dim_col&#xD;
+JOIN dbo.ws_obj_object&#xD;
+ON dbo.ws_dim_col.dc_obj_key = dbo.ws_obj_object.oo_obj_key&#xD;
+WHERE dbo.ws_obj_object.oo_name = 'src_table_name'&#xD;
+UNION&#xD;
+SELECT fc_col_name AS ColumnName&#xD;
+,fc_display_name AS Lable&#xD;
+,fc_data_type AS DataType&#xD;
+,fc_default_value AS DefaultValue&#xD;
+,CASE WHEN fc_key_type = 'A' THEN 'TRUE' ELSE 'FALSE' END AS PKFlag&#xD;
+,fc_nulls_flag AS Nullable&#xD;
+,CONVERT(VARCHAR(255),fc_src_strategy) AS ColumnComment&#xD;
+,fc_key_type AS ColType&#xD;
+,fc_col_key AS ColOrder&#xD;
+FROM dbo.ws_fact_col&#xD;
+JOIN dbo.ws_obj_object&#xD;
+ON dbo.ws_fact_col.fc_obj_key = dbo.ws_obj_object.oo_obj_key&#xD;
+WHERE dbo.ws_obj_object.oo_name = 'src_table_name'&#xD;
+UNION&#xD;
+SELECT lc_col_name AS ColumnName&#xD;
+,lc_display_name AS Lable&#xD;
+,lc_data_type AS DataType&#xD;
+,lc_default_value AS DefaultValue&#xD;
+,NULL AS PKFlag&#xD;
+,lc_nulls_flag AS Nullable&#xD;
+,CONVERT(VARCHAR(255),lc_src_strategy) AS ColumnComment&#xD;
+,'Load types' AS ColType&#xD;
+,lc_col_key AS ColOrder&#xD;
+FROM dbo.ws_load_col&#xD;
+JOIN dbo.ws_obj_object&#xD;
+ON dbo.ws_load_col.lc_obj_key = dbo.ws_obj_object.oo_obj_key&#xD;
+WHERE dbo.ws_obj_object.oo_name = 'src_table_name'&#xD;
+UNION&#xD;
+SELECT nc_col_name AS ColumnName&#xD;
+,nc_display_name AS Lable&#xD;
+,nc_data_type AS DataType&#xD;
+,nc_default_value AS DefaultValue&#xD;
+,CASE WHEN nc_key_type = 'A' THEN 'TRUE' ELSE 'FALSE' END AS PKFlag&#xD;
+,nc_nulls_flag AS Nullable&#xD;
+,CONVERT(VARCHAR(255),nc_src_strategy) AS ColumnComment&#xD;
+,nc_key_type AS ColType&#xD;
+,nc_col_key AS ColOrder&#xD;
+FROM dbo.ws_normal_col&#xD;
+JOIN dbo.ws_obj_object&#xD;
+ON dbo.ws_normal_col.nc_obj_key = dbo.ws_obj_object.oo_obj_key&#xD;
+WHERE dbo.ws_obj_object.oo_name = 'src_table_name'&#xD;
+UNION&#xD;
+SELECT oc_col_name AS ColumnName&#xD;
+,oc_display_name AS Lable&#xD;
+,oc_data_type AS DataType&#xD;
+,oc_default_value AS DefaultValue&#xD;
+,CASE WHEN oc_key_type = 'A' THEN 'TRUE' ELSE 'FALSE' END AS PKFlag&#xD;
+,oc_nulls_flag AS Nullable&#xD;
+,CONVERT(VARCHAR(255),oc_src_strategy) AS ColumnComment&#xD;
+,oc_key_type AS ColType&#xD;
+,oc_col_key AS ColOrder&#xD;
+FROM dbo.ws_ods_col&#xD;
+JOIN dbo.ws_obj_object&#xD;
+ON dbo.ws_ods_col.oc_obj_key = dbo.ws_obj_object.oo_obj_key&#xD;
+WHERE dbo.ws_obj_object.oo_name = 'src_table_name'&#xD;
+UNION&#xD;
+SELECT rc_col_name AS ColumnName&#xD;
+,rc_display_name AS Lable&#xD;
+,rc_data_type AS DataType&#xD;
+,rc_default_value AS DefaultValue&#xD;
+,CASE WHEN rc_key_type = 'A' THEN 'TRUE' ELSE 'FALSE' END AS PKFlag&#xD;
+,rc_nulls_flag AS Nullable&#xD;
+,CONVERT(VARCHAR(255),rc_src_strategy) AS ColumnComment&#xD;
+,rc_key_type AS ColType&#xD;
+,rc_col_key AS ColOrder&#xD;
+FROM dbo.ws_retro_col&#xD;
+JOIN dbo.ws_obj_object&#xD;
+ON dbo.ws_retro_col.rc_obj_key = dbo.ws_obj_object.oo_obj_key&#xD;
+WHERE dbo.ws_obj_object.oo_name = 'src_table_name'&#xD;
+UNION&#xD;
+SELECT sc_col_name AS ColumnName&#xD;
+,sc_display_name AS Lable&#xD;
+,sc_data_type AS DataType&#xD;
+,sc_default_value AS DefaultValue&#xD;
+,CASE WHEN sc_key_type = 'A' THEN 'TRUE' ELSE 'FALSE' END AS PKFlag&#xD;
+,sc_nulls_flag AS Nullable&#xD;
+,CONVERT(VARCHAR(255),sc_src_strategy) AS ColumnComment&#xD;
+,sc_key_type AS ColType&#xD;
+,sc_col_key AS ColOrder&#xD;
+FROM dbo.ws_stage_col&#xD;
+JOIN dbo.ws_obj_object&#xD;
+ON dbo.ws_stage_col.sc_obj_key = dbo.ws_obj_object.oo_obj_key&#xD;
+WHERE dbo.ws_obj_object.oo_name = 'src_table_name'&#xD;
+UNION&#xD;
+SELECT vc_col_name AS ColumnName&#xD;
+,vc_display_name AS Lable&#xD;
+,vc_data_type AS DataType&#xD;
+,vc_default_value AS DefaultValue&#xD;
+,CASE WHEN vc_key_type = 'A' THEN 'TRUE' ELSE 'FALSE' END AS PKFlag&#xD;
+,vc_nulls_flag AS Nullable&#xD;
+,CONVERT(VARCHAR(255),vc_src_strategy) AS ColumnComment&#xD;
+,vc_key_type AS ColType&#xD;
+,vc_col_key AS ColOrder&#xD;
+FROM dbo.ws_view_col&#xD;
+JOIN dbo.ws_obj_object&#xD;
+ON dbo.ws_view_col.vc_obj_key = dbo.ws_obj_object.oo_obj_key&#xD;
+WHERE dbo.ws_obj_object.oo_name = 'src_table_name'&#xD;
+ORDER BY ColOrder</query>
+          <query_value query_type="SQL">ColumnName</query_value>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_column_name>
+        <src_column_label>
+          <query_value query_type="dependency">Lable</query_value>
+          <dependency>
+            <on>src_column_name</on>
+          </dependency>
+        </src_column_label>
+        <src_column_datatype>
+          <query_value query_type="dependency">DataType</query_value>
+          <dependency>
+            <on>src_column_name</on>
+          </dependency>
+        </src_column_datatype>
+        <src_column_datatype_size>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_column_name</replace>
+            <on>src_column_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_column_datatype_size>
+        <src_column_datatype_scale>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_column_name</replace>
+            <on>src_column_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_column_datatype_scale>
+        <src_column_charset>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_column_name</replace>
+            <on>src_column_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_column_charset>
+        <src_column_default_value>
+          <query_value query_type="dependency">DefaultValue</query_value>
+          <dependency>
+            <on>src_column_name</on>
+          </dependency>
+        </src_column_default_value>
+        <src_column_primary_key_ind>
+          <query_value query_type="dependency">PKFlag</query_value>
+          <dependency>
+            <on>src_column_name</on>
+          </dependency>
+        </src_column_primary_key_ind>
+        <src_column_unique_ind>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_column_name</replace>
+            <on>src_column_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_column_unique_ind>
+        <src_column_nullable_ind>
+          <query_value query_type="dependency">Nullable</query_value>
+          <dependency>
+            <on>src_column_name</on>
+          </dependency>
+        </src_column_nullable_ind>
+        <src_column_comment>
+          <query_value query_type="dependency">ColumnComment</query_value>
+          <dependency>
+            <on>src_column_name</on>
+          </dependency>
+        </src_column_comment>
+        <src_column_auto_increment>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_column_name</replace>
+            <on>src_column_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_column_auto_increment>
+        <src_column_type>
+          <query_value query_type="dependency">ColType</query_value>
+          <dependency>
+            <on>src_column_name</on>
+          </dependency>
+          <semantics>
+            <db_type name="dss_create_time">dss_create_time</db_type>
+            <db_type name="Multi-Active Satellite Sequence Key">s</db_type>
+            <db_type name="Business key">A</db_type>
+            <db_type name="dss_load_date">dss_load_date</db_type>
+            <db_type name="dss_record_source">dss_record_source</db_type>
+            <db_type name="To be deleted">To be deleted</db_type>
+            <db_type name="dss_version">dss_version</db_type>
+            <db_type name="Changing attribute">3</db_type>
+            <db_type name="Multi-Active Satellite Natural Key">m</db_type>
+            <db_type name="Link hash key">l</db_type>
+            <db_type name="Change hash key">c</db_type>
+            <db_type name="dss_start_date">5</db_type>
+            <db_type name="dss_update_time">dss_update_time</db_type>
+            <db_type name="dss_end_date">6</db_type>
+            <db_type name="Surrogate key">Surrogate key</db_type>
+            <db_type name="Hub hash key">h</db_type>
+            <db_type name="dss_current_flag">dss_current_flag</db_type>
+          </semantics>
+        </src_column_type>
+      </wb_src_column>
+      <wb_src_foreign_key>
+        <src_parent_column_name>
+          <query>SELECT tj_parent_column AS 'ParentColumn'&#xD;
+ ,CONCAT(tj_parent_table,'_',tj_child_table) AS 'ConstraintName'&#xD;
+ ,tj_join_key AS 'Sequence'&#xD;
+ ,dt_database AS 'TableDatabase'&#xD;
+ ,(case when isnull(dt_schema, '') = '' then '(Blank)' else dt_schema end) as 'SchemaName'&#xD;
+ ,tj_child_table AS 'RefTable'&#xD;
+ ,tj_child_column AS 'RefColumn'&#xD;
+FROM dbo.ws_table_joins&#xD;
+LEFT JOIN ws_obj_object&#xD;
+ON ws_table_joins.tj_parent_obj_key = ws_obj_object.oo_obj_key&#xD;
+LEFT JOIN dbo.ws_dbc_target&#xD;
+ON dbo.ws_dbc_target.dt_target_key = dbo.ws_obj_object.oo_target_key&#xD;
+WHERE tj_parent_table = 'src_table_name'</query>
+          <query_value query_type="SQL">ParentColumn</query_value>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_parent_column_name>
+        <src_parent_constraint_name>
+          <query_value query_type="dependency">ConstraintName</query_value>
+          <dependency>
+            <on>src_parent_column_name</on>
+          </dependency>
+        </src_parent_constraint_name>
+        <src_parent_sequence>
+          <query_value query_type="dependency">Sequence</query_value>
+          <dependency>
+            <on>src_parent_column_name</on>
+          </dependency>
+        </src_parent_sequence>
+        <src_ref_database_name>
+          <query_value query_type="dependency">TableDatabase</query_value>
+          <dependency>
+            <on>src_parent_column_name</on>
+          </dependency>
+        </src_ref_database_name>
+        <src_ref_schema_name>
+          <query_value query_type="dependency">SchemaName</query_value>
+          <dependency>
+            <on>src_parent_column_name</on>
+          </dependency>
+        </src_ref_schema_name>
+        <src_ref_table_name>
+          <query_value query_type="dependency">RefTable</query_value>
+          <dependency>
+            <on>src_parent_column_name</on>
+          </dependency>
+        </src_ref_table_name>
+        <src_ref_column_name>
+          <query_value query_type="dependency">RefColumn</query_value>
+          <dependency>
+            <on>src_parent_column_name</on>
+          </dependency>
+        </src_ref_column_name>
+      </wb_src_foreign_key>
+      <wb_src_index>
+        <src_index_name>
+          <query>SELECT ih_index_name AS IndexName &#xD;
+ ,ih_unique AS isUnique &#xD;
+ ,ih_clustered_ind AS isClustered&#xD;
+FROM dbo.ws_index_header&#xD;
+WHERE ih_table = 'src_table_name'</query>
+          <query_value query_type="SQL">IndexName</query_value>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_index_name>
+        <src_index_type>
+          <query_value query_type="dependency" />
+          <dependency>
+            <on>src_index_name</on>
+          </dependency>
+          <semantics>
+            <db_type name="Unique">isUnique</db_type>
+            <db_type name="Clustered">isClustered</db_type>
+          </semantics>
+        </src_index_type>
+        <src_index_col_order>
+          <query_value query_type="dependency">ColOrder</query_value>
+          <dependency>
+            <on>src_index_col_name</on>
+          </dependency>
+        </src_index_col_order>
+        <src_index_col_name>
+          <query>SELECT ic_column AS IndexCol&#xD;
+,ic_column_no as ColOrder&#xD;
+FROM dbo.ws_index_col&#xD;
+JOIN dbo.ws_index_header&#xD;
+ON ic_index_key = ih_index_key&#xD;
+WHERE ih_index_name = 'src_index_name'</query>
+          <query_value query_type="SQL">IndexCol</query_value>
+          <dependency>
+            <replace>src_index_name</replace>
+            <on>src_index_name</on>
+          </dependency>
+        </src_index_col_name>
+      </wb_src_index>
+      <wb_src_source_set>
+        <src_source_set>
+          <query>SELECT ISNULL(smt_table_name,'Default Source') AS 'Source set'&#xD;
+FROM dbo.ws_obj_object&#xD;
+LEFT JOIN dbo.ws_source_mapping_tab&#xD;
+ON dbo.ws_obj_object.oo_obj_key = dbo.ws_source_mapping_tab.smt_parent_obj_key&#xD;
+WHERE dbo.ws_obj_object.oo_name = 'src_table_name'</query>
+          <query_value query_type="SQL">Source set</query_value>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_source_set>
+      </wb_src_source_set>
+      <wb_src_source_mappings>
+        <src_source_schema>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_source_schema>
+        <src_source_entity>
+          <query>SELECT &#xD;
+COALESCE(NULLIF(ac_src_table,''),smc_src_table) AS 'Source entity'&#xD;
+,COALESCE(NULLIF(ac_src_column,''),smc_src_column) AS 'Source attribute'&#xD;
+FROM dbo.ws_agg_col&#xD;
+LEFT JOIN dbo.ws_agg_tab&#xD;
+ON dbo.ws_agg_col.ac_obj_key = dbo.ws_agg_tab.at_obj_key&#xD;
+LEFT JOIN dbo.ws_source_mapping_col&#xD;
+ON dbo.ws_agg_col.ac_col_key = dbo.ws_source_mapping_col.smc_parent_col_key&#xD;
+LEFT JOIN dbo.ws_source_mapping_tab&#xD;
+ON dbo.ws_source_mapping_tab.smt_source_mapping_key = dbo.ws_source_mapping_col.smc_source_mapping_key&#xD;
+WHERE (smt_table_name = 'src_source_set' OR at_obj_key NOT IN(SELECT smt_parent_obj_key FROM dbo.ws_source_mapping_tab))&#xD;
+AND at_table_name = 'src_table_name'&#xD;
+AND ac_col_name = 'src_column_name'&#xD;
+UNION&#xD;
+SELECT &#xD;
+COALESCE(NULLIF(dc_src_table,''),smc_src_table) AS 'Source entity'&#xD;
+,COALESCE(NULLIF(dc_src_column,''),smc_src_column) AS 'Source attribute'&#xD;
+FROM dbo.ws_dim_col&#xD;
+LEFT JOIN dbo.ws_dim_tab&#xD;
+ON dbo.ws_dim_col.dc_obj_key = dbo.ws_dim_tab.dt_obj_key&#xD;
+LEFT JOIN dbo.ws_source_mapping_col&#xD;
+ON dbo.ws_dim_col.dc_col_key = dbo.ws_source_mapping_col.smc_parent_col_key&#xD;
+LEFT JOIN dbo.ws_source_mapping_tab&#xD;
+ON dbo.ws_source_mapping_tab.smt_source_mapping_key = dbo.ws_source_mapping_col.smc_source_mapping_key&#xD;
+WHERE (smt_table_name = 'src_source_set' OR dt_obj_key NOT IN(SELECT smt_parent_obj_key FROM dbo.ws_source_mapping_tab))&#xD;
+AND dt_table_name = 'src_table_name'&#xD;
+AND dc_col_name = 'src_column_name'&#xD;
+UNION&#xD;
+SELECT &#xD;
+COALESCE(NULLIF(fc_src_table,''),smc_src_table) AS 'Source entity'&#xD;
+,COALESCE(NULLIF(fc_src_column,''),smc_src_column) AS 'Source attribute'&#xD;
+FROM dbo.ws_fact_col&#xD;
+LEFT JOIN dbo.ws_fact_tab&#xD;
+ON dbo.ws_fact_col.fc_obj_key = dbo.ws_fact_tab.ft_obj_key&#xD;
+LEFT JOIN dbo.ws_source_mapping_col&#xD;
+ON dbo.ws_fact_col.fc_col_key = dbo.ws_source_mapping_col.smc_parent_col_key&#xD;
+LEFT JOIN dbo.ws_source_mapping_tab&#xD;
+ON dbo.ws_source_mapping_tab.smt_source_mapping_key = dbo.ws_source_mapping_col.smc_source_mapping_key&#xD;
+WHERE (smt_table_name = 'src_source_set' OR ft_obj_key NOT IN(SELECT smt_parent_obj_key FROM dbo.ws_source_mapping_tab))&#xD;
+AND ft_table_name = 'src_table_name'&#xD;
+AND fc_col_name = 'src_column_name'&#xD;
+UNION&#xD;
+SELECT &#xD;
+COALESCE(NULLIF(nc_src_table,''),smc_src_table) AS 'Source entity'&#xD;
+,COALESCE(NULLIF(nc_src_column,''),smc_src_column) AS 'Source attribute'&#xD;
+FROM dbo.ws_normal_col&#xD;
+LEFT JOIN dbo.ws_normal_tab&#xD;
+ON dbo.ws_normal_col.nc_obj_key = dbo.ws_normal_tab.nt_obj_key&#xD;
+LEFT JOIN dbo.ws_source_mapping_col&#xD;
+ON dbo.ws_normal_col.nc_col_key = dbo.ws_source_mapping_col.smc_parent_col_key&#xD;
+LEFT JOIN dbo.ws_source_mapping_tab&#xD;
+ON dbo.ws_source_mapping_tab.smt_source_mapping_key = dbo.ws_source_mapping_col.smc_source_mapping_key&#xD;
+WHERE (smt_table_name = 'src_source_set' OR nt_obj_key NOT IN(SELECT smt_parent_obj_key FROM dbo.ws_source_mapping_tab))&#xD;
+AND nt_table_name = 'src_table_name'&#xD;
+AND nc_col_name = 'src_column_name'&#xD;
+UNION&#xD;
+SELECT &#xD;
+COALESCE(NULLIF(oc_src_table,''),smc_src_table) AS 'Source entity'&#xD;
+,COALESCE(NULLIF(oc_src_column,''),smc_src_column) AS 'Source attribute'&#xD;
+FROM dbo.ws_ods_col&#xD;
+LEFT JOIN dbo.ws_ods_tab&#xD;
+ON dbo.ws_ods_col.oc_obj_key = dbo.ws_ods_tab.ot_obj_key&#xD;
+LEFT JOIN dbo.ws_source_mapping_col&#xD;
+ON dbo.ws_ods_col.oc_col_key = dbo.ws_source_mapping_col.smc_parent_col_key&#xD;
+LEFT JOIN dbo.ws_source_mapping_tab&#xD;
+ON dbo.ws_source_mapping_tab.smt_source_mapping_key = dbo.ws_source_mapping_col.smc_source_mapping_key&#xD;
+WHERE (smt_table_name = 'src_source_set' OR ot_obj_key NOT IN(SELECT smt_parent_obj_key FROM dbo.ws_source_mapping_tab))&#xD;
+AND ot_table_name = 'src_table_name'&#xD;
+AND oc_col_name = 'src_column_name'&#xD;
+UNION&#xD;
+SELECT &#xD;
+COALESCE(NULLIF(rc_src_table,''),smc_src_table) AS 'Source entity'&#xD;
+,COALESCE(NULLIF(rc_src_column,''),smc_src_column) AS 'Source attribute'&#xD;
+FROM dbo.ws_retro_col&#xD;
+LEFT JOIN dbo.ws_retro_tab&#xD;
+ON dbo.ws_retro_col.rc_obj_key = dbo.ws_retro_tab.rt_obj_key&#xD;
+LEFT JOIN dbo.ws_source_mapping_col&#xD;
+ON dbo.ws_retro_col.rc_col_key = dbo.ws_source_mapping_col.smc_parent_col_key&#xD;
+LEFT JOIN dbo.ws_source_mapping_tab&#xD;
+ON dbo.ws_source_mapping_tab.smt_source_mapping_key = dbo.ws_source_mapping_col.smc_source_mapping_key&#xD;
+WHERE (smt_table_name = 'src_source_set' OR rt_obj_key NOT IN(SELECT smt_parent_obj_key FROM dbo.ws_source_mapping_tab))&#xD;
+AND rt_table_name = 'src_table_name'&#xD;
+AND rc_col_name = 'src_column_name'&#xD;
+UNION&#xD;
+SELECT &#xD;
+COALESCE(NULLIF(sc_src_table,''),smc_src_table) AS 'Source entity'&#xD;
+,COALESCE(NULLIF(sc_src_column,''),smc_src_column) AS 'Source attribute'&#xD;
+FROM dbo.ws_stage_col&#xD;
+LEFT JOIN dbo.ws_stage_tab&#xD;
+ON dbo.ws_stage_col.sc_obj_key = dbo.ws_stage_tab.st_obj_key&#xD;
+LEFT JOIN dbo.ws_source_mapping_col&#xD;
+ON dbo.ws_stage_col.sc_col_key = dbo.ws_source_mapping_col.smc_parent_col_key&#xD;
+LEFT JOIN dbo.ws_source_mapping_tab&#xD;
+ON dbo.ws_source_mapping_tab.smt_source_mapping_key = dbo.ws_source_mapping_col.smc_source_mapping_key&#xD;
+WHERE (smt_table_name = 'src_source_set' OR st_obj_key NOT IN(SELECT smt_parent_obj_key FROM dbo.ws_source_mapping_tab))&#xD;
+AND st_table_name = 'src_table_name'&#xD;
+AND sc_col_name = 'src_column_name'&#xD;
+UNION&#xD;
+SELECT &#xD;
+COALESCE(NULLIF(vc_src_table,''),smc_src_table) AS 'Source entity'&#xD;
+,COALESCE(NULLIF(vc_src_column,''),smc_src_column) AS 'Source attribute'&#xD;
+FROM dbo.ws_view_col&#xD;
+LEFT JOIN dbo.ws_view_tab&#xD;
+ON dbo.ws_view_col.vc_obj_key = dbo.ws_view_tab.vt_obj_key&#xD;
+LEFT JOIN dbo.ws_source_mapping_col&#xD;
+ON dbo.ws_view_col.vc_col_key = dbo.ws_source_mapping_col.smc_parent_col_key&#xD;
+LEFT JOIN dbo.ws_source_mapping_tab&#xD;
+ON dbo.ws_source_mapping_tab.smt_source_mapping_key = dbo.ws_source_mapping_col.smc_source_mapping_key&#xD;
+WHERE (smt_table_name = 'src_source_set' OR vt_obj_key NOT IN(SELECT smt_parent_obj_key FROM dbo.ws_source_mapping_tab))&#xD;
+AND vt_table_name = 'src_table_name'&#xD;
+AND vc_col_name = 'src_column_name'</query>
+          <query_value query_type="SQL">Source entity</query_value>
+          <dependency>
+            <replace>src_column_name</replace>
+            <on>src_column_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_source_set</replace>
+            <on>src_source_set</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_source_entity>
+        <src_source_attribute>
+          <query_value query_type="dependency">Source attribute</query_value>
+          <dependency>
+            <on>src_source_entity</on>
+          </dependency>
+        </src_source_attribute>
+      </wb_src_source_mappings>
+      <wb_src_dw_query>
+        <src_dw_query>
+          <query>SELECT CONCAT('SELECT ', lt_source_columns, ' FROM ', lt_from_table, ' ', lt_where_clause) AS 'DW Query' FROM dbo.ws_load_tab&#xD;
+LEFT JOIN dbo.ws_dbc_connect&#xD;
+ON lt_connect_key = dc_obj_key&#xD;
+WHERE dc_type IN ('O','D')&#xD;
+AND lt_table_name = 'src_table_name'&#xD;
+UNION&#xD;
+SELECT CONVERT(VARCHAR,ISNULL(smt_where,at_where)) AS 'DW Query'&#xD;
+FROM dbo.ws_agg_tab&#xD;
+LEFT JOIN dbo.ws_source_mapping_tab&#xD;
+ON ws_agg_tab.at_obj_key = ws_source_mapping_tab.smt_parent_obj_key&#xD;
+WHERE at_table_name = 'src_table_name'&#xD;
+AND smt_table_name = 'src_source_set'&#xD;
+UNION&#xD;
+SELECT CONVERT(VARCHAR,ISNULL(smt_where,dt_where)) AS 'DW Query'&#xD;
+FROM dbo.ws_dim_tab&#xD;
+LEFT JOIN dbo.ws_source_mapping_tab&#xD;
+ON ws_dim_tab.dt_obj_key = ws_source_mapping_tab.smt_parent_obj_key&#xD;
+WHERE dt_table_name = 'src_table_name'&#xD;
+AND smt_table_name = 'src_source_set'&#xD;
+UNION&#xD;
+SELECT CONVERT(VARCHAR,ISNULL(smt_where,ft_where)) AS 'DW Query'&#xD;
+FROM dbo.ws_fact_tab&#xD;
+LEFT JOIN dbo.ws_source_mapping_tab&#xD;
+ON ws_fact_tab.ft_obj_key = ws_source_mapping_tab.smt_parent_obj_key&#xD;
+WHERE ft_table_name = 'src_table_name'&#xD;
+AND smt_table_name = 'src_source_set'&#xD;
+UNION&#xD;
+SELECT CONVERT(VARCHAR,ISNULL(smt_where,nt_where)) AS 'DW Query'&#xD;
+FROM dbo.ws_normal_tab&#xD;
+LEFT JOIN dbo.ws_source_mapping_tab&#xD;
+ON ws_normal_tab.nt_obj_key = ws_source_mapping_tab.smt_parent_obj_key&#xD;
+WHERE nt_table_name = 'src_table_name'&#xD;
+AND smt_table_name = 'src_source_set'&#xD;
+UNION&#xD;
+SELECT CONVERT(VARCHAR,ISNULL(smt_where,ot_where)) AS 'DW Query'&#xD;
+FROM dbo.ws_ods_tab&#xD;
+LEFT JOIN dbo.ws_source_mapping_tab&#xD;
+ON ws_ods_tab.ot_obj_key = ws_source_mapping_tab.smt_parent_obj_key&#xD;
+WHERE ot_table_name = 'src_table_name'&#xD;
+AND smt_table_name = 'src_source_set'&#xD;
+UNION&#xD;
+SELECT CONVERT(VARCHAR,ISNULL(smt_where,rt_where)) AS 'DW Query'&#xD;
+FROM dbo.ws_retro_tab&#xD;
+LEFT JOIN dbo.ws_source_mapping_tab&#xD;
+ON ws_retro_tab.rt_obj_key = ws_source_mapping_tab.smt_parent_obj_key&#xD;
+WHERE rt_table_name = 'src_table_name'&#xD;
+AND smt_table_name = 'src_source_set'&#xD;
+UNION&#xD;
+SELECT CONVERT(VARCHAR,ISNULL(smt_where,st_where)) AS 'DW Query'&#xD;
+FROM dbo.ws_stage_tab&#xD;
+LEFT JOIN dbo.ws_source_mapping_tab&#xD;
+ON ws_stage_tab.st_obj_key = ws_source_mapping_tab.smt_parent_obj_key&#xD;
+WHERE st_table_name = 'src_table_name'&#xD;
+AND smt_table_name = 'src_source_set'&#xD;
+UNION&#xD;
+SELECT CONVERT(VARCHAR,ISNULL(smt_where,vt_where)) AS 'DW Query'&#xD;
+FROM dbo.ws_view_tab&#xD;
+LEFT JOIN dbo.ws_source_mapping_tab&#xD;
+ON ws_view_tab.vt_obj_key = ws_source_mapping_tab.smt_parent_obj_key&#xD;
+WHERE vt_table_name = 'src_table_name'&#xD;
+AND smt_table_name = 'src_source_set'</query>
+          <query_value query_type="SQL">DW Query</query_value>
+          <dependency>
+            <replace>src_source_set</replace>
+            <on>src_source_set</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_dw_query>
+      </wb_src_dw_query>
+      <wb_src_data_transformations>
+        <src_transformation_name>
+          <query>SELECT CONCAT('src_source_set', '_', 'src_column_name', '_', 'transformation') AS TransformName</query>
+          <query_value query_type="SQL">TransformName</query_value>
+          <dependency>
+            <replace>src_column_name</replace>
+            <on>src_column_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_source_set</replace>
+            <on>src_source_set</on>
+          </dependency>
+        </src_transformation_name>
+        <src_transformation_condition>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_column_name</replace>
+            <on>src_column_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_source_set</replace>
+            <on>src_source_set</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_transformation_condition>
+        <src_transformation_description>
+          <query>SELECT &#xD;
+CONVERT(VARCHAR(max),lc_src_strategy) AS 'Description'&#xD;
+,CONVERT(VARCHAR(max),lc_transform_model) AS 'Change'&#xD;
+FROM dbo.ws_load_col&#xD;
+LEFT JOIN dbo.ws_load_tab&#xD;
+ON dbo.ws_load_col.lc_obj_key = dbo.ws_load_tab.lt_obj_key&#xD;
+WHERE lt_table_name = 'src_table_name'&#xD;
+AND lc_col_name = 'src_column_name'&#xD;
+UNION&#xD;
+SELECT &#xD;
+CONVERT(VARCHAR(max),ISNULL(smc_src_strategy, ac_src_strategy)) AS 'Description'&#xD;
+,CONVERT(VARCHAR(max),ISNULL(smc_transform_model, ac_transform_model)) AS 'Change'&#xD;
+FROM dbo.ws_agg_col&#xD;
+LEFT JOIN dbo.ws_agg_tab&#xD;
+ON dbo.ws_agg_col.ac_obj_key = dbo.ws_agg_tab.at_obj_key&#xD;
+LEFT JOIN dbo.ws_source_mapping_col&#xD;
+ON ac_col_key = smc_parent_col_key&#xD;
+WHERE smc_source_mapping_key IN &#xD;
+(SELECT smt_source_mapping_key FROM dbo.ws_source_mapping_tab &#xD;
+LEFT JOIN dbo.ws_agg_tab&#xD;
+ON smt_parent_obj_key = at_obj_key&#xD;
+WHERE at_table_name = 'src_table_name'&#xD;
+AND smt_table_name = 'src_source_set')&#xD;
+OR( ac_col_name = 'src_column_name'&#xD;
+AND at_table_name = 'src_table_name')&#xD;
+UNION&#xD;
+SELECT &#xD;
+CONVERT(VARCHAR(max),ISNULL(smc_src_strategy, dc_src_strategy)) AS 'Description'&#xD;
+,CONVERT(VARCHAR(max),ISNULL(smc_transform_model, dc_transform_model)) AS 'Change'&#xD;
+FROM dbo.ws_dim_col&#xD;
+LEFT JOIN dbo.ws_dim_tab&#xD;
+ON dbo.ws_dim_col.dc_obj_key = dbo.ws_dim_tab.dt_obj_key&#xD;
+LEFT JOIN dbo.ws_source_mapping_col&#xD;
+ON dc_col_key = smc_parent_col_key&#xD;
+WHERE smc_source_mapping_key IN &#xD;
+(SELECT smt_source_mapping_key FROM dbo.ws_source_mapping_tab &#xD;
+LEFT JOIN dbo.ws_dim_tab&#xD;
+ON smt_parent_obj_key = dt_obj_key&#xD;
+WHERE dt_table_name = 'src_table_name'&#xD;
+AND smt_table_name = 'src_source_set')&#xD;
+OR( dc_col_name = 'src_column_name'&#xD;
+AND dt_table_name = 'src_table_name')&#xD;
+UNION&#xD;
+SELECT &#xD;
+CONVERT(VARCHAR(max),ISNULL(smc_src_strategy, fc_src_strategy)) AS 'Description'&#xD;
+,CONVERT(VARCHAR(max),ISNULL(smc_transform_model, fc_transform_model)) AS 'Change'&#xD;
+FROM dbo.ws_fact_col&#xD;
+LEFT JOIN dbo.ws_fact_tab&#xD;
+ON dbo.ws_fact_col.fc_obj_key = dbo.ws_fact_tab.ft_obj_key&#xD;
+LEFT JOIN dbo.ws_source_mapping_col&#xD;
+ON fc_col_key = smc_parent_col_key&#xD;
+WHERE smc_source_mapping_key IN &#xD;
+(SELECT smt_source_mapping_key FROM dbo.ws_source_mapping_tab &#xD;
+LEFT JOIN dbo.ws_fact_tab&#xD;
+ON smt_parent_obj_key = ft_obj_key&#xD;
+WHERE ft_table_name = 'src_table_name'&#xD;
+AND smt_table_name = 'src_source_set')&#xD;
+OR( fc_col_name = 'src_column_name'&#xD;
+AND ft_table_name = 'src_table_name')&#xD;
+UNION&#xD;
+SELECT &#xD;
+CONVERT(VARCHAR(max),ISNULL(smc_src_strategy, nc_src_strategy)) AS 'Description'&#xD;
+,CONVERT(VARCHAR(max),ISNULL(smc_transform_model, nc_transform_model)) AS 'Change'&#xD;
+FROM dbo.ws_normal_col&#xD;
+LEFT JOIN dbo.ws_normal_tab&#xD;
+ON dbo.ws_normal_col.nc_obj_key = dbo.ws_normal_tab.nt_obj_key&#xD;
+LEFT JOIN dbo.ws_source_mapping_col&#xD;
+ON nc_col_key = smc_parent_col_key&#xD;
+WHERE smc_source_mapping_key IN &#xD;
+(SELECT smt_source_mapping_key FROM dbo.ws_source_mapping_tab &#xD;
+LEFT JOIN dbo.ws_normal_tab&#xD;
+ON smt_parent_obj_key = nt_obj_key&#xD;
+WHERE nt_table_name = 'src_table_name'&#xD;
+AND smt_table_name = 'src_source_set')&#xD;
+OR( nc_col_name = 'src_column_name'&#xD;
+AND nt_table_name = 'src_table_name')&#xD;
+UNION&#xD;
+SELECT &#xD;
+CONVERT(VARCHAR(max),ISNULL(smc_src_strategy, oc_src_strategy)) AS 'Description'&#xD;
+,CONVERT(VARCHAR(max),ISNULL(smc_transform_model, oc_transform_model)) AS 'Change'&#xD;
+FROM dbo.ws_ods_col&#xD;
+LEFT JOIN dbo.ws_ods_tab&#xD;
+ON dbo.ws_ods_col.oc_obj_key = dbo.ws_ods_tab.ot_obj_key&#xD;
+LEFT JOIN dbo.ws_source_mapping_col&#xD;
+ON oc_col_key = smc_parent_col_key&#xD;
+WHERE smc_source_mapping_key IN &#xD;
+(SELECT smt_source_mapping_key FROM dbo.ws_source_mapping_tab &#xD;
+LEFT JOIN dbo.ws_ods_tab&#xD;
+ON smt_parent_obj_key = ot_obj_key&#xD;
+WHERE ot_table_name = 'src_table_name'&#xD;
+AND smt_table_name = 'src_source_set')&#xD;
+OR( oc_col_name = 'src_column_name'&#xD;
+AND ot_table_name = 'src_table_name')&#xD;
+UNION&#xD;
+SELECT &#xD;
+CONVERT(VARCHAR(max),ISNULL(smc_src_strategy, rc_src_strategy)) AS 'Description'&#xD;
+,CONVERT(VARCHAR(max),ISNULL(smc_transform_model, rc_transform_model)) AS 'Change'&#xD;
+FROM dbo.ws_retro_col&#xD;
+LEFT JOIN dbo.ws_retro_tab&#xD;
+ON dbo.ws_retro_col.rc_obj_key = dbo.ws_retro_tab.rt_obj_key&#xD;
+LEFT JOIN dbo.ws_source_mapping_col&#xD;
+ON rc_col_key = smc_parent_col_key&#xD;
+WHERE smc_source_mapping_key IN &#xD;
+(SELECT smt_source_mapping_key FROM dbo.ws_source_mapping_tab &#xD;
+LEFT JOIN dbo.ws_retro_tab&#xD;
+ON smt_parent_obj_key = rt_obj_key&#xD;
+WHERE rt_table_name = 'src_table_name'&#xD;
+AND smt_table_name = 'src_source_set')&#xD;
+OR( rc_col_name = 'src_column_name'&#xD;
+AND rt_table_name = 'src_table_name')&#xD;
+UNION&#xD;
+SELECT &#xD;
+CONVERT(VARCHAR(max),ISNULL(smc_src_strategy, sc_src_strategy)) AS 'Description'&#xD;
+,CONVERT(VARCHAR(max),ISNULL(smc_transform_model, sc_transform_model)) AS 'Change'&#xD;
+FROM dbo.ws_stage_col&#xD;
+LEFT JOIN dbo.ws_stage_tab&#xD;
+ON dbo.ws_stage_col.sc_obj_key = dbo.ws_stage_tab.st_obj_key&#xD;
+LEFT JOIN dbo.ws_source_mapping_col&#xD;
+ON sc_col_key = smc_parent_col_key&#xD;
+WHERE smc_source_mapping_key IN &#xD;
+(SELECT smt_source_mapping_key FROM dbo.ws_source_mapping_tab &#xD;
+LEFT JOIN dbo.ws_stage_tab&#xD;
+ON smt_parent_obj_key = st_obj_key&#xD;
+WHERE st_table_name = 'src_table_name'&#xD;
+AND smt_table_name = 'src_source_set')&#xD;
+OR( sc_col_name = 'src_column_name'&#xD;
+AND st_table_name = 'src_table_name')&#xD;
+UNION&#xD;
+SELECT &#xD;
+CONVERT(VARCHAR(max),ISNULL(smc_src_strategy, vc_src_strategy)) AS 'Description'&#xD;
+,CONVERT(VARCHAR(max),ISNULL(smc_transform_model, vc_transform_model)) AS 'Change'&#xD;
+FROM dbo.ws_view_col&#xD;
+LEFT JOIN dbo.ws_view_tab&#xD;
+ON dbo.ws_view_col.vc_obj_key = dbo.ws_view_tab.vt_obj_key&#xD;
+LEFT JOIN dbo.ws_source_mapping_col&#xD;
+ON vc_col_key = smc_parent_col_key&#xD;
+WHERE smc_source_mapping_key IN &#xD;
+(SELECT smt_source_mapping_key FROM dbo.ws_source_mapping_tab &#xD;
+LEFT JOIN dbo.ws_view_tab&#xD;
+ON smt_parent_obj_key = vt_obj_key&#xD;
+WHERE vt_table_name = 'src_table_name'&#xD;
+AND smt_table_name = 'src_source_set')&#xD;
+OR( vc_col_name = 'src_column_name'&#xD;
+AND vt_table_name = 'src_table_name')</query>
+          <query_value query_type="SQL">Description</query_value>
+          <dependency>
+            <replace>src_column_name</replace>
+            <on>src_column_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_source_set</replace>
+            <on>src_source_set</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_transformation_description>
+        <src_transformation_change>
+          <query_value query_type="dependency">Change</query_value>
+          <dependency>
+            <on>src_transformation_condition</on>
+          </dependency>
+          <dependency>
+            <on>src_transformation_description</on>
+          </dependency>
+        </src_transformation_change>
+      </wb_src_data_transformations>
+      <wb_src_ui_column_properties>
+        <src_property_name>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_property_name>
+        <src_property_value>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_property_value>
+      </wb_src_ui_column_properties>
+      <wb_src_extended_table_property>
+        <src_extended_property_name>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_column_name</replace>
+            <on>src_column_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_extended_property_name>
+        <src_extended_property_value>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_column_name</replace>
+            <on>src_column_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <on>src_extended_property_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_extended_property_value>
+        <src_extended_property_type>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_column_name</replace>
+            <on>src_column_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_extended_property_type>
+      </wb_src_extended_table_property>
+      <wb_src_extended_column_property>
+        <src_extended_property_name>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_column_name</replace>
+            <on>src_column_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_extended_property_name>
+        <src_extended_property_value>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_column_name</replace>
+            <on>src_column_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <on>src_extended_property_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_extended_property_value>
+        <src_extended_property_type>
+          <query_value query_type="not_available" />
+          <dependency>
+            <replace>src_column_name</replace>
+            <on>src_column_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_schema</replace>
+            <on>src_table_schema</on>
+          </dependency>
+          <dependency>
+            <on>src_extended_property_name</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_database</replace>
+            <on>src_table_database</on>
+          </dependency>
+          <dependency>
+            <replace>src_table_name</replace>
+            <on>src_table_name</on>
+          </dependency>
+        </src_extended_property_type>
+      </wb_src_extended_column_property>
+    </db_version>
+  </database>
+</Discovery>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<source_system xmlns="http://www.wherescape.com/xml/3D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wherescape.com/xml/3D ./source_system_50.xsd">
+  <xml_version>50</xml_version>
+  <source_application>WhereScape 3D</source_application>
+  <structure>
+    <tables />
+    <relations />
+    <transformation_group name="Default Group">
+      <description>Default Group</description>
+      <transformations>
+        <transformation name="Add Ext Prop">
+          <version />
+          <description />
+          <properties />
+          <rules>
+            <rule name="Add entity Ext Prop" type="add-entity-extended-property" enabled="true" snapshot="false" stopped="false">
+              <rule type="match-logic-on" value="Or" stopped="false">
+                <rule_attribute name="table-name">%stage_%</rule_attribute>
+                <rule_attribute name="table-name-case-sensitive">F</rule_attribute>
+              </rule>
+              <rule_attribute name="extended-property-name">IDX_INCLUDE_COLS</rule_attribute>
+              <rule_attribute name="extended-property-value">#</rule_attribute>
+              <rule_attribute name="extended-property-interpret-script">F</rule_attribute>
+              <rule_attribute name="extended-property-duplicate">Ignore</rule_attribute>
+            </rule>
+          </rules>
+          <validation />
+        </transformation>
+      </transformations>
+    </transformation_group>
+  </structure>
+</source_system>
